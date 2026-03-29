@@ -1,5 +1,26 @@
 [
   {
+    "title": "Physique",
+    "edition": "",
+    "date": "2026-05-10",
+    "time": "",
+    "doors": "",
+    "ticketUrl": "",
+    "theme": "",
+    "description": "",
+    "emcee": "Maya Suess",
+    "accompaniment": "",
+    "notes": "",
+    "isUpcoming": false,
+    "recapCaption": "",
+    "performers": [],
+    "recapImages": [],
+    "videos": [],
+    "mediaItems": [],
+    "specialGuests": [],
+    "dj": ""
+  },
+  {
     "title": "The Internet",
     "edition": 17,
     "date": "2026-02-15",
@@ -21,6 +42,11 @@
         "name": "Mac Waters",
         "instagram": "",
         "bio": "Mac Waters is a dynamic multimedia composer and improviser. Mac's research investigates the interplay between collective memory and sonic nostalgia, particularly in relation to virtual/extended realities, internet (sub)cultures, queerness, and digital medievalism. His diverse creative practice spans composing chamber music for leading contemporary ensembles, composing electroacoustic music for film and dance, performing as a vocalist and violist in interdisciplinary and multimedia performances, designing interactive Virtual & Extended Reality experiences, and recording and producing original song. Based in Vermont, Mac works as the Digital Technician Specialist for the Film & Media Studies and Studio Art departments at Dartmouth College."
+      },
+      {
+        "name": "Libby Paloma",
+        "instagram": "",
+        "bio": "Queercrip, Mexican-American interdisciplinary artist working in sculpture, installation, and performance. In the business of \"world-softening.\""
       }
     ],
     "specialGuests": [
@@ -48,52 +74,45 @@
     "recapCaption": "Thank you to everyone who came and surfed the net with us at Unprofessional Variety Show: The Internet. A highlight was when audience members who were adults before our digital overlord shared things they miss: breakups while standing at a pay phone on the street. Ugh, so good.",
     "videos": [
       {
-        "type": "video",
-        "caption": "~\nThank you to everyone who came and surfed the net with us at Unprofessional Variety Show: The Internet. A highlight was when audience members who were adults before our digital overlord shared thing",
-        "date": "2026-02-25",
         "src": "img/ig-videos/17879055264476860.mp4",
+        "vimeoId": "",
+        "title": "",
         "thumb": "img/ig-thumbs/17879055264476860.jpg"
       },
       {
-        "type": "video",
-        "caption": "~\nThank you to everyone who came and surfed the net with us at Unprofessional Variety Show: The Internet. A highlight was when audience members who were adults before our digital overlord shared thing",
-        "date": "2026-02-25",
         "src": "img/ig-videos/18097674829941370.mp4",
+        "vimeoId": "",
+        "title": "",
         "thumb": "img/ig-thumbs/18097674829941370.jpg"
       },
       {
-        "type": "video",
-        "caption": "~\nThank you to everyone who came and surfed the net with us at Unprofessional Variety Show: The Internet. A highlight was when audience members who were adults before our digital overlord shared thing",
-        "date": "2026-02-25",
         "src": "img/ig-videos/18001890665904527.mp4",
+        "vimeoId": "",
+        "title": "",
         "thumb": "img/ig-thumbs/18001890665904527.jpg"
       },
       {
-        "type": "video",
-        "caption": "~\nThank you to everyone who came and surfed the net with us at Unprofessional Variety Show: The Internet. A highlight was when audience members who were adults before our digital overlord shared thing",
-        "date": "2026-02-25",
         "src": "img/ig-videos/18088611761467654.mp4",
+        "vimeoId": "",
+        "title": "",
         "thumb": "img/ig-thumbs/18088611761467654.jpg"
       },
       {
-        "type": "video",
-        "caption": "~\nThank you to everyone who came and surfed the net with us at Unprofessional Variety Show: The Internet. A highlight was when audience members who were adults before our digital overlord shared thing",
-        "date": "2026-02-25",
         "src": "img/ig-videos/18431679346142625.mp4",
+        "vimeoId": "",
+        "title": "",
         "thumb": "img/ig-thumbs/18431679346142625.jpg"
       },
       {
-        "type": "video",
-        "caption": "~\nThank you to everyone who came and surfed the net with us at Unprofessional Variety Show: The Internet. A highlight was when audience members who were adults before our digital overlord shared thing",
-        "date": "2026-02-25",
         "src": "img/ig-videos/18260642188289225.mp4",
+        "vimeoId": "",
+        "title": "",
         "thumb": "img/ig-thumbs/18260642188289225.jpg"
       },
       {
-        "type": "reel",
-        "caption": "",
-        "date": "2026-02-14",
         "src": "img/ig-reels/18079027946457725.mp4",
+        "vimeoId": "",
+        "title": "",
         "thumb": "img/ig-thumbs/18079027946457725.jpg"
       }
     ],
