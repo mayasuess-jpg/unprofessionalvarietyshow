@@ -1436,6 +1436,10 @@ function saveShow() {
   show.performers = editorPerformers.filter(function(p) { return p.name.trim(); });
   show.recapImages = editorRecapSrcs;
   show.videos = editorVideos.filter(function(v) { return v.src || v.vimeoId; });
+  // Clear mediaItems - the editor merges them into recapImages/videos on load,
+  // so saving back to recapImages/videos is the canonical source now.
+  // Without this, deleted items reappear from mediaItems on next open.
+  show.mediaItems = [];
   if (editorPosterSrc) show.posterImage = editorPosterSrc;
 
   if (show.isUpcoming) {
