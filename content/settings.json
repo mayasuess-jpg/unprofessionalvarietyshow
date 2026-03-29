@@ -17,32 +17,8 @@
       "type": "press"
     },
     {
-      "title": "Allied Productions - Maya Suess",
-      "url": "https://www.alliedproductions.org/maya-suess",
-      "date": "",
-      "type": "feature"
-    },
-    {
-      "title": "Parsons School of Design - Faculty",
-      "url": "https://www.newschool.edu/parsons/faculty/maya-suess/",
-      "date": "",
-      "type": "feature"
-    },
-    {
-      "title": "Maya Suess - Artist Portfolio",
-      "url": "https://mayasuess.weebly.com/bio.html",
-      "date": "",
-      "type": "feature"
-    },
-    {
       "title": "The Parkside Lounge - Events",
       "url": "https://www.parksidelounge.nyc/",
-      "date": "",
-      "type": "listing"
-    },
-    {
-      "title": "Humanitix - Upcoming Shows",
-      "url": "https://events.humanitix.com/unprofessional-variety-show",
       "date": "",
       "type": "listing"
     },
@@ -79,5 +55,7 @@
   "headingShows": "",
   "headingMedia": "",
   "headingShop": "",
-  "headingContact": ""
+  "headingContact": "Get Involved",
+  "newsletterUrl": "",
+  "newsletterText": ""
 }
