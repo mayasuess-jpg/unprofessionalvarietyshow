@@ -20,6 +20,7 @@
   --red:#d42a4c;
   --green:#3dcc6a;
   --cream:#f5f0e6;
+  --cream-rgb:245,240,230;
   --gold:#d4a843;
 }
 html{scroll-behavior:smooth}
@@ -1625,7 +1626,13 @@ function saveSettings() {
 /* ========================================
    COLORS & FONTS
    ======================================== */
-function applyColor(name, val) { document.documentElement.style.setProperty('--' + name, val); }
+function applyColor(name, val) {
+  document.documentElement.style.setProperty('--' + name, val);
+  if (name === 'cream') {
+    var r = parseInt(val.substr(1,2),16), g = parseInt(val.substr(3,2),16), b = parseInt(val.substr(5,2),16);
+    document.documentElement.style.setProperty('--cream-rgb', r+','+g+','+b);
+  }
+}
 function applyFont() {
   var h = document.getElementById('setHeadingFont').value;
   var b = document.getElementById('setBodyFont').value;
