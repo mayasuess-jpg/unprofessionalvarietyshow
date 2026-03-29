@@ -493,24 +493,26 @@ footer a:hover{color:var(--pink)}
 
 /* RESPONSIVE TWEAKS */
 @media(max-width:768px){
-  /* Hero */
-  .hero{padding:100px 5vw 40px;min-height:70vh}
-  .hero-title{font-size:clamp(2.8rem,13vw,5rem);max-width:100%}
-  .hero-tagline{font-size:0.9rem;white-space:normal;margin-top:16px;padding:0 2vw}
+  /* Hero - compact to get show poster above fold */
+  .hero{padding:70px 5vw 10px;min-height:auto}
+  .hero-title{font-size:clamp(2.4rem,11vw,4rem);max-width:100%}
+  .hero-tagline{display:none}
+  .hero .marquee-wrap{display:none}
 
-  /* Marquee */
-  .marquee-wrap{margin-top:24px}
-  .marquee-track span{font-size:1rem;padding:0 24px}
-
-  /* Next show */
-  .next-show{padding:50px 5vw}
-  .next-show-inner{flex-direction:column;text-align:center;gap:30px}
-  .next-show-poster{width:min(320px,85vw);margin:0 auto}
-  .next-show-info{max-width:100%;text-align:center}
-  .next-show-info .label{font-size:1rem}
-  .next-show-info h2{font-size:clamp(2rem,8vw,3rem)}
+  /* Next show - immediately after hero, poster dominant */
+  .next-show{padding:0 5vw 40px;background:linear-gradient(to bottom,var(--plum),#0d0510)}
+  .next-show-inner{flex-direction:column-reverse;text-align:center;gap:16px}
+  .next-show-poster{width:92vw;max-width:500px;margin:0 auto}
+  .next-show-info{max-width:100%;text-align:center;order:2}
+  .next-show-info .label{font-size:0.85rem;margin-bottom:6px}
+  .next-show-info h2{font-size:clamp(1.8rem,7vw,2.8rem);margin-bottom:8px}
+  .next-show-info .date{font-size:1rem}
+  .next-show-info .venue{margin-bottom:12px}
   .next-show-info .performers{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
   .next-show-info .performers span{margin:0}
+
+  /* Hide duplicate next show banner on mobile */
+  .next-show-date-banner{display:none}
 
   /* Section titles */
   .section-title{font-size:clamp(2.5rem,14vw,5rem);padding:0 5vw}
@@ -795,7 +797,7 @@ footer a:hover{color:var(--pink)}
 </section>
 
 <!-- NEXT SHOW DATE -->
-<div style="text-align:center;padding:0 4vw 30px;margin-top:-30px;background:linear-gradient(to bottom,var(--plum),#0d0510);position:relative;z-index:2">
+<div class="next-show-date-banner" style="text-align:center;padding:0 4vw 30px;margin-top:-30px;background:linear-gradient(to bottom,var(--plum),#0d0510);position:relative;z-index:2">
   <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.4rem,3.5vw,2.4rem);font-weight:700;white-space:nowrap"><span style="color:var(--pink)">Next Show: &nbsp;</span><span style="color:var(--cream)">"Physique"</span> <span style="color:rgba(245,240,230,0.5)">- May 10</span></div>
 </div>
 
