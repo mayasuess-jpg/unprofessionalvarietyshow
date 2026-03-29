@@ -1575,26 +1575,43 @@ function initMarquees() {
   document.querySelectorAll('.marquee-track, .big-running .track').forEach(function(track) {
     var spans = track.children;
     if (!spans.length) return;
-    // Count unique items (track has N copies, we need to find where the repeat starts)
-    // We duplicated content 4x in HTML. Each copy = total/4 spans.
-    var copyCount = 4;
-    var itemsPerCopy = spans.length / copyCount;
+    // Detect copy count by finding the shortest repeating pattern
+    // Try dividing total spans by 2, 3, 4... and check if content repeats
+    var total = spans.length;
+    var itemsPerCopy = total;
+    for (var d = 2; d <= 4; d++) {
+      if (total % d !== 0) continue;
+      var chunk = total / d;
+      var match = true;
+      for (var j = 0; j < chunk && match; j++) {
+        if (spans[j].textContent !== spans[j + chunk].textContent) match = false;
+      }
+      if (match) { itemsPerCopy = chunk; break; }
+    }
     // Measure width of one copy
     var copyWidth = 0;
     for (var i = 0; i < itemsPerCopy; i++) {
       copyWidth += spans[i].offsetWidth;
     }
+    // Check if we need more copies to fill the screen
+    var screenW = window.innerWidth;
+    while (track.scrollWidth - copyWidth < screenW) {
+      // Clone one copy and append
+      for (var c = 0; c < itemsPerCopy; c++) {
+        track.appendChild(spans[c].cloneNode(true));
+      }
+    }
     // Speed: pixels per second
+    var isReverse = track.style.animationDirection === 'reverse' || track.getAttribute('style');
+    var reverse = track.getAttribute('style') && track.getAttribute('style').indexOf('reverse') > -1;
     var speed = track.closest('.big-running') ? 80 : 50;
     var duration = copyWidth / speed;
-    track.style.animation = 'none';
-    track.style.transform = 'translateX(0)';
     // Create a keyframe for this specific width
     var id = 'mq' + Math.random().toString(36).substr(2,6);
     var style = document.createElement('style');
     style.textContent = '@keyframes ' + id + '{0%{transform:translateX(0)}100%{transform:translateX(-' + copyWidth + 'px)}}';
     document.head.appendChild(style);
-    track.style.animation = id + ' ' + duration + 's linear infinite';
+    track.style.animation = id + ' ' + duration + 's linear infinite' + (reverse ? ' reverse' : '');
   });
 }
 
