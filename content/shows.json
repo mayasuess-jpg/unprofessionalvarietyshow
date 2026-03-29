@@ -75,18 +75,12 @@
     "recapImages": [
       "img/ig-posts/17885494398445928.jpg",
       "img/ig-posts/18110534539676044.jpg",
+      "img/ig-posts/17933832492032152.jpg",
       "img/ig-posts/18099440605931580.jpg",
-      "img/ig-posts/18003371114892767.jpg",
-      "img/ig-posts/17933832492032152.jpg"
+      "img/ig-posts/18003371114892767.jpg"
     ],
     "recapCaption": "Thank you to everyone who came and surfed the net with us at Unprofessional Variety Show: The Internet. A highlight was when audience members who were adults before our digital overlord shared things they miss: breakups while standing at a pay phone on the street. Ugh, so good.",
     "videos": [
-      {
-        "src": "img/ig-videos/18088611761467654.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/18088611761467654.jpg"
-      },
       {
         "src": "img/ig-videos/17879055264476860.mp4",
         "vimeoId": "",
@@ -106,6 +100,12 @@
         "thumb": "img/ig-thumbs/18001890665904527.jpg"
       },
       {
+        "src": "img/ig-videos/18088611761467654.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/18088611761467654.jpg"
+      },
+      {
         "src": "img/ig-videos/18431679346142625.mp4",
         "vimeoId": "",
         "title": "",
@@ -116,6 +116,12 @@
         "vimeoId": "",
         "title": "",
         "thumb": "img/ig-thumbs/18260642188289225.jpg"
+      },
+      {
+        "src": "img/ig-reels/18079027946457725.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/18079027946457725.jpg"
       }
     ],
     "mediaItems": [
@@ -2274,7 +2280,7 @@
     ]
   },
   {
-    "title": "Teen Edition",
+    "title": "Teenagers",
     "edition": 4,
     "date": "2022-12-04",
     "time": "7:30 PM",
@@ -2322,10 +2328,37 @@
       "img/ig-posts/17956431125087598.jpg",
       "img/ig-posts/17973514153924034.jpg",
       "img/ig-posts/17995408414592430.jpg",
-      "img/ig-posts/18021253195460729.jpg"
+      "img/ig-posts/18021253195460729.jpg",
+      "img/ig-posts/18153676885285822.jpg",
+      "img/ig-posts/17995158445600912.jpg",
+      "img/ig-posts/17963864111091563.jpg",
+      "img/ig-posts/18019046377467810.jpg",
+      "img/ig-posts/18329551984027649.jpg",
+      "img/ig-posts/18006481507509808.jpg",
+      "img/ig-posts/17978225953726334.jpg",
+      "img/ig-posts/17949809174348178.jpg",
+      "img/ig-posts/17948963771464515.jpg",
+      "img/ig-posts/17994613855593361.jpg",
+      "img/ig-posts/17968793041948187.jpg",
+      "img/ig-posts/17983798540666442.jpg",
+      "img/ig-posts/17981189098691197.jpg",
+      "img/ig-posts/18331088632000990.jpg"
     ],
     "recapCaption": "Thank you to everyone who joined us at Unprofessional Variety Show #4: The Teen Edition!! It was, like, uh, okayyyy. . .",
-    "videos": [],
+    "videos": [
+      {
+        "src": "img/ig-reels/18020132791457270.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/18020132791457270.jpg"
+      },
+      {
+        "src": "img/ig-reels/17985908683641037.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/17985908683641037.jpg"
+      }
+    ],
     "mediaItems": [
       {
         "src": "img/ig-posts/18153676885285822.jpg",
@@ -2443,7 +2476,7 @@
     "sets": ""
   },
   {
-    "title": "Creatures of the Night",
+    "title": "The Night",
     "edition": 3,
     "date": "2022-09-18",
     "time": "7:30 PM",
@@ -2635,27 +2668,15 @@
       "img/ig-posts/17936756765150188.jpg",
       "img/ig-posts/17878151648680437.jpg",
       "img/ig-posts/18207085423157411.jpg",
-      "img/ig-posts/17952187387748062.jpg",
-      "img/ig-posts/18161794150240716.jpg",
-      "img/ig-posts/17873632562692438.jpg",
-      "img/ig-posts/17956051453717033.jpg",
-      "img/ig-posts/18225415267141332.jpg",
-      "img/ig-posts/17976020650534406.jpg",
-      "img/ig-posts/17862871406720928.jpg",
-      "img/ig-posts/17926913684174576.jpg"
+      "img/ig-posts/17952187387748062.jpg"
     ],
     "recapCaption": "Thank you to everyone who came to Unprofessional 2.0: Pasts and Futures. The performances were the best that a lavender night could offer.",
     "videos": [
       {
+        "type": "video",
+        "caption": "Thank you to everyone who came to Unprofessional 2.0: Pasts and Futures. \n\nThe performances were the best that a lavender night could offer. \n@sachayanow @fernandovieirausa @poisonaivy69 #JDPluecker\n\n",
+        "date": "2022-05-26",
         "src": "img/ig-videos/17978658157541611.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/17978658157541611.jpg"
-      },
-      {
-        "src": "img/ig-videos/17978658157541611.mp4",
-        "vimeoId": "",
-        "title": "",
         "thumb": "img/ig-thumbs/17978658157541611.jpg"
       }
     ],
@@ -2756,8 +2777,7 @@
         "type": "photo",
         "date": "2022-04-27"
       }
-    ],
-    "sets": ""
+    ]
   },
   {
     "title": "Birthday Edition",
@@ -2765,7 +2785,7 @@
     "date": "2022-02-20",
     "time": "7:30 PM",
     "doors": "7:00 PM",
-    "theme": "",
+    "theme": "Happy birthday to us all!!",
     "performers": [
       {
         "name": "CICLON",
@@ -2817,23 +2837,43 @@
       "img/ig-posts/17904789263374430.jpg",
       "img/ig-posts/17977431940493191.jpg",
       "img/ig-posts/18282769849039717.jpg",
-      "img/ig-posts/17904282083372634.jpg"
+      "img/ig-posts/17904282083372634.jpg",
+      "img/ig-posts/18101668897303014.jpg",
+      "img/ig-posts/17901414866385087.jpg",
+      "img/ig-posts/17910701789248716.jpg",
+      "img/ig-posts/17934010951948841.jpg",
+      "img/ig-posts/17919477539099157.jpg",
+      "img/ig-posts/17876509544635136.jpg",
+      "img/ig-posts/18030802729332339.jpg",
+      "img/ig-posts/17947476262725388.jpg",
+      "img/ig-posts/17919512255285020.jpg",
+      "img/ig-posts/17938655515918559.jpg"
     ],
     "recapCaption": "Thank you to everyone who came to the FIRST Unprofessional Variety Show. Happy birthday to us all!! Brilliant performances by CICLON, Jack Waters & Peter Cramer, Cherish Violet Blood and Klovis Gaynor.",
     "videos": [
       {
-        "type": "video",
-        "caption": "Thank you to everyone who came to the FIRST Unprofessional Variety Show. Happy birthday to us all!!\n\nBrilliant performances by CICLON @bestial_provocations, Jack Waters @jaceogram & Peter Cramer, Cher",
-        "date": "2022-02-28",
         "src": "img/ig-videos/17914057721469104.mp4",
+        "vimeoId": "",
+        "title": "",
         "thumb": "img/ig-thumbs/17914057721469104.jpg"
       },
       {
-        "type": "video",
-        "caption": "Thank you to everyone who came to the FIRST Unprofessional Variety Show. Happy birthday to us all!!\n\nBrilliant performances by CICLON @bestial_provocations, Jack Waters @jaceogram & Peter Cramer, Cher",
-        "date": "2022-02-28",
         "src": "img/ig-videos/17957479213738700.mp4",
+        "vimeoId": "",
+        "title": "",
         "thumb": "img/ig-thumbs/17957479213738700.jpg"
+      },
+      {
+        "src": "img/ig-videos/17929109693014515.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/17929109693014515.jpg"
+      },
+      {
+        "src": "img/ig-videos/17954886835611020.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/17954886835611020.jpg"
       }
     ],
     "mediaItems": [
@@ -2929,6 +2969,7 @@
         "type": "photo",
         "date": "2022-01-23"
       }
-    ]
+    ],
+    "sets": ""
   }
 ]
