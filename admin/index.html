@@ -833,7 +833,23 @@ body.admin-mode{padding-top:48px}
 <div class="token-setup" id="welcomeGuide">
   <div class="token-box" style="max-width:600px">
     <h2 style="margin-bottom:16px">Welcome to your site admin</h2>
-    <p style="color:rgba(245,240,230,0.8);margin-bottom:12px">This is where you manage everything on your Unprofessional Variety Show website. Here's a quick overview:</p>
+
+    <div style="padding:16px;border:1px solid rgba(245,240,230,0.08);background:rgba(245,240,230,0.02);margin-bottom:24px">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.75rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:10px">FIRST: SET UP YOUR GITHUB TOKEN</div>
+      <p style="font-size:0.82rem;line-height:1.7;color:rgba(245,240,230,0.6);margin-bottom:12px">You need this to publish changes to your live site. It only takes a minute and you only do it once.</p>
+      <ol style="font-size:0.8rem;line-height:2;color:rgba(245,240,230,0.6);padding-left:18px">
+        <li>Go to <a href="https://github.com/settings/tokens?type=beta" target="_blank" style="color:var(--pink);border-bottom:1px solid var(--pink)">github.com/settings/tokens</a> (Fine-grained tokens)</li>
+        <li>Click "Generate new token"</li>
+        <li>Name it "UPVS Admin", set expiration to 1 year</li>
+        <li>Repository access: "Only select repositories" and pick <strong style="color:var(--cream)">unprofessionalvarietyshow</strong></li>
+        <li>Permissions: set <strong style="color:var(--cream)">Contents</strong> to "Read and write"</li>
+        <li>Click "Generate token" and copy it</li>
+        <li>Come back here, hit Publish, paste the token</li>
+      </ol>
+      <p style="font-size:0.75rem;color:rgba(245,240,230,0.4);margin-top:8px">The token is stored in your browser. You only need to do this once.</p>
+    </div>
+
+    <p style="color:rgba(245,240,230,0.8);margin-bottom:12px">Here's how the admin works:</p>
 
     <div style="margin-bottom:20px">
       <div style="font-family:'Space Grotesk',sans-serif;font-size:0.75rem;color:var(--pink);letter-spacing:0.1em;margin-bottom:6px">EDITING CONTENT</div>
@@ -852,21 +868,7 @@ body.admin-mode{padding-top:48px}
 
     <div style="margin-bottom:20px">
       <div style="font-family:'Space Grotesk',sans-serif;font-size:0.75rem;color:var(--pink);letter-spacing:0.1em;margin-bottom:6px">PUBLISHING</div>
-      <p style="font-size:0.82rem;line-height:1.7;color:rgba(245,240,230,0.6)">When you're ready to go live, click "Publish". The first time, you'll need a GitHub token. Follow the steps below. After that, it's one click.</p>
-    </div>
-
-    <div style="padding:16px;border:1px solid rgba(245,240,230,0.08);background:rgba(245,240,230,0.02);margin-bottom:20px">
-      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.75rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:10px">ONE-TIME SETUP: GITHUB TOKEN</div>
-      <ol style="font-size:0.8rem;line-height:2;color:rgba(245,240,230,0.6);padding-left:18px">
-        <li>Go to <a href="https://github.com/settings/tokens?type=beta" target="_blank" style="color:var(--pink);border-bottom:1px solid var(--pink)">github.com/settings/tokens</a> (Fine-grained tokens)</li>
-        <li>Click "Generate new token"</li>
-        <li>Name it "UPVS Admin", set expiration to 1 year</li>
-        <li>Repository access: "Only select repositories" and pick <strong style="color:var(--cream)">unprofessionalvarietyshow</strong></li>
-        <li>Permissions: set <strong style="color:var(--cream)">Contents</strong> to "Read and write"</li>
-        <li>Click "Generate token" and copy it</li>
-        <li>Come back here, hit Publish, paste the token</li>
-      </ol>
-      <p style="font-size:0.75rem;color:rgba(245,240,230,0.4);margin-top:8px">The token is stored in your browser. You only need to do this once.</p>
+      <p style="font-size:0.82rem;line-height:1.7;color:rgba(245,240,230,0.6)">When you're ready to go live, click "Publish". You'll paste your token the first time. After that, it's one click.</p>
     </div>
 
     <div style="text-align:center">
