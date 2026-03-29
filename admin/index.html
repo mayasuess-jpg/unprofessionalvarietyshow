@@ -828,11 +828,57 @@ body.admin-mode{padding-top:48px}
   </div>
 </div>
 
+<!-- WELCOME GUIDE -->
+<div class="token-setup" id="welcomeGuide">
+  <div class="token-box" style="max-width:600px">
+    <h2 style="margin-bottom:16px">Welcome to your site admin</h2>
+    <p style="color:rgba(245,240,230,0.8);margin-bottom:12px">This is where you manage everything on your Unprofessional Variety Show website. Here's a quick overview:</p>
+
+    <div style="margin-bottom:20px">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.75rem;color:var(--pink);letter-spacing:0.1em;margin-bottom:6px">EDITING CONTENT</div>
+      <p style="font-size:0.82rem;line-height:1.7;color:rgba(245,240,230,0.6)">Click any text on the page to edit it directly. Hover over images to replace them. Changes save automatically to a local draft in your browser.</p>
+    </div>
+
+    <div style="margin-bottom:20px">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.75rem;color:var(--pink);letter-spacing:0.1em;margin-bottom:6px">SHOWS</div>
+      <p style="font-size:0.82rem;line-height:1.7;color:rgba(245,240,230,0.6)">Click "+ New Show" in the top bar to add a show. Click any show card to edit it. Add performers, recap photos, videos, and mark a show as upcoming.</p>
+    </div>
+
+    <div style="margin-bottom:20px">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.75rem;color:var(--pink);letter-spacing:0.1em;margin-bottom:6px">SETTINGS</div>
+      <p style="font-size:0.82rem;line-height:1.7;color:rgba(245,240,230,0.6)">Click "Settings" in the top bar for fonts, colors, venue details, links, and press links. Changes preview live as you type.</p>
+    </div>
+
+    <div style="margin-bottom:20px">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.75rem;color:var(--pink);letter-spacing:0.1em;margin-bottom:6px">PUBLISHING</div>
+      <p style="font-size:0.82rem;line-height:1.7;color:rgba(245,240,230,0.6)">When you're ready to go live, click "Publish". The first time, you'll need a GitHub token. Follow the steps below. After that, it's one click.</p>
+    </div>
+
+    <div style="padding:16px;border:1px solid rgba(245,240,230,0.08);background:rgba(245,240,230,0.02);margin-bottom:20px">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.75rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:10px">ONE-TIME SETUP: GITHUB TOKEN</div>
+      <ol style="font-size:0.8rem;line-height:2;color:rgba(245,240,230,0.6);padding-left:18px">
+        <li>Go to <a href="https://github.com/settings/tokens?type=beta" target="_blank" style="color:var(--pink);border-bottom:1px solid var(--pink)">github.com/settings/tokens</a> (Fine-grained tokens)</li>
+        <li>Click "Generate new token"</li>
+        <li>Name it "UPVS Admin", set expiration to 1 year</li>
+        <li>Repository access: "Only select repositories" and pick <strong style="color:var(--cream)">unprofessionalvarietyshow</strong></li>
+        <li>Permissions: set <strong style="color:var(--cream)">Contents</strong> to "Read and write"</li>
+        <li>Click "Generate token" and copy it</li>
+        <li>Come back here, hit Publish, paste the token</li>
+      </ol>
+      <p style="font-size:0.75rem;color:rgba(245,240,230,0.4);margin-top:8px">The token is stored in your browser. You only need to do this once.</p>
+    </div>
+
+    <div style="text-align:center">
+      <button onclick="dismissWelcome()" style="padding:12px 36px;background:var(--pink);border:1px solid var(--pink);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;border-radius:0;letter-spacing:0.05em">Got it</button>
+    </div>
+  </div>
+</div>
+
 <!-- TOKEN SETUP -->
 <div class="token-setup" id="tokenSetup">
   <div class="token-box">
     <h2>Connect to GitHub</h2>
-    <p>To publish changes, enter a GitHub Personal Access Token with repo access to mayasuess-jpg/unprofessionalvarietyshow.</p>
+    <p>Paste your GitHub Personal Access Token below. <a href="#" onclick="event.preventDefault();document.getElementById('tokenSetup').classList.remove('active');showWelcomeGuide()" style="color:var(--pink);border-bottom:1px solid var(--pink)">Need help getting one?</a></p>
     <input id="ghToken" type="password" placeholder="ghp_xxxxxxxxxxxx">
     <div class="btns">
       <button onclick="closeTokenSetup()" style="padding:10px 24px;border:1px solid rgba(245,240,230,0.15);background:transparent;color:var(--cream);font-family:'Space Grotesk',sans-serif;cursor:pointer;border-radius:0">Cancel</button>
@@ -1704,6 +1750,19 @@ function saveToken() {
 }
 function closeTokenSetup() { document.getElementById('tokenSetup').classList.remove('active'); }
 
+function showWelcomeGuide() {
+  document.getElementById('welcomeGuide').classList.add('active');
+}
+function dismissWelcome() {
+  document.getElementById('welcomeGuide').classList.remove('active');
+  localStorage.setItem('upvs-admin-welcomed', '1');
+}
+function checkFirstVisit() {
+  if (!localStorage.getItem('upvs-admin-welcomed')) {
+    showWelcomeGuide();
+  }
+}
+
 /* ========================================
    CONFIRM
    ======================================== */
@@ -1759,6 +1818,7 @@ document.addEventListener('keydown', function(e) {
 window.addEventListener('beforeunload', function(e) { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
 
 init();
+checkFirstVisit();
 </script>
 </body>
 </html>
