@@ -825,7 +825,7 @@ footer a:hover{color:var(--pink)}
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <div class="section-title" style="color:var(--pink);white-space:nowrap;font-size:clamp(2rem,7vw,6rem);padding:0">There will be antics.</div>
+  <div class="section-title" id="headingAbout" style="color:var(--pink);white-space:nowrap;font-size:clamp(2rem,7vw,6rem);padding:0">There will be antics.</div>
   <div class="about-grid" style="margin-top:50px;">
     <div style="margin-top:4.5em">
       <div class="about-text" id="aboutText"></div>
@@ -871,13 +871,13 @@ footer a:hover{color:var(--pink)}
 
 <!-- SHOWS ARCHIVE -->
 <section class="shows" id="shows">
-  <div class="section-title">Past Shows</div>
+  <div class="section-title" id="headingShows">Past Shows</div>
   <div class="shows-grid" id="showsGrid"></div>
 </section>
 
 <!-- MEDIA -->
 <section class="media" id="media">
-  <div class="section-title" style="color:var(--yellow)">Media</div>
+  <div class="section-title" id="headingMedia" style="color:var(--yellow)">Media</div>
   <div class="section-subtitle">From the Unprofessional archive.</div>
 
   <div class="media-filters" id="mediaFilters">
@@ -919,7 +919,7 @@ footer a:hover{color:var(--pink)}
 
 <!-- SHOP -->
 <section class="shop" id="shop">
-  <div class="section-title">Shop</div>
+  <div class="section-title" id="headingShop">Shop</div>
   <div class="section-subtitle">Merch coming soon. All proceeds support the performers.</div>
   <div class="shop-grid">
     <div class="shop-item">
@@ -959,7 +959,7 @@ footer a:hover{color:var(--pink)}
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="section-title" style="color:var(--green)">Get<br>Involved</div>
+  <div class="section-title" id="headingContact" style="color:var(--green)">Get Involved</div>
   <p class="contact-cta">
     Want to perform? Have a wild idea? Just want to be part of whatever this is? Reach out. The show is built by its community, and the door is always open.
   </p>
@@ -1023,6 +1023,13 @@ function renderSettings() {
   venueEl.textContent = (s.venue || 'The Parkside Lounge') +
     '. A dive bar and performance venue catering to the artists, musicians, and freaks of the Lower East Side since 1908. ' +
     (s.venueAddress || '');
+
+  // Section headings
+  if (s.headingAbout) document.getElementById('headingAbout').textContent = s.headingAbout;
+  if (s.headingShows) document.getElementById('headingShows').textContent = s.headingShows;
+  if (s.headingMedia) document.getElementById('headingMedia').textContent = s.headingMedia;
+  if (s.headingShop) document.getElementById('headingShop').textContent = s.headingShop;
+  if (s.headingContact) document.getElementById('headingContact').textContent = s.headingContact;
 }
 
 /* ========================================

@@ -738,6 +738,18 @@ body.admin-mode{padding-top:48px}
     <span>Text (Cream)</span>
   </div>
 
+  <h3>Section Headings</h3>
+  <label>About Headline</label>
+  <input id="setHeadingAbout" oninput="settingsChanged()" placeholder="There will be antics.">
+  <label>Shows</label>
+  <input id="setHeadingShows" oninput="settingsChanged()" placeholder="Past Shows">
+  <label>Media</label>
+  <input id="setHeadingMedia" oninput="settingsChanged()" placeholder="Media">
+  <label>Shop</label>
+  <input id="setHeadingShop" oninput="settingsChanged()" placeholder="Shop">
+  <label>Contact</label>
+  <input id="setHeadingContact" oninput="settingsChanged()" placeholder="Get Involved">
+
   <h3>About Text</h3>
   <textarea id="setAboutText" rows="6" oninput="settingsChanged()"></textarea>
 
@@ -1028,7 +1040,7 @@ function renderSite() {
   // ABOUT
   html += '<section class="about admin-section" data-section="about">';
   html += '<div class="section-ctrl">' + sectionArrows('about') + '</div>';
-  html += '<div class="section-title" style="color:var(--pink);white-space:nowrap;font-size:clamp(2rem,7vw,6rem);padding:0" contenteditable="true" data-field="aboutHeadline">There will be antics.</div>';
+  html += '<div class="section-title" style="color:var(--pink);white-space:nowrap;font-size:clamp(2rem,7vw,6rem);padding:0">' + esc(s.headingAbout || 'There will be antics.') + '</div>';
   html += '<div class="about-grid" style="margin-top:50px">';
   html += '<div style="margin-top:4.5em">';
   html += '<div class="about-text" style="cursor:pointer" onclick="toggleSettings()" title="Edit in Settings panel">';
@@ -1048,14 +1060,14 @@ function renderSite() {
   // SHOWS
   html += '<section class="shows admin-section" id="shows" data-section="shows">';
   html += '<div class="section-ctrl">' + sectionArrows('shows') + '</div>';
-  html += '<div class="section-title">Past Shows</div>';
+  html += '<div class="section-title">' + esc(s.headingShows || 'Past Shows') + '</div>';
   html += '<div class="shows-grid">' + renderShowsGrid() + '</div>';
   html += '</section>';
 
   // MEDIA
   html += '<section class="media admin-section" id="media" data-section="media">';
   html += '<div class="section-ctrl">' + sectionArrows('media') + '</div>';
-  html += '<div class="section-title" style="color:var(--yellow)">Media</div>';
+  html += '<div class="section-title" style="color:var(--yellow)">' + esc(s.headingMedia || 'Media') + '</div>';
   html += '<div class="section-subtitle">From the Unprofessional archive.</div>';
   html += '<div class="gallery" style="margin-top:40px">' + renderMediaGrid() + '</div>';
   html += renderPress();
@@ -1067,7 +1079,7 @@ function renderSite() {
   // SHOP
   html += '<section class="shop admin-section" id="shop" data-section="shop">';
   html += '<div class="section-ctrl">' + sectionArrows('shop') + '</div>';
-  html += '<div class="section-title">Shop</div>';
+  html += '<div class="section-title">' + esc(s.headingShop || 'Shop') + '</div>';
   html += '<div class="section-subtitle">Merch coming soon. All proceeds support the performers.</div>';
   html += '<div style="max-width:700px;margin:24px auto 0;padding:16px 20px;border:1px solid rgba(245,240,230,0.08);background:rgba(245,240,230,0.02)">';
   html += '<div style="font-family:\'Space Grotesk\',sans-serif;font-size:0.75rem;color:var(--pink);letter-spacing:0.1em;margin-bottom:8px">* SELLING ITEMS</div>';
@@ -1084,7 +1096,7 @@ function renderSite() {
   // CONTACT
   html += '<section class="contact admin-section" id="contact" data-section="contact">';
   html += '<div class="section-ctrl">' + sectionArrows('contact') + '</div>';
-  html += '<div class="section-title" style="color:var(--green)">Get<br>Involved</div>';
+  html += '<div class="section-title" style="color:var(--green)">' + esc(s.headingContact || 'Get Involved') + '</div>';
   html += '<p class="contact-cta" contenteditable="true" data-field="contactCta">Want to perform? Have a wild idea? Just want to be part of whatever this is? Reach out. The show is built by its community, and the door is always open.</p>';
   html += '<div class="contact-links">';
   html += '<span class="contact-link">@unprofessionalvarietyshow</span>';
@@ -1289,6 +1301,11 @@ function populateSettings() {
   document.getElementById('setTicketUrl').value = s.ticketPlatform || '';
   document.getElementById('setParksideUrl').value = s.parksideUrl || '';
   document.getElementById('setAboutText').value = s.aboutText || '';
+  document.getElementById('setHeadingAbout').value = s.headingAbout || '';
+  document.getElementById('setHeadingShows').value = s.headingShows || '';
+  document.getElementById('setHeadingMedia').value = s.headingMedia || '';
+  document.getElementById('setHeadingShop').value = s.headingShop || '';
+  document.getElementById('setHeadingContact').value = s.headingContact || '';
   renderLogoPreview();
   renderPressLinksEditor();
   setupLogoInput();
@@ -1730,6 +1747,11 @@ function collectSettings() {
   DATA.settings.ticketPlatform = document.getElementById('setTicketUrl').value.trim();
   DATA.settings.parksideUrl = document.getElementById('setParksideUrl').value.trim();
   DATA.settings.aboutText = document.getElementById('setAboutText').value.trim();
+  DATA.settings.headingAbout = document.getElementById('setHeadingAbout').value.trim();
+  DATA.settings.headingShows = document.getElementById('setHeadingShows').value.trim();
+  DATA.settings.headingMedia = document.getElementById('setHeadingMedia').value.trim();
+  DATA.settings.headingShop = document.getElementById('setHeadingShop').value.trim();
+  DATA.settings.headingContact = document.getElementById('setHeadingContact').value.trim();
 }
 
 function settingsChanged() {
