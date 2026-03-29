@@ -1031,8 +1031,8 @@ function renderSite() {
   html += '<div class="about-grid" style="margin-top:50px">';
   html += '<div style="margin-top:4.5em">';
   html += '<div class="about-text" contenteditable="true" data-field="aboutText">';
-  html += '<p>' + esc(s.aboutText || '') + '</p>';
-  html += '<p>The programming is truly intergenerational, introducing younger performers to the legendary performers from the neighborhood. From Coney Island legends to drag kings, from performance artists to folk musicians, every edition is a different world.</p>';
+  var aboutParas = (s.aboutText || '').split('\n').filter(function(p){return p.trim()});
+  aboutParas.forEach(function(p){ html += '<p>' + esc(p) + '</p>'; });
   html += '</div>';
   html += '<div class="about-quote">';
   html += '<div contenteditable="true" data-field="aboutQuote">"Allied Productions exemplifies one of the things I love about this neighborhood, which is the diverse legacy of experimental queer and radical art and performance. At the Unprofessional Variety Show, I try to make the programming truly intergenerational."</div>';
@@ -1661,7 +1661,7 @@ function collectInlineEdits() {
   el = document.querySelector('[data-field="tagline"]');
   if (el) DATA.settings.tagline = el.textContent.trim();
   el = document.querySelector('[data-field="aboutText"]');
-  if (el) DATA.settings.aboutText = el.textContent.trim();
+  if (el) DATA.settings.aboutText = el.innerText.trim();
 
   document.querySelectorAll('[data-shop]').forEach(function(el) {
     var idx = parseInt(el.dataset.shop);

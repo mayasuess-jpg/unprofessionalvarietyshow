@@ -1016,7 +1016,8 @@ function renderSettings() {
   document.getElementById('heroTagline').textContent = s.tagline || '';
 
   const aboutEl = document.getElementById('aboutText');
-  aboutEl.innerHTML = '<p>' + escHtml(s.aboutText || '') + '</p>';
+  var aboutParas = (s.aboutText || '').split('\n').filter(function(p){return p.trim()});
+  aboutEl.innerHTML = aboutParas.map(function(p){return '<p>' + escHtml(p) + '</p>'}).join('');
 
   const venueEl = document.getElementById('venueDetail');
   venueEl.textContent = (s.venue || 'The Parkside Lounge') +
