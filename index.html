@@ -1016,14 +1016,7 @@ function renderSettings() {
   document.getElementById('heroTagline').textContent = s.tagline || '';
 
   const aboutEl = document.getElementById('aboutText');
-  const aboutParts = (s.aboutText || '').split('. ');
-  // Render as two paragraphs - split roughly in half
-  const mid = Math.ceil(aboutParts.length / 2);
-  const p1 = aboutParts.slice(0, mid).join('. ') + '.';
-  const p2 = aboutParts.slice(mid).join('. ');
-  aboutEl.innerHTML =
-    '<p>' + escHtml(p1) + '</p>' +
-    '<p>The programming is truly intergenerational, introducing younger performers to the legendary performers from the neighborhood. From Coney Island legends to drag kings, from performance artists to folk musicians, every edition is a different world.</p>';
+  aboutEl.innerHTML = '<p>' + escHtml(s.aboutText || '') + '</p>';
 
   const venueEl = document.getElementById('venueDetail');
   venueEl.textContent = (s.venue || 'The Parkside Lounge') +
