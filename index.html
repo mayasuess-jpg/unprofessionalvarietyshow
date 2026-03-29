@@ -71,6 +71,8 @@ nav .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
 
 /* MOBILE NAV */
 @media(max-width:768px){
+  nav{opacity:0;pointer-events:none;transition:opacity 0.4s}
+  nav.nav-visible{opacity:1;pointer-events:auto}
   nav .nav-links{display:none !important}
   .hamburger{display:flex !important}
   .mobile-menu{
@@ -138,15 +140,14 @@ nav .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
 }
 .marquee-track{
   display:flex;white-space:nowrap;
-  animation:marquee 14s linear infinite;
   will-change:transform;
 }
 .marquee-track span{
   font-family:'Space Grotesk',sans-serif;font-size:clamp(1.2rem,3vw,2rem);
   padding:0 40px;color:rgba(245,240,230,0.6);
+  flex-shrink:0;
 }
 .marquee-track span em{font-style:normal;color:var(--pink)}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* NEXT SHOW */
 .next-show-header{display:none}
@@ -465,7 +466,6 @@ footer a:hover{color:var(--pink)}
 }
 .big-running .track{
   display:flex;white-space:nowrap;
-  animation:marquee 11s linear infinite;
   will-change:transform;
 }
 .big-running .track span{
@@ -474,6 +474,7 @@ footer a:hover{color:var(--pink)}
   padding:0 60px;
   -webkit-text-stroke:1px rgba(245,240,230,0.35);
   color:transparent;
+  flex-shrink:0;
 }
 
 /* ANIMATE ON SCROLL */
@@ -495,7 +496,7 @@ footer a:hover{color:var(--pink)}
 /* RESPONSIVE TWEAKS */
 @media(max-width:768px){
   /* Hero - visible title + marquee, compact */
-  .hero{padding:80px 5vw 20px;min-height:auto}
+  .hero{padding:30px 5vw 15px;min-height:auto}
   .hero-title{font-size:clamp(2.8rem,13vw,5rem);max-width:100%}
   .hero-tagline{font-size:0.9rem;white-space:normal;margin-top:12px;padding:0 2vw}
   .marquee-wrap{margin-top:20px}
@@ -504,22 +505,18 @@ footer a:hover{color:var(--pink)}
   /* Hide next show date banner on mobile - info is inline */
   .next-show-date-banner{display:none}
 
-  /* Next show - header above poster, details below */
+  /* Next show - only label above poster, title + details below */
   .next-show-header{
     display:block;text-align:center;
-    padding:10px 5vw 0;
-    background:linear-gradient(to bottom,#0d0510,var(--plum));
+    padding:10px 5vw 8px;
   }
   .next-show-header .label{
     font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;
-    color:var(--pink);margin-bottom:4px;
+    color:var(--pink);
   }
-  .next-show-header h2{
-    font-family:'Space Grotesk',sans-serif;
-    font-size:clamp(1.8rem,7vw,2.8rem);font-weight:700;
-    line-height:1;margin-bottom:12px;
-  }
-  .ns-desktop-label,.ns-desktop-title{display:none}
+  .next-show-header h2{display:none}
+  .ns-desktop-label{display:none}
+  .ns-desktop-title{display:block}
   .next-show{padding:0 5vw 40px}
   .next-show-inner{display:block;text-align:center}
   .next-show-poster{width:92vw;max-width:500px;margin:0 auto 24px}
@@ -1565,9 +1562,66 @@ document.addEventListener('keydown', function(e) {
 });
 
 /* ========================================
+   MARQUEE - pixel-perfect seamless loop
+   ======================================== */
+function initMarquees() {
+  document.querySelectorAll('.marquee-track, .big-running .track').forEach(function(track) {
+    var spans = track.children;
+    if (!spans.length) return;
+    // Count unique items (track has N copies, we need to find where the repeat starts)
+    // We duplicated content 4x in HTML. Each copy = total/4 spans.
+    var copyCount = 4;
+    var itemsPerCopy = spans.length / copyCount;
+    // Measure width of one copy
+    var copyWidth = 0;
+    for (var i = 0; i < itemsPerCopy; i++) {
+      copyWidth += spans[i].offsetWidth;
+    }
+    // Speed: pixels per second
+    var speed = track.closest('.big-running') ? 80 : 50;
+    var duration = copyWidth / speed;
+    track.style.animation = 'none';
+    track.style.transform = 'translateX(0)';
+    // Create a keyframe for this specific width
+    var id = 'mq' + Math.random().toString(36).substr(2,6);
+    var style = document.createElement('style');
+    style.textContent = '@keyframes ' + id + '{0%{transform:translateX(0)}100%{transform:translateX(-' + copyWidth + 'px)}}';
+    document.head.appendChild(style);
+    track.style.animation = id + ' ' + duration + 's linear infinite';
+  });
+}
+
+/* ========================================
+   NAV - hidden on load, shows on scroll (mobile only)
+   ======================================== */
+function initMobileNav() {
+  if (window.innerWidth > 768) {
+    document.querySelector('nav').classList.add('nav-visible');
+    return;
+  }
+  var nav = document.querySelector('nav');
+  var shown = false;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100 && !shown) {
+      nav.classList.add('nav-visible');
+      shown = true;
+    } else if (window.scrollY <= 100 && shown) {
+      nav.classList.remove('nav-visible');
+      shown = false;
+    }
+  }, {passive: true});
+}
+
+/* ========================================
    BOOT
    ======================================== */
 init();
+initMarquees();
+initMobileNav();
+window.addEventListener('resize', function() {
+  var nav = document.querySelector('nav');
+  if (window.innerWidth > 768) nav.classList.add('nav-visible');
+});
 </script>
 </body>
 </html>
