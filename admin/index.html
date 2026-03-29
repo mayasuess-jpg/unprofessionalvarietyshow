@@ -750,6 +750,12 @@ body.admin-mode{padding-top:48px}
   <label>Contact</label>
   <input id="setHeadingContact" oninput="settingsChanged()" placeholder="Get Involved">
 
+  <h3>Newsletter</h3>
+  <label>MailChimp Form Action URL</label>
+  <input id="setNewsletterUrl" oninput="settingsChanged()" placeholder="https://...list-manage.com/subscribe/post?u=...&id=...">
+  <label>Newsletter Text</label>
+  <input id="setNewsletterText" oninput="settingsChanged()" placeholder="Get show announcements and news. No spam, just antics.">
+
   <h3>About Text</h3>
   <textarea id="setAboutText" rows="6" oninput="settingsChanged()"></textarea>
 
@@ -1306,6 +1312,8 @@ function populateSettings() {
   document.getElementById('setHeadingMedia').value = s.headingMedia || '';
   document.getElementById('setHeadingShop').value = s.headingShop || '';
   document.getElementById('setHeadingContact').value = s.headingContact || '';
+  document.getElementById('setNewsletterUrl').value = s.newsletterUrl || '';
+  document.getElementById('setNewsletterText').value = s.newsletterText || '';
   renderLogoPreview();
   renderPressLinksEditor();
   setupLogoInput();
@@ -1752,6 +1760,8 @@ function collectSettings() {
   DATA.settings.headingMedia = document.getElementById('setHeadingMedia').value.trim();
   DATA.settings.headingShop = document.getElementById('setHeadingShop').value.trim();
   DATA.settings.headingContact = document.getElementById('setHeadingContact').value.trim();
+  DATA.settings.newsletterUrl = document.getElementById('setNewsletterUrl').value.trim();
+  DATA.settings.newsletterText = document.getElementById('setNewsletterText').value.trim();
 }
 
 function settingsChanged() {
