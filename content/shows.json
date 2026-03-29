@@ -721,78 +721,83 @@
       "img/ig-posts/17893830261175009.jpg",
       "img/ig-posts/18098294098508125.jpg",
       "img/ig-posts/17882242527146618.jpg",
-      "img/ig-posts/17856597318329551.jpg"
+      "img/ig-posts/17856597318329551.jpg",
+      "img/ig-posts/18004299542555900.jpg",
+      "img/ig-posts/18072007990770440.jpg",
+      "img/ig-posts/18041471807523198.jpg",
+      "img/ig-posts/18076255861728465.jpg",
+      "img/ig-posts/17922855624019902.jpg",
+      "img/ig-posts/17994478235754167.jpg",
+      "img/ig-posts/18073312672735436.jpg",
+      "img/ig-posts/18070529983759325.jpg"
     ],
     "recapCaption": "Thank you to everyone who came to the February Unprofessional Variety Show: The Afterlife. We did indeed cross over to the other side.",
     "videos": [
       {
-        "type": "vimeo",
-        "caption": "Afterlife 05: Fantasy Grandma Song End",
-        "date": "2025-03-05",
+        "src": "",
         "vimeoId": "1062930871",
         "title": "Afterlife 05: Fantasy Grandma Song End",
-        "duration": "9:08"
+        "thumb": ""
       },
       {
-        "type": "video",
-        "caption": "Thank you to everyone who came to the February Unprofessional Variety Show: The Afterlife🪽  We did indeed cross over to the other side 🌀\nFebruary 23, 2025\n\nPERFORMERS\n🪐 Clay Woman @claywomanhello\n👵🏻 F",
-        "date": "2025-03-04",
         "src": "img/ig-videos/18156354442356108.mp4",
+        "vimeoId": "",
+        "title": "",
         "thumb": "img/ig-thumbs/18156354442356108.jpg"
       },
       {
-        "type": "video",
-        "caption": "Thank you to everyone who came to the February Unprofessional Variety Show: The Afterlife🪽  We did indeed cross over to the other side 🌀\nFebruary 23, 2025\n\nPERFORMERS\n🪐 Clay Woman @claywomanhello\n👵🏻 F",
-        "date": "2025-03-04",
         "src": "img/ig-videos/18056820941043093.mp4",
+        "vimeoId": "",
+        "title": "",
         "thumb": "img/ig-thumbs/18056820941043093.jpg"
       },
       {
-        "type": "vimeo",
-        "caption": "Afterlife 04: Clay Woman",
-        "date": "2025-02-27",
+        "src": "",
         "vimeoId": "1060695987",
         "title": "Afterlife 04: Clay Woman",
-        "duration": "29:59"
+        "thumb": ""
       },
       {
-        "type": "vimeo",
-        "caption": "The opening sequence from the Feb 23, 2025 Unprofessional Variety Show: The Afterlife.",
-        "date": "2025-02-26",
+        "src": "",
         "vimeoId": "1060335320",
         "title": "Afterlife 01: Opening",
-        "duration": "15:24"
+        "thumb": ""
       },
       {
-        "type": "vimeo",
-        "caption": "Afterlife 02: Paula Merchan + DB/Emcee",
-        "date": "2025-02-26",
+        "src": "",
         "vimeoId": "1060597483",
         "title": "Afterlife 02: Paula Merchan + DB/Emcee",
-        "duration": "17:29"
+        "thumb": ""
       },
       {
-        "type": "vimeo",
-        "caption": "The second performer from the Feb 23, 2025 Unprofessional Variety Show: The Afterlife, musician and Psychic Medium, Joanie Drago. Emcee Dancing Bear comes back again.",
-        "date": "2025-02-26",
+        "src": "",
         "vimeoId": "1060626656",
         "title": "Afterlife 03: Joanie Drago + DB 3.0",
-        "duration": "24:13"
+        "thumb": ""
       },
       {
-        "type": "reel",
-        "caption": "",
-        "date": "2025-02-23",
         "src": "img/ig-reels/18073750630780485.mp4",
+        "vimeoId": "",
+        "title": "",
         "thumb": "img/ig-thumbs/18073750630780485.jpg"
       },
       {
-        "type": "vimeo",
-        "caption": "The Incredible Drunkertons performing at The Unprofessional Variety Show at the Parkside Lounge on December 15, 2024.",
-        "date": "2025-01-30",
+        "src": "",
         "vimeoId": "1051933571",
         "title": "The Incredible Drunkertons",
-        "duration": "9:03"
+        "thumb": ""
+      },
+      {
+        "src": "img/ig-reels/18073750630780485.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/18073750630780485.jpg"
+      },
+      {
+        "src": "img/ig-reels/18003325235562817.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/18003325235562817.jpg"
       }
     ],
     "mediaItems": [
@@ -923,7 +928,8 @@
         "vimeoId": "1051933571",
         "title": "The Incredible Drunkertons"
       }
-    ]
+    ],
+    "sets": ""
   },
   {
     "title": "A Magic Show",
