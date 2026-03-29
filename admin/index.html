@@ -1918,16 +1918,29 @@ function imgSrc(path) {
   return '../' + path;
 }
 
+var MAX_IMG_WIDTH = 1600;
+var IMG_QUALITY = 0.8;
+
 function stageFile(path, file) {
-  var reader = new FileReader();
-  reader.onload = function() {
-    var dataUrl = reader.result;
+  var img = new Image();
+  img.onload = function() {
+    var w = img.width, h = img.height;
+    if (w > MAX_IMG_WIDTH) {
+      h = Math.round(h * MAX_IMG_WIDTH / w);
+      w = MAX_IMG_WIDTH;
+    }
+    var canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+    var dataUrl = canvas.toDataURL('image/jpeg', IMG_QUALITY);
     var b64 = dataUrl.split(',')[1];
     pendingFiles[path] = b64;
     localPreviews[path] = dataUrl;
     savePendingFiles();
+    var sizeKB = Math.round(b64.length * 0.75 / 1024);
+    toast('Image staged: ' + sizeKB + 'KB (' + w + 'x' + h + ')');
   };
-  reader.readAsDataURL(file);
+  img.src = URL.createObjectURL(file);
 }
 
 function savePendingFiles() {
