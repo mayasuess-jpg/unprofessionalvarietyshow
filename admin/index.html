@@ -1467,8 +1467,11 @@ function renderVideoList() {
     if (v.vimeoId) {
       thumb = '<div style="flex-shrink:0;width:120px"><img id="vthumb' + i + '" src="https://vumbnail.com/' + esc(v.vimeoId) + '.jpg" style="width:120px;aspect-ratio:16/9;object-fit:cover;display:block;background:rgba(245,240,230,0.05)" onerror="loadVimeoThumb(' + i + ',\'' + esc(v.vimeoId) + '\')"><div style="font-size:0.6rem;color:var(--pink);margin-top:4px">Vimeo ' + esc(v.vimeoId) + '</div></div>';
     } else if (v.src) {
-      var thumbSrc = v.thumb ? '../' + v.thumb : '../' + v.src;
-      thumb = '<div style="flex-shrink:0;width:120px"><video src="' + esc(thumbSrc) + '" style="width:120px;aspect-ratio:1;object-fit:cover;display:block" muted preload="metadata"></video><div style="font-size:0.6rem;color:rgba(245,240,230,0.4);margin-top:4px">Local video</div></div>';
+      if (v.thumb) {
+        thumb = '<div style="flex-shrink:0;width:120px"><img src="../' + esc(v.thumb) + '" style="width:120px;aspect-ratio:1;object-fit:cover;display:block;background:rgba(245,240,230,0.05)"><div style="font-size:0.6rem;color:rgba(245,240,230,0.4);margin-top:4px">' + esc(v.src.split('/').pop()) + '</div></div>';
+      } else {
+        thumb = '<div style="flex-shrink:0;width:120px"><video src="../' + esc(v.src) + '" style="width:120px;aspect-ratio:1;object-fit:cover;display:block" muted preload="metadata" onloadeddata="this.currentTime=1"></video><div style="font-size:0.6rem;color:rgba(245,240,230,0.4);margin-top:4px">' + esc(v.src.split('/').pop()) + '</div></div>';
+      }
     }
     html += thumb;
     html += '<div style="flex:1;min-width:0">';
