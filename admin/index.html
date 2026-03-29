@@ -1832,7 +1832,21 @@ async function publish() {
 
     var newTreeRes = await ghApi('POST', '/repos/mayasuess-jpg/unprofessionalvarietyshow/git/trees', { base_tree: treeSha, tree: treeItems }, token);
     var newCommitRes = await ghApi('POST', '/repos/mayasuess-jpg/unprofessionalvarietyshow/git/commits', { message: 'Update UPVS content via admin', tree: newTreeRes.sha, parents: [commitSha] }, token);
-    await ghApi('PATCH', '/repos/mayasuess-jpg/unprofessionalvarietyshow/git/refs/heads/main', { sha: newCommitRes.sha }, token);
+    try {
+      await ghApi('PATCH', '/repos/mayasuess-jpg/unprofessionalvarietyshow/git/refs/heads/main', { sha: newCommitRes.sha }, token);
+    } catch(pushErr) {
+      if (pushErr.message && pushErr.message.indexOf('fast forward') > -1) {
+        // Branch moved - retry with fresh parent
+        toast('Branch updated externally, retrying...');
+        var freshRef = await ghApi('GET', '/repos/mayasuess-jpg/unprofessionalvarietyshow/git/ref/heads/main', null, token);
+        var freshCommit = await ghApi('POST', '/repos/mayasuess-jpg/unprofessionalvarietyshow/git/commits', {
+          message: 'Update UPVS content via admin',
+          tree: newTreeRes.sha,
+          parents: [freshRef.object.sha]
+        }, token);
+        await ghApi('PATCH', '/repos/mayasuess-jpg/unprofessionalvarietyshow/git/refs/heads/main', { sha: freshCommit.sha }, token);
+      } else { throw pushErr; }
+    }
 
     dirty = false;
     pendingFiles = {};
