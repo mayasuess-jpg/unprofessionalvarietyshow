@@ -1445,12 +1445,22 @@ function removePerformer(i) { editorPerformers.splice(i, 1); renderPerformerList
 function renderVideoList() {
   var html = '';
   editorVideos.forEach(function(v, i) {
-    html += '<div class="perf-item">';
+    html += '<div class="perf-item" style="display:flex;gap:12px;align-items:flex-start">';
+    // Preview thumbnail
+    var thumb = '';
+    if (v.vimeoId) {
+      thumb = '<div style="flex-shrink:0;width:120px"><img src="https://vumbnail.com/' + esc(v.vimeoId) + '.jpg" style="width:120px;aspect-ratio:16/9;object-fit:cover;display:block" onerror="this.style.display=\'none\'"><div style="font-size:0.6rem;color:var(--pink);margin-top:4px">Vimeo</div></div>';
+    } else if (v.src) {
+      var thumbSrc = v.thumb ? '../' + v.thumb : '../' + v.src;
+      thumb = '<div style="flex-shrink:0;width:120px"><video src="' + esc(thumbSrc) + '" style="width:120px;aspect-ratio:1;object-fit:cover;display:block" muted preload="metadata"></video><div style="font-size:0.6rem;color:rgba(245,240,230,0.4);margin-top:4px">Local video</div></div>';
+    }
+    html += thumb;
+    html += '<div style="flex:1;min-width:0">';
     html += '<button class="perf-remove" onclick="removeVideo(' + i + ')">&times;</button>';
     html += '<input value="' + esc(v.title || '') + '" placeholder="Title (optional)" onchange="editorVideos[' + i + '].title=this.value">';
-    html += '<input value="' + esc(v.vimeoId || '') + '" placeholder="Vimeo ID (e.g. 123456789)" onchange="editorVideos[' + i + '].vimeoId=this.value">';
-    html += '<input value="' + esc(v.src || '') + '" placeholder="Video file path (e.g. img/ig-videos/file.mp4)" onchange="editorVideos[' + i + '].src=this.value">';
-    html += '</div>';
+    html += '<input value="' + esc(v.vimeoId || '') + '" placeholder="Vimeo ID (e.g. 123456789)" onchange="editorVideos[' + i + '].vimeoId=this.value;renderVideoList()">';
+    html += '<input value="' + esc(v.src || '') + '" placeholder="Video file path (e.g. img/ig-videos/file.mp4)" onchange="editorVideos[' + i + '].src=this.value;renderVideoList()">';
+    html += '</div></div>';
   });
   document.getElementById('videoList').innerHTML = html;
 }
