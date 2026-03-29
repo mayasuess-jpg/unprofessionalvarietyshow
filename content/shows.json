@@ -2357,6 +2357,18 @@
         "vimeoId": "",
         "title": "",
         "thumb": "img/ig-thumbs/17985908683641037.jpg"
+      },
+      {
+        "src": "img/ig-reels/18020132791457270.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/18020132791457270.jpg"
+      },
+      {
+        "src": "img/ig-reels/17985908683641037.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/17985908683641037.jpg"
       }
     ],
     "mediaItems": [
@@ -2476,7 +2488,7 @@
     "sets": ""
   },
   {
-    "title": "The Night",
+    "title": "Creatures of the Night",
     "edition": 3,
     "date": "2022-09-18",
     "time": "7:30 PM",
