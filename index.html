@@ -921,40 +921,7 @@ footer a:hover{color:var(--pink)}
 <section class="shop" id="shop">
   <div class="section-title" id="headingShop">Shop</div>
   <div class="section-subtitle">Merch coming soon. All proceeds support the performers.</div>
-  <div class="shop-grid">
-    <div class="shop-item">
-      <img src="img/ig-thumbs/18060162065276968.jpg" alt="Tee" style="width:100%;aspect-ratio:1;object-fit:cover">
-      <div class="item-info">
-        <h3>"Unprofessional" Tee</h3>
-        <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin:4px 0">Hand-drawn logo on black cotton</p>
-        <div class="price">Coming Soon</div>
-      </div>
-    </div>
-    <div class="shop-item">
-      <img src="img/ig-posts/18366407008089307.jpg" alt="Poster" style="width:100%;aspect-ratio:1;object-fit:cover">
-      <div class="item-info">
-        <h3>Show Poster Prints</h3>
-        <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin:4px 0">Original artwork by Maya Suess</p>
-        <div class="price">Coming Soon</div>
-      </div>
-    </div>
-    <div class="shop-item">
-      <img src="img/ig-posts/17912786009380839.jpg" alt="Sticker" style="width:100%;aspect-ratio:1;object-fit:cover">
-      <div class="item-info">
-        <h3>Sticker Pack</h3>
-        <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin:4px 0">Assorted show art</p>
-        <div class="price">Coming Soon</div>
-      </div>
-    </div>
-    <div class="shop-item">
-      <img src="img/ig-posts/17855394342258698.jpg" alt="Tote" style="width:100%;aspect-ratio:1;object-fit:cover">
-      <div class="item-info">
-        <h3>"Undisciplined" Tote</h3>
-        <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin:4px 0">Canvas tote bag</p>
-        <div class="price">Coming Soon</div>
-      </div>
-    </div>
-  </div>
+  <div class="shop-grid" id="shopGrid"></div>
 </section>
 
 <!-- CONTACT -->
@@ -983,7 +950,7 @@ footer a:hover{color:var(--pink)}
 /* ========================================
    DATA LAYER - fetch all JSON on load
    ======================================== */
-const DATA = { shows: [], media: [], settings: {} };
+const DATA = { shows: [], media: [], settings: {}, shop: [] };
 let mediaPage = 0;
 const MEDIA_PER_PAGE = 12;
 let currentFilter = 'all';
@@ -992,14 +959,16 @@ let currentLbIndex = -1;
 let currentLbList = [];
 
 async function init() {
-  const [showsRes, mediaRes, settingsRes] = await Promise.all([
+  const [showsRes, mediaRes, settingsRes, shopRes] = await Promise.all([
     fetch('content/shows.json').then(r => r.json()),
     fetch('content/media.json').then(r => r.json()),
-    fetch('content/settings.json').then(r => r.json())
+    fetch('content/settings.json').then(r => r.json()),
+    fetch('content/shop.json').then(r => r.json()).catch(() => [])
   ]);
   DATA.shows = showsRes;
   DATA.media = mediaRes;
   DATA.settings = settingsRes;
+  DATA.shop = shopRes;
 
   try {
     renderSettings();
@@ -1007,6 +976,7 @@ async function init() {
     renderShowsArchive();
     applyMediaFilter('all');
     renderPress();
+    renderShop();
     renderContact();
     injectEventSchema();
   } catch(e) { console.error('Init error:', e); }
@@ -1222,6 +1192,25 @@ function renderPress() {
 /* ========================================
    CONTACT - pull URLs from settings
    ======================================== */
+function renderShop() {
+  var grid = document.getElementById('shopGrid');
+  var html = '';
+  DATA.shop.forEach(function(item) {
+    var buyBtn = item.buyUrl
+      ? '<a href="' + escHtml(item.buyUrl) + '" target="_blank" class="btn" style="display:block;text-align:center;margin-top:12px;padding:10px 20px;font-size:0.75rem">Buy</a>'
+      : '';
+    html += '<div class="shop-item">' +
+      '<img src="' + escHtml(item.image || '') + '" alt="' + escHtml(item.title || '') + '" style="width:100%;aspect-ratio:1;object-fit:cover;display:block">' +
+      '<div class="item-info">' +
+        '<h3>' + escHtml(item.title || '') + '</h3>' +
+        '<p style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin:4px 0">' + escHtml(item.description || '') + '</p>' +
+        '<div class="price">' + escHtml(item.price || '') + '</div>' +
+        buyBtn +
+      '</div></div>';
+  });
+  grid.innerHTML = html;
+}
+
 function renderContact() {
   const s = DATA.settings;
   const el = document.getElementById('contactLinks');
