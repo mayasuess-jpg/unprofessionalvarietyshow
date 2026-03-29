@@ -149,6 +149,7 @@ nav .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* NEXT SHOW */
+.next-show-header{display:none}
 .next-show{
   padding:80px 4vw;position:relative;
   background:linear-gradient(to bottom,var(--plum),#0d0510);
@@ -493,26 +494,40 @@ footer a:hover{color:var(--pink)}
 
 /* RESPONSIVE TWEAKS */
 @media(max-width:768px){
-  /* Hero - compact to get show poster above fold */
-  .hero{padding:70px 5vw 10px;min-height:auto}
-  .hero-title{font-size:clamp(2.4rem,11vw,4rem);max-width:100%}
-  .hero-tagline{display:none}
-  .hero .marquee-wrap{display:none}
+  /* Hero - visible title + marquee, compact */
+  .hero{padding:80px 5vw 20px;min-height:auto}
+  .hero-title{font-size:clamp(2.8rem,13vw,5rem);max-width:100%}
+  .hero-tagline{font-size:0.9rem;white-space:normal;margin-top:12px;padding:0 2vw}
+  .marquee-wrap{margin-top:20px}
+  .marquee-track span{font-size:1rem;padding:0 24px}
 
-  /* Next show - immediately after hero, poster dominant */
-  .next-show{padding:0 5vw 40px;background:linear-gradient(to bottom,var(--plum),#0d0510)}
-  .next-show-inner{flex-direction:column-reverse;text-align:center;gap:16px}
-  .next-show-poster{width:92vw;max-width:500px;margin:0 auto}
-  .next-show-info{max-width:100%;text-align:center;order:2}
-  .next-show-info .label{font-size:0.85rem;margin-bottom:6px}
-  .next-show-info h2{font-size:clamp(1.8rem,7vw,2.8rem);margin-bottom:8px}
+  /* Hide next show date banner on mobile - info is inline */
+  .next-show-date-banner{display:none}
+
+  /* Next show - header above poster, details below */
+  .next-show-header{
+    display:block;text-align:center;
+    padding:10px 5vw 0;
+    background:linear-gradient(to bottom,#0d0510,var(--plum));
+  }
+  .next-show-header .label{
+    font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--pink);margin-bottom:4px;
+  }
+  .next-show-header h2{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(1.8rem,7vw,2.8rem);font-weight:700;
+    line-height:1;margin-bottom:12px;
+  }
+  .ns-desktop-label,.ns-desktop-title{display:none}
+  .next-show{padding:0 5vw 40px}
+  .next-show-inner{display:block;text-align:center}
+  .next-show-poster{width:92vw;max-width:500px;margin:0 auto 24px}
+  .next-show-info{max-width:100%;text-align:center}
   .next-show-info .date{font-size:1rem}
   .next-show-info .venue{margin-bottom:12px}
   .next-show-info .performers{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
   .next-show-info .performers span{margin:0}
-
-  /* Hide duplicate next show banner on mobile */
-  .next-show-date-banner{display:none}
 
   /* Section titles */
   .section-title{font-size:clamp(2.5rem,14vw,5rem);padding:0 5vw}
@@ -1039,14 +1054,18 @@ function renderNextShow() {
   var showIdx = DATA.shows.indexOf(show);
 
   container.innerHTML =
+    '<div class="next-show-header">' +
+      '<div class="label">' + labelText + '</div>' +
+      '<h2>' + escHtml(show.title) + '</h2>' +
+    '</div>' +
     '<div class="next-show-inner">' +
       '<div class="next-show-poster" onclick="openShowDetail(' + showIdx + ')" style="cursor:pointer">' +
         '<div class="poster-glow"></div>' +
         '<img src="' + escHtml(show.posterImage) + '" alt="' + escHtml(show.title) + '" loading="lazy">' +
       '</div>' +
       '<div class="next-show-info">' +
-        '<div class="label">' + labelText + '</div>' +
-        '<h2 class="">' + escHtml(show.title) + '</h2>' +
+        '<div class="label ns-desktop-label">' + labelText + '</div>' +
+        '<h2 class="ns-desktop-title">' + escHtml(show.title) + '</h2>' +
         '<div class="date">' + dateStr + '</div>' +
         '<div class="venue">' + escHtml(venueStr) + ' - ' + escHtml(doorsStr + (doorsStr && timeStr ? ' / Show ' : '') + timeStr) + '</div>' +
         (performersHtml ? '<div class="performers">' + performersHtml + '</div>' : '') +
