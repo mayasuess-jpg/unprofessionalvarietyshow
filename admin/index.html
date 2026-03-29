@@ -533,6 +533,18 @@ body.admin-mode{padding-top:48px}
   display:flex;align-items:center;justify-content:center;
 }
 
+/* Drag handle */
+.drag-handle{
+  cursor:grab;padding:4px 6px;color:rgba(245,240,230,0.25);
+  font-size:1rem;line-height:1;user-select:none;flex-shrink:0;
+}
+.drag-handle:active{cursor:grabbing}
+[draggable="true"]{transition:opacity 0.2s}
+[draggable="true"].dragging{opacity:0.3}
+[draggable="true"].drag-over{border-top:2px solid var(--pink) !important}
+.media-thumbs .thumb[draggable="true"]{cursor:grab}
+.media-thumbs .thumb.drag-over{outline:2px solid var(--pink)}
+
 /* Toast */
 .toast{
   position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
@@ -1425,14 +1437,17 @@ function deleteShow(idx) {
 function renderPerformerList() {
   var html = '';
   editorPerformers.forEach(function(p, i) {
-    html += '<div class="perf-item">';
+    html += '<div class="perf-item" draggable="true" style="display:flex;gap:8px;align-items:flex-start">';
+    html += '<span class="drag-handle" title="Drag to reorder">&#9776;</span>';
+    html += '<div style="flex:1;min-width:0">';
     html += '<button class="perf-remove" onclick="removePerformer(' + i + ')">&times;</button>';
     html += '<input value="' + esc(p.name) + '" placeholder="Name" onchange="editorPerformers[' + i + '].name=this.value">';
     html += '<input value="' + esc(p.instagram) + '" placeholder="@instagram" onchange="editorPerformers[' + i + '].instagram=this.value">';
     html += '<textarea placeholder="Bio (optional)" onchange="editorPerformers[' + i + '].bio=this.value">' + esc(p.bio) + '</textarea>';
-    html += '</div>';
+    html += '</div></div>';
   });
   document.getElementById('perfList').innerHTML = html;
+  setupDragReorder(document.getElementById('perfList'), editorPerformers, renderPerformerList);
 }
 function addPerformer() {
   editorPerformers.push({ name: '', instagram: '', bio: '' });
@@ -1445,11 +1460,12 @@ function removePerformer(i) { editorPerformers.splice(i, 1); renderPerformerList
 function renderVideoList() {
   var html = '';
   editorVideos.forEach(function(v, i) {
-    html += '<div class="perf-item" style="display:flex;gap:12px;align-items:flex-start">';
+    html += '<div class="perf-item" draggable="true" style="display:flex;gap:12px;align-items:flex-start">';
+    html += '<span class="drag-handle" title="Drag to reorder">&#9776;</span>';
     // Preview thumbnail
     var thumb = '';
     if (v.vimeoId) {
-      thumb = '<div style="flex-shrink:0;width:120px"><img src="https://vumbnail.com/' + esc(v.vimeoId) + '.jpg" style="width:120px;aspect-ratio:16/9;object-fit:cover;display:block" onerror="this.style.display=\'none\'"><div style="font-size:0.6rem;color:var(--pink);margin-top:4px">Vimeo</div></div>';
+      thumb = '<div style="flex-shrink:0;width:120px"><img id="vthumb' + i + '" src="https://vumbnail.com/' + esc(v.vimeoId) + '.jpg" style="width:120px;aspect-ratio:16/9;object-fit:cover;display:block;background:rgba(245,240,230,0.05)" onerror="loadVimeoThumb(' + i + ',\'' + esc(v.vimeoId) + '\')"><div style="font-size:0.6rem;color:var(--pink);margin-top:4px">Vimeo ' + esc(v.vimeoId) + '</div></div>';
     } else if (v.src) {
       var thumbSrc = v.thumb ? '../' + v.thumb : '../' + v.src;
       thumb = '<div style="flex-shrink:0;width:120px"><video src="' + esc(thumbSrc) + '" style="width:120px;aspect-ratio:1;object-fit:cover;display:block" muted preload="metadata"></video><div style="font-size:0.6rem;color:rgba(245,240,230,0.4);margin-top:4px">Local video</div></div>';
@@ -1463,6 +1479,15 @@ function renderVideoList() {
     html += '</div></div>';
   });
   document.getElementById('videoList').innerHTML = html;
+  setupDragReorder(document.getElementById('videoList'), editorVideos, renderVideoList);
+}
+function loadVimeoThumb(i, vimeoId) {
+  fetch('https://vimeo.com/api/oembed.json?url=https://vimeo.com/' + vimeoId)
+    .then(function(r){return r.json()})
+    .then(function(d) {
+      var el = document.getElementById('vthumb' + i);
+      if (el && d.thumbnail_url) el.src = d.thumbnail_url;
+    }).catch(function(){});
 }
 function addVideo() { editorVideos.push({ src: '', vimeoId: '', title: '', thumb: '' }); renderVideoList(); }
 function removeVideo(i) { editorVideos.splice(i, 1); renderVideoList(); }
@@ -1508,11 +1533,53 @@ function renderRecapThumbs() {
   var html = '';
   editorRecapSrcs.forEach(function(src, i) {
     var thumbUrl = imgSrc(src);
-    html += '<div class="thumb"><img src="' + thumbUrl + '"><button class="thumb-remove" onclick="removeRecap(' + i + ')">&times;</button></div>';
+    html += '<div class="thumb" draggable="true"><img src="' + thumbUrl + '"><button class="thumb-remove" onclick="removeRecap(' + i + ')">&times;</button></div>';
   });
   document.getElementById('recapThumbs').innerHTML = html;
+  setupDragReorder(document.getElementById('recapThumbs'), editorRecapSrcs, renderRecapThumbs, editorRecapFiles);
 }
 function removeRecap(i) { editorRecapSrcs.splice(i, 1); editorRecapFiles.splice(i, 1); renderRecapThumbs(); }
+
+/* ========================================
+   DRAG REORDER - generic helper
+   ======================================== */
+function setupDragReorder(container, arr, renderFn, secondArr) {
+  var items = container.querySelectorAll('[draggable="true"]');
+  var dragIdx = -1;
+  items.forEach(function(el, i) {
+    el.addEventListener('dragstart', function(e) {
+      dragIdx = i;
+      el.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', i);
+    });
+    el.addEventListener('dragend', function() {
+      el.classList.remove('dragging');
+      items.forEach(function(x) { x.classList.remove('drag-over'); });
+    });
+    el.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      items.forEach(function(x) { x.classList.remove('drag-over'); });
+      if (i !== dragIdx) el.classList.add('drag-over');
+    });
+    el.addEventListener('dragleave', function() { el.classList.remove('drag-over'); });
+    el.addEventListener('drop', function(e) {
+      e.preventDefault();
+      el.classList.remove('drag-over');
+      if (dragIdx === i || dragIdx < 0) return;
+      // Reorder array
+      var item = arr.splice(dragIdx, 1)[0];
+      arr.splice(i, 0, item);
+      if (secondArr) {
+        var item2 = secondArr.splice(dragIdx, 1)[0];
+        secondArr.splice(i, 0, item2);
+      }
+      dragIdx = -1;
+      renderFn();
+    });
+  });
+}
 
 /* ========================================
    SHOP
