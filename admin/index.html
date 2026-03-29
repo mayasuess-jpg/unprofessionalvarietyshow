@@ -1110,6 +1110,24 @@ function renderSite() {
   html += '<span class="contact-link">Humanitix Tickets</span>';
   html += '<span class="contact-link">The Parkside Lounge</span>';
   html += '</div>';
+
+  // Newsletter
+  var nlText = s.newsletterText || 'Get show announcements and news. No spam, just antics.';
+  var inputStyle = 'padding:12px 16px;background:rgba(245,240,230,0.05);border:1px solid rgba(245,240,230,0.15);color:var(--cream);font-family:DM Sans,sans-serif;font-size:0.9rem;border-radius:0;width:100%';
+  html += '<div style="margin-top:60px;position:relative;z-index:1;text-align:center">';
+  html += '<div style="font-family:Space Grotesk,sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--pink);margin-bottom:12px">Newsletter</div>';
+  html += '<p style="font-size:0.85rem;color:rgba(245,240,230,0.5);margin-bottom:24px;line-height:1.6">' + esc(nlText) + '</p>';
+  html += '<div style="max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:10px">';
+  html += '<input type="email" disabled placeholder="Email address" style="' + inputStyle + ';opacity:0.5">';
+  html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">';
+  html += '<input type="text" disabled placeholder="First name" style="' + inputStyle + ';opacity:0.5">';
+  html += '<input type="text" disabled placeholder="Last name" style="' + inputStyle + ';opacity:0.5">';
+  html += '</div>';
+  html += '<div class="btn" style="width:100%;text-align:center;pointer-events:none;opacity:0.7">Subscribe</div>';
+  html += '</div>';
+  html += '<div style="font-size:0.65rem;color:rgba(245,240,230,0.3);margin-top:10px">Edit newsletter text and MailChimp URL in Settings</div>';
+  html += '</div>';
+
   html += '<div class="access-note" style="margin-top:40px" contenteditable="true" data-field="accessNote">' + esc(s.venue || '') + ' - ' + esc(s.venueAddress || '') + ' - ' + esc(s.accessibilityNote || '') + '</div>';
   html += '</section>';
 
