@@ -1031,7 +1031,7 @@ function renderSite() {
   html += '<div class="section-title" style="color:var(--pink);white-space:nowrap;font-size:clamp(2rem,7vw,6rem);padding:0" contenteditable="true" data-field="aboutHeadline">There will be antics.</div>';
   html += '<div class="about-grid" style="margin-top:50px">';
   html += '<div style="margin-top:4.5em">';
-  html += '<div class="about-text" contenteditable="true" data-field="aboutText">';
+  html += '<div class="about-text" style="cursor:pointer" onclick="toggleSettings()" title="Edit in Settings panel">';
   var aboutParas = (s.aboutText || '').split('\n').filter(function(p){return p.trim()});
   aboutParas.forEach(function(p){ html += '<p>' + esc(p) + '</p>'; });
   html += '</div>';
@@ -1679,8 +1679,7 @@ function collectInlineEdits() {
   var el;
   el = document.querySelector('[data-field="tagline"]');
   if (el) DATA.settings.tagline = el.textContent.trim();
-  el = document.querySelector('[data-field="aboutText"]');
-  if (el) DATA.settings.aboutText = el.innerText.trim();
+  // aboutText is edited via Settings panel textarea only (not inline)
 
   document.querySelectorAll('[data-shop]').forEach(function(el) {
     var idx = parseInt(el.dataset.shop);
