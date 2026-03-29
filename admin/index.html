@@ -1376,12 +1376,32 @@ function openShowEditor(idx) {
   renderPerformerList();
 
   editorRecapFiles = [];
-  editorRecapSrcs = (show.recapImages || []).slice();
+  // Merge recapImages + mediaItems photos (dedup by src)
+  var photoSrcs = {};
+  var allPhotos = [];
+  (show.recapImages || []).forEach(function(src) {
+    if (!photoSrcs[src]) { allPhotos.push(src); photoSrcs[src] = true; }
+  });
+  (show.mediaItems || []).forEach(function(m) {
+    if (m.type === 'photo' && m.src && !photoSrcs[m.src]) { allPhotos.push(m.src); photoSrcs[m.src] = true; }
+  });
+  editorRecapSrcs = allPhotos;
   renderRecapThumbs();
 
-  editorVideos = (show.videos || []).map(function(v) {
-    return { src: v.src || '', vimeoId: v.vimeoId || '', title: v.title || '', thumb: v.thumb || '' };
+  // Merge show.videos + mediaItems videos (dedup by src)
+  var vidSrcs = {};
+  var allVids = [];
+  (show.videos || []).forEach(function(v) {
+    var key = v.vimeoId || v.src || '';
+    if (!vidSrcs[key]) { allVids.push({ src: v.src || '', vimeoId: v.vimeoId || '', title: v.title || '', thumb: v.thumb || '' }); vidSrcs[key] = true; }
   });
+  (show.mediaItems || []).forEach(function(m) {
+    if ((m.type === 'video' || m.type === 'reel') && m.src && !vidSrcs[m.src]) {
+      allVids.push({ src: m.videoSrc || m.src || '', vimeoId: '', title: '', thumb: m.src || '' });
+      vidSrcs[m.src] = true;
+    }
+  });
+  editorVideos = allVids;
   renderVideoList();
 
   document.getElementById('showEditor').classList.add('active');
