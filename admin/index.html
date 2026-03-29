@@ -938,8 +938,8 @@ var editorPosterSrc = '';
 var editorRecapFiles = [];
 var editorRecapSrcs = [];
 var confirmCallback = null;
-var pendingFiles = {}; /* 'maya/path' -> File, uploaded on publish */
-var localPreviews = {}; /* 'img/path' -> blob URL for local preview */
+var pendingFiles = {}; /* path -> base64 string, persisted to localStorage */
+var localPreviews = {}; /* path -> data URL for local preview */
 
 /* ========================================
    INIT
@@ -959,6 +959,7 @@ async function init() {
   } else {
     await loadFromJSON();
   }
+  loadPendingFiles();
   renderSite();
   populateSettings();
   setupDropZones();
@@ -1309,13 +1310,17 @@ function setupLogoInput() {
 function handleLogoFile(file) {
   var path = 'img/' + file.name;
   DATA.settings.logoImage = path;
-  pendingFiles[path] = file;
-  localPreviews[path] = URL.createObjectURL(file);
-  renderLogoPreview();
-  markDirty();
-  renderSite();
-  setupDropZones();
-  toast('Logo updated');
+  stageFile(path, file);
+  var reader = new FileReader();
+  reader.onload = function() {
+    localPreviews[path] = reader.result;
+    renderLogoPreview();
+    markDirty();
+    renderSite();
+    setupDropZones();
+    toast('Logo updated');
+  };
+  reader.readAsDataURL(file);
 }
 
 function renderPressLinksEditor() {
@@ -1536,20 +1541,30 @@ function setupDropZones() {
 function handlePosterFile(file) {
   editorPosterFile = file;
   editorPosterSrc = 'img/ig-posts/' + file.name;
-  pendingFiles[editorPosterSrc] = file;
-  localPreviews[editorPosterSrc] = URL.createObjectURL(file);
-  document.getElementById('posterPreview').innerHTML =
-    '<img src="' + localPreviews[editorPosterSrc] + '" style="max-width:200px;max-height:200px">' +
-    '<div style="font-size:0.75rem;color:rgba(245,240,230,0.4);margin-top:4px">Will upload: ' + editorPosterSrc + '</div>';
+  stageFile(editorPosterSrc, file);
+  // Show immediate preview
+  var reader = new FileReader();
+  reader.onload = function() {
+    localPreviews[editorPosterSrc] = reader.result;
+    document.getElementById('posterPreview').innerHTML =
+      '<img src="' + reader.result + '" style="max-width:200px;max-height:200px">' +
+      '<div style="font-size:0.75rem;color:rgba(245,240,230,0.4);margin-top:4px">Will upload: ' + editorPosterSrc + '</div>';
+  };
+  reader.readAsDataURL(file);
 }
 
 function handleRecapFile(file) {
   var path = 'img/ig-posts/' + file.name;
   editorRecapFiles.push(file);
   editorRecapSrcs.push(path);
-  pendingFiles[path] = file;
-  localPreviews[path] = URL.createObjectURL(file);
-  renderRecapThumbs();
+  stageFile(path, file);
+  // Immediate preview
+  var reader = new FileReader();
+  reader.onload = function() {
+    localPreviews[path] = reader.result;
+    renderRecapThumbs();
+  };
+  reader.readAsDataURL(file);
 }
 
 function renderRecapThumbs() {
@@ -1645,10 +1660,14 @@ function replaceShopImage(idx) {
     var file = this.files[0];
     var path = 'img/ig-posts/' + file.name;
     DATA.shop[idx].image = path;
-    pendingFiles[path] = file;
-    localPreviews[path] = URL.createObjectURL(file);
-    markDirty(); saveDraft(); renderSite(); setupDropZones();
-    toast('Shop image queued for upload');
+    stageFile(path, file);
+    var reader = new FileReader();
+    reader.onload = function() {
+      localPreviews[path] = reader.result;
+      markDirty(); saveDraft(); renderSite(); setupDropZones();
+      toast('Shop image queued for upload');
+    };
+    reader.readAsDataURL(file);
   };
   input.click();
 }
@@ -1801,13 +1820,12 @@ async function publish() {
       treeItems.push({ path: path, mode: '100644', type: 'blob', sha: blobRes.sha });
     }
 
-    // Upload pending image files as base64
+    // Upload pending image files (already base64 in pendingFiles)
     var pendingPaths = Object.keys(pendingFiles);
     for (var pi = 0; pi < pendingPaths.length; pi++) {
       var imgPath = pendingPaths[pi];
-      var file = pendingFiles[imgPath];
-      toast('Uploading ' + (pi+1) + '/' + pendingPaths.length + ': ' + file.name);
-      var b64 = await fileToBase64(file);
+      var b64 = pendingFiles[imgPath];
+      toast('Uploading ' + (pi+1) + '/' + pendingPaths.length + ': ' + imgPath.split('/').pop());
       var imgBlobRes = await ghApi('POST', '/repos/mayasuess-jpg/unprofessionalvarietyshow/git/blobs', { content: b64, encoding: 'base64' }, token);
       treeItems.push({ path: imgPath, mode: '100644', type: 'blob', sha: imgBlobRes.sha });
     }
@@ -1819,6 +1837,7 @@ async function publish() {
     dirty = false;
     pendingFiles = {};
     localPreviews = {};
+    localStorage.removeItem('upvs-pending-files');
     localStorage.removeItem('upvs-admin-draft');
     document.getElementById('saveStatus').textContent = 'Published!';
     toast('Published! Live in a few minutes.');
@@ -1897,6 +1916,42 @@ function imgSrc(path) {
   if (!path) return '';
   if (localPreviews[path]) return localPreviews[path];
   return '../' + path;
+}
+
+function stageFile(path, file) {
+  var reader = new FileReader();
+  reader.onload = function() {
+    var dataUrl = reader.result;
+    var b64 = dataUrl.split(',')[1];
+    pendingFiles[path] = b64;
+    localPreviews[path] = dataUrl;
+    savePendingFiles();
+  };
+  reader.readAsDataURL(file);
+}
+
+function savePendingFiles() {
+  try {
+    localStorage.setItem('upvs-pending-files', JSON.stringify(pendingFiles));
+  } catch(e) {
+    // localStorage full - warn user
+    if (e.name === 'QuotaExceededError') toast('Storage full - publish now to free space', true);
+  }
+}
+
+function loadPendingFiles() {
+  try {
+    var stored = localStorage.getItem('upvs-pending-files');
+    if (stored) {
+      pendingFiles = JSON.parse(stored);
+      // Rebuild localPreviews from stored base64
+      Object.keys(pendingFiles).forEach(function(path) {
+        var ext = path.split('.').pop().toLowerCase();
+        var mime = ext === 'png' ? 'image/png' : ext === 'webp' ? 'image/webp' : 'image/jpeg';
+        localPreviews[path] = 'data:' + mime + ';base64,' + pendingFiles[path];
+      });
+    }
+  } catch(e) {}
 }
 function esc(str) {
   if (!str) return '';
