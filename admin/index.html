@@ -566,12 +566,13 @@ body.admin-mode{padding-top:48px}
 .token-setup{
   position:fixed;inset:0;z-index:99999;
   background:rgba(0,0,0,0.85);
-  display:none;align-items:center;justify-content:center;
+  display:none;align-items:flex-start;justify-content:center;
+  overflow-y:auto;padding:40px 0;
 }
 .token-setup.active{display:flex}
 .token-box{
   background:var(--plum);border:1px solid rgba(232,74,138,0.3);
-  padding:40px;max-width:500px;width:90%;
+  padding:40px;max-width:500px;width:90%;margin:auto;
 }
 .token-box h2{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;margin-bottom:8px}
 .token-box p{font-size:0.85rem;color:rgba(245,240,230,0.6);line-height:1.6;margin-bottom:20px}
