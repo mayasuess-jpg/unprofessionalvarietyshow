@@ -13,12 +13,20 @@
     "notes": "",
     "isUpcoming": false,
     "recapCaption": "",
-    "performers": [],
+    "performers": [
+      {
+        "name": "Performers coming soon",
+        "instagram": "",
+        "bio": ""
+      }
+    ],
     "recapImages": [],
     "videos": [],
     "mediaItems": [],
     "specialGuests": [],
-    "dj": ""
+    "dj": "",
+    "sets": "",
+    "posterImage": "img/ig-posts/Physique.png"
   },
   {
     "title": "The Internet",
