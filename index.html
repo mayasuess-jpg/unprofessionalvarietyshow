@@ -497,21 +497,22 @@ footer a:hover{color:var(--pink)}
 @media(max-width:768px){
   /* Hero - visible title + marquee, compact */
   .hero{padding:30px 5vw 15px;min-height:auto}
-  .hero-title{font-size:clamp(2.8rem,13vw,5rem);max-width:100%}
+  .hero-title{font-size:clamp(2rem,9vw,3.5rem);max-width:100%;word-break:break-word}
   .hero-tagline{font-size:0.9rem;white-space:normal;margin-top:12px;padding:0 2vw}
   .marquee-wrap{margin-top:20px}
   .marquee-track span{font-size:1rem;padding:0 24px}
 
-  /* Hide next show date banner on mobile - info is inline */
-  .next-show-date-banner{display:none}
+  /* Next show date banner - compact on mobile */
+  .next-show-date-banner{padding:12px 5vw 12px !important;margin-top:0 !important}
+  .next-show-date-banner div{white-space:normal !important;font-size:clamp(1rem,4vw,1.4rem) !important;line-height:1.4}
 
-  /* Next show - only label above poster, title + details below */
+  /* Next show - label above poster, title + details below */
   .next-show-header{
     display:block;text-align:center;
-    padding:10px 5vw 8px;
+    padding:8px 5vw 6px;
   }
   .next-show-header .label{
-    font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;
+    font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;
     color:var(--pink);
   }
   .next-show-header h2{display:none}
@@ -587,7 +588,7 @@ footer a:hover{color:var(--pink)}
 }
 
 @media(max-width:400px){
-  .hero-title{font-size:clamp(2.2rem,15vw,4rem)}
+  .hero-title{font-size:clamp(1.8rem,8vw,2.8rem)}
   .next-show-poster{width:90vw}
   .shows-grid{grid-template-columns:1fr;gap:16px}
   .gallery{grid-template-columns:1fr;gap:12px}
