@@ -784,12 +784,16 @@ body.admin-mode{padding-top:48px}
     <div class="se-row">
       <div class="se-field">
         <label>Emcee</label>
-        <input id="seEmcee" value="Maya Suess">
+        <input id="seEmcee" placeholder="Maya Suess">
       </div>
       <div class="se-field">
         <label>Accompaniment</label>
-        <input id="seAccompaniment" placeholder="Klovis Gaynor">
+        <input id="seAccompaniment" placeholder="Klovis Gaynor, Mamie Minch">
       </div>
+    </div>
+    <div class="se-field">
+      <label>Sets</label>
+      <input id="seSets" placeholder="Libby Paloma">
     </div>
     <div class="se-field">
       <label>Notes (crew credits, etc)</label>
@@ -1341,8 +1345,9 @@ function openShowEditor(idx) {
   document.getElementById('seDoors').value = show.doors || '';
   document.getElementById('seTicketUrl').value = show.ticketUrl || '';
   document.getElementById('seTheme').value = show.theme || show.description || '';
-  document.getElementById('seEmcee').value = show.emcee || 'Maya Suess';
+  document.getElementById('seEmcee').value = show.emcee || '';
   document.getElementById('seAccompaniment').value = show.accompaniment || '';
+  document.getElementById('seSets').value = show.sets || '';
   document.getElementById('seNotes').value = show.notes || '';
   document.getElementById('seUpcoming').checked = !!show.isUpcoming;
   document.getElementById('seRecapCaption').value = show.recapCaption || '';
@@ -1387,6 +1392,7 @@ function saveShow() {
   show.description = show.theme;
   show.emcee = document.getElementById('seEmcee').value.trim();
   show.accompaniment = document.getElementById('seAccompaniment').value.trim();
+  show.sets = document.getElementById('seSets').value.trim();
   show.notes = document.getElementById('seNotes').value.trim();
   show.isUpcoming = document.getElementById('seUpcoming').checked;
   show.recapCaption = document.getElementById('seRecapCaption').value.trim();
