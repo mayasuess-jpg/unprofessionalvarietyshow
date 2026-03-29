@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mayasuess-jpg.github.io/unprofessionalvarietyshow/sitemap.xml
+Sitemap: https://unprofessionalvarietyshow.com/sitemap.xml
