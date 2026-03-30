@@ -1592,16 +1592,21 @@ document.addEventListener('keydown', function(e) {
    ======================================== */
 function fitText(el, pct) {
   if (!el) return;
-  el.style.whiteSpace = 'nowrap';
   var parent = el.parentElement;
   var targetW = parent.clientWidth * (pct || 0.9);
+  el.style.display = 'inline-block';
+  el.style.whiteSpace = 'nowrap';
+  el.style.width = 'auto';
   var size = 10;
   el.style.fontSize = size + 'px';
-  while (el.scrollWidth < targetW && size < 300) {
+  while (el.offsetWidth < targetW && size < 300) {
     size += 2;
     el.style.fontSize = size + 'px';
   }
   el.style.fontSize = (size - 2) + 'px';
+  el.style.display = '';
+  el.style.whiteSpace = 'nowrap';
+  el.style.width = '';
   el.style.visibility = 'visible';
 }
 function fitHeroTitle() {
@@ -1609,17 +1614,25 @@ function fitHeroTitle() {
   var title = document.querySelector('.hero-title');
   if (!line1 || !title) return;
   var pct = window.innerWidth <= 768 ? 0.9 : 0.75;
-  title.style.whiteSpace = 'nowrap';
   var container = title.parentElement;
   var targetW = container.clientWidth * pct;
+  // Measure line1 text width by making it inline
+  line1.style.display = 'inline';
+  title.style.whiteSpace = 'nowrap';
+  title.style.width = 'auto';
+  title.style.display = 'inline-block';
   var size = 10;
   title.style.fontSize = size + 'px';
-  while (line1.scrollWidth < targetW && size < 300) {
+  while (line1.offsetWidth < targetW && size < 300) {
     size += 2;
     title.style.fontSize = size + 'px';
   }
   title.style.fontSize = (size - 2) + 'px';
+  // Restore display
+  line1.style.display = '';
+  title.style.display = '';
   title.style.whiteSpace = '';
+  title.style.width = '';
   title.style.visibility = 'visible';
 }
 
