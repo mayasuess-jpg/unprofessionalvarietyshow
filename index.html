@@ -1221,8 +1221,9 @@ function renderContact() {
     '<a href="' + escHtml(s.parksideUrl || '#') + '" target="_blank" class="contact-link">The Parkside Lounge</a>';
 
   const accessEl = document.getElementById('accessNote');
-  accessEl.textContent = s.venue + ' - ' + s.venueAddress + ' - ' +
-    (s.accessibilityNote || 'Ground floor bar, portable ramp to performance space, accessible bathrooms');
+  var accessText = escHtml(s.venue || '') + ' - ' + escHtml(s.venueAddress || '') + ' - ' +
+    escHtml(s.accessibilityNote || 'Ground floor bar, portable ramp to performance space, accessible bathrooms');
+  accessEl.innerHTML = accessText.replace(/&lt;br&gt;/g, '<br>');
 
   // Newsletter
   var nlUrl = s.newsletterUrl || 'https://instagram.us12.list-manage.com/subscribe/post?u=61c543a492e2d72f338e9b94d&id=e08d4cf0d0&f_id=008042e9f0';
