@@ -1595,13 +1595,13 @@ function fitText(el, pct) {
   var parent = el.parentElement;
   var targetW = parent.clientWidth * (pct || 0.9);
   if (targetW <= 0) { el.style.visibility = 'visible'; return; }
-  // Measure text at a known size
+  var savedCss = el.style.cssText;
   var probe = 100;
-  el.style.cssText += ';display:inline-block;white-space:nowrap;width:auto;font-size:' + probe + 'px;position:absolute;visibility:hidden';
+  el.style.cssText = 'display:inline-block;white-space:nowrap;width:auto;font-size:' + probe + 'px;position:absolute;visibility:hidden;font-family:inherit;font-weight:inherit';
   var textW = el.offsetWidth;
-  // Calculate exact size needed
+  if (textW <= 0) { el.style.cssText = savedCss; el.style.visibility = 'visible'; return; }
   var finalSize = Math.floor(probe * targetW / textW);
-  el.style.cssText = '';
+  el.style.cssText = savedCss;
   el.style.fontSize = finalSize + 'px';
   el.style.whiteSpace = 'nowrap';
   el.style.visibility = 'visible';
@@ -1614,16 +1614,15 @@ function fitHeroTitle() {
   var container = title.parentElement;
   var targetW = container.clientWidth * pct;
   if (targetW <= 0) { title.style.visibility = 'visible'; return; }
-  // Measure line1 at known size
+  var savedCss = title.style.cssText;
   var probe = 100;
-  var origStyle = title.style.cssText;
-  title.style.cssText += ';display:inline-block;white-space:nowrap;width:auto;font-size:' + probe + 'px;position:absolute;visibility:hidden';
+  title.style.cssText = 'display:inline-block;white-space:nowrap;width:auto;font-size:' + probe + 'px;position:absolute;visibility:hidden;font-family:Space Grotesk,sans-serif;font-weight:700';
   line1.style.display = 'inline';
   var textW = line1.offsetWidth;
+  if (textW <= 0) { line1.style.display = ''; title.style.cssText = savedCss; title.style.visibility = 'visible'; return; }
   var finalSize = Math.floor(probe * targetW / textW);
-  // Restore
   line1.style.display = '';
-  title.style.cssText = '';
+  title.style.cssText = savedCss;
   title.style.fontSize = finalSize + 'px';
   title.style.visibility = 'visible';
 }
@@ -1699,12 +1698,17 @@ function initMobileNav() {
 init();
 initMarquees();
 initMobileNav();
-fitText(document.getElementById('headingAbout'));
-fitHeroTitle();
-window.addEventListener('resize', function() {
+function runFitText() {
   fitText(document.getElementById('headingAbout'));
   fitHeroTitle();
-});
+}
+// Run after fonts load to get accurate measurements
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(runFitText);
+} else {
+  window.addEventListener('load', runFitText);
+}
+window.addEventListener('resize', runFitText);
 window.addEventListener('resize', function() {
   var nav = document.querySelector('nav');
   if (window.innerWidth > 768) nav.classList.add('nav-visible');
