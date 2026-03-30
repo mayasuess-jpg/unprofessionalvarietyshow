@@ -1699,7 +1699,17 @@ init();
 initMarquees();
 initMobileNav();
 function runFitText() {
-  fitText(document.getElementById('headingAbout'));
+  var about = document.getElementById('headingAbout');
+  if (window.innerWidth <= 768) {
+    fitText(about);
+  } else {
+    // Desktop: fixed size, left-aligned, no fitText
+    if (about) {
+      about.style.fontSize = '5rem';
+      about.style.whiteSpace = 'nowrap';
+      about.style.visibility = 'visible';
+    }
+  }
   fitHeroTitle();
 }
 // Run after fonts load to get accurate measurements
