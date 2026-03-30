@@ -67,7 +67,7 @@
     "accompaniment": "AI Bot with prompt: \"Sparse synth pop, 1980s electro, New Wave in the style of Blue Monday by New Order for a moody female vocalist\"",
     "emcee": "Maya Suess",
     "dj": "",
-    "notes": "Costumes by East Village Vintage @evvintagecollective styled by Maegan. \n\nTech by Vandy @vanburgocollective. \nDoor by @macauleydevun. \nStage Handing by @pigpenhaulin",
+    "notes": "Costumes by @evvintagecollective styled by Maegan. Tech by Vandy @vanburgocollective. Door by @macauleydevun. Mics by @pigpenhaulin.",
     "ticketUrl": "",
     "posterImage": "img/ig-posts/18174652480372608.jpg",
     "isUpcoming": false,
@@ -129,12 +129,6 @@
         "thumb": "img/ig-thumbs/18079027946457725.jpg"
       },
       {
-        "src": "img/ig-reels/18119681440595853.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/18119681440595853.jpg"
-      },
-      {
         "src": "img/ig-reels/18079027946457725.mp4",
         "vimeoId": "",
         "title": "",
@@ -147,7 +141,45 @@
         "thumb": "img/ig-thumbs/18119681440595853.jpg"
       }
     ],
-    "mediaItems": [],
+    "mediaItems": [
+      {
+        "src": "img/ig-thumbs/18079027946457725.jpg",
+        "type": "reel",
+        "date": "2026-02-14",
+        "videoSrc": "img/ig-reels/18079027946457725.mp4"
+      },
+      {
+        "src": "img/ig-thumbs/18119681440595853.jpg",
+        "type": "reel",
+        "date": "2026-02-10",
+        "videoSrc": "img/ig-reels/18119681440595853.mp4"
+      },
+      {
+        "src": "img/ig-posts/17865021930492753.jpg",
+        "type": "photo",
+        "date": "2026-02-09"
+      },
+      {
+        "src": "img/ig-posts/18089470052036386.jpg",
+        "type": "photo",
+        "date": "2026-02-05"
+      },
+      {
+        "src": "img/ig-posts/17998272122903582.jpg",
+        "type": "photo",
+        "date": "2026-02-02"
+      },
+      {
+        "src": "img/ig-posts/18092149580068787.jpg",
+        "type": "photo",
+        "date": "2026-01-27"
+      },
+      {
+        "src": "img/ig-posts/18174652480372608.jpg",
+        "type": "photo",
+        "date": "2026-01-20"
+      }
+    ],
     "sets": ""
   },
   {
@@ -194,7 +226,7 @@
     "accompaniment": "Klovis Gaynor",
     "emcee": "Maya Suess",
     "dj": "",
-    "notes": "Sponsored by the Bad Review Fund. @macauleydevun on door, Lorenzo Triburgo on video documentation, @alafemmegaze on tech, Parkside tech the brilliant Jun, @libbys_arty_party on backup all things, @tata.loperasanchez on photo documentation.",
+    "notes": "Sponsored by the Bad Review Fund. \n\nMaya styled by Dylan Gong. \n\nLorenzo Triburgo on video documentation, Vandy Van Dyke on tech, Tata Lopera taking Photos.",
     "ticketUrl": "",
     "posterImage": "img/ig-posts/18366407008089307.jpg",
     "isUpcoming": false,
@@ -283,7 +315,7 @@
     "accompaniment": "Klovis Gaynor",
     "emcee": "Maya Suess",
     "dj": "",
-    "notes": "Stylists: \nLibby Paloma @libbys_arty_party\nErin Connolly @e.connolly123, \nHMac @hmacsauz. \n\n\"BADVICE\" Banner by Libby Paloma @libbys_arty_party\n\nGuest Performance: Sarah Edmondson, giving us really good (bad) Advice. And she knows,",
+    "notes": "Stylists: Libby Paloma @libbys_arty_party, Erin Connolly @e.connolly123, HMac @hmacsauz. \"BADVICE\" Banner by @libbys_arty_party.",
     "ticketUrl": "",
     "posterImage": "img/ig-posts/17932002821960776.jpg",
     "isUpcoming": false,
@@ -304,7 +336,28 @@
     ],
     "recapCaption": "Thank you to everyone who comes to Unprofessional Variety Show. The last show gave us some baaad baaad (and some super good) advice. But just remember, you're fiiiiiiiiiine.",
     "videos": [],
-    "mediaItems": [],
+    "mediaItems": [
+      {
+        "src": "img/ig-posts/17911499088211597.jpg",
+        "type": "photo",
+        "date": "2025-09-16"
+      },
+      {
+        "src": "img/ig-posts/18049432655300328.jpg",
+        "type": "photo",
+        "date": "2025-09-08"
+      },
+      {
+        "src": "img/ig-posts/17851809525536419.jpg",
+        "type": "photo",
+        "date": "2025-08-30"
+      },
+      {
+        "src": "img/ig-posts/18080670305500881.jpg",
+        "type": "photo",
+        "date": "2025-08-22"
+      }
+    ],
     "sets": ""
   },
   {
@@ -340,7 +393,7 @@
     "accompaniment": "Mamie Minch",
     "emcee": "Maya Suess",
     "dj": "",
-    "notes": "Sets by Libby Paloma @libbys_arty_party. \n\nCamp Counselors Libby Paloma & Macauley Devun @macauleydevun. \n\nHarmonies + stage management by Vandy @alafemmegaze. \n\nCostumes by @evvintagecollective\n\nShirts by Maya",
+    "notes": "Sets by Libby Paloma @libbys_arty_party. Camp Counselors Libby Paloma & Macauley Devun @macauleydevun. Harmonies + stage management by Vandy @alafemmegaze. Visors and camp director nighttime look by @evvintagecollective.",
     "ticketUrl": "",
     "posterImage": "img/ig-posts/17910301938035642.jpg",
     "isUpcoming": false,
@@ -454,7 +507,7 @@
     "accompaniment": "Klovis Gaynor & Larah Helayne",
     "emcee": "Maya Suess",
     "dj": "",
-    "notes": "Costumes by Dancing Bear\nScript on the fly by Dancing Bear\n\nPhysic Medium Consultant, Joanie Drago \n\nPhotos & video by @gmbelfiglio @davidwbullen and @lorenzotriburgo.",
+    "notes": "Photos & video by @gmbelfiglio @davidwbullen and @lorenzotriburgo.",
     "ticketUrl": "",
     "posterImage": "img/ig-posts/18073312672735436.jpg",
     "isUpcoming": false,
@@ -572,7 +625,7 @@
     "accompaniment": "Klovis Gaynor & Mamie Minch",
     "emcee": "Maya Suess",
     "dj": "",
-    "notes": "Costuming by designers from @versbk.nyc styled by Tilly @tillydwolfe. \n\nMake up by @r0seandth0rn\n\nTech assist by Em Miller @em_____miller. \nDoor assist by @macauleydevun. \nMuch assist by @angelomadsen.",
+    "notes": "Costuming by designers from @versbk.nyc styled by @tillydwolfe. Make up by @r0seandth0rn. Tech assist by @em_____miller. Door assist by @macauleydevun. Much assist by @angelomadsen. All the hustle by @gavinodownie and @the_parkside_lounge_nyc.",
     "ticketUrl": "",
     "posterImage": "img/ig-posts/17855394342258698.jpg",
     "isUpcoming": false,
