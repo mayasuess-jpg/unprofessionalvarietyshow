@@ -531,28 +531,16 @@
     "recapCaption": "Thank you to everyone who came to the February Unprofessional Variety Show: The Afterlife. We did indeed cross over to the other side.",
     "videos": [
       {
-        "src": "",
-        "vimeoId": "1062930871",
-        "title": "Afterlife 05: Fantasy Grandma Song End",
-        "thumb": ""
-      },
-      {
-        "src": "img/ig-videos/18156354442356108.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/18156354442356108.jpg"
-      },
-      {
         "src": "img/ig-videos/18056820941043093.mp4",
         "vimeoId": "",
         "title": "",
         "thumb": "img/ig-thumbs/18056820941043093.jpg"
       },
       {
-        "src": "",
-        "vimeoId": "1060695987",
-        "title": "Afterlife 04: Clay Woman",
-        "thumb": ""
+        "src": "img/ig-videos/18156354442356108.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/18156354442356108.jpg"
       },
       {
         "src": "",
@@ -573,159 +561,19 @@
         "thumb": ""
       },
       {
-        "src": "img/ig-reels/18073750630780485.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/18073750630780485.jpg"
-      },
-      {
         "src": "",
-        "vimeoId": "1051933571",
-        "title": "The Incredible Drunkertons",
+        "vimeoId": "1060695987",
+        "title": "Afterlife 04: Clay Woman",
         "thumb": ""
       },
       {
-        "src": "img/ig-reels/18073750630780485.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/18073750630780485.jpg"
-      },
-      {
-        "src": "img/ig-reels/18003325235562817.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/18003325235562817.jpg"
+        "src": "",
+        "vimeoId": "1062930871",
+        "title": "Afterlife 05: Fantasy Grandma Song End",
+        "thumb": ""
       }
     ],
-    "mediaItems": [
-      {
-        "src": "",
-        "type": "vimeo",
-        "date": "2025-02-27",
-        "vimeoId": "1060695987",
-        "title": "Afterlife 04: Clay Woman"
-      },
-      {
-        "src": "",
-        "type": "vimeo",
-        "date": "2025-02-26",
-        "vimeoId": "1060335320",
-        "title": "Afterlife 01: Opening"
-      },
-      {
-        "src": "",
-        "type": "vimeo",
-        "date": "2025-02-26",
-        "vimeoId": "1060597483",
-        "title": "Afterlife 02: Paula Merchan + DB/Emcee"
-      },
-      {
-        "src": "",
-        "type": "vimeo",
-        "date": "2025-02-26",
-        "vimeoId": "1060626656",
-        "title": "Afterlife 03: Joanie Drago + DB 3.0"
-      },
-      {
-        "src": "img/ig-thumbs/18073750630780485.jpg",
-        "type": "reel",
-        "date": "2025-02-23",
-        "videoSrc": "img/ig-reels/18073750630780485.mp4"
-      },
-      {
-        "src": "img/ig-posts/18004299542555900.jpg",
-        "type": "photo",
-        "date": "2025-02-22"
-      },
-      {
-        "src": "img/ig-posts/18072291160761450.jpg",
-        "type": "photo",
-        "date": "2025-02-22"
-      },
-      {
-        "src": "img/ig-posts/18072193558773181.jpg",
-        "type": "photo",
-        "date": "2025-02-22"
-      },
-      {
-        "src": "img/ig-posts/18285893881216030.jpg",
-        "type": "photo",
-        "date": "2025-02-22"
-      },
-      {
-        "src": "img/ig-posts/18074274742619924.jpg",
-        "type": "photo",
-        "date": "2025-02-22"
-      },
-      {
-        "src": "img/ig-posts/18074270977685971.jpg",
-        "type": "photo",
-        "date": "2025-02-22"
-      },
-      {
-        "src": "img/ig-posts/18059646109992951.jpg",
-        "type": "photo",
-        "date": "2025-02-22"
-      },
-      {
-        "src": "img/ig-posts/18072007990770440.jpg",
-        "type": "photo",
-        "date": "2025-02-22"
-      },
-      {
-        "src": "img/ig-thumbs/18003325235562817.jpg",
-        "type": "reel",
-        "date": "2025-02-21",
-        "videoSrc": "img/ig-reels/18003325235562817.mp4"
-      },
-      {
-        "src": "img/ig-posts/18041471807523198.jpg",
-        "type": "photo",
-        "date": "2025-02-18"
-      },
-      {
-        "src": "img/ig-posts/18076255861728465.jpg",
-        "type": "photo",
-        "date": "2025-02-12"
-      },
-      {
-        "src": "img/ig-posts/17922855624019902.jpg",
-        "type": "photo",
-        "date": "2025-02-10"
-      },
-      {
-        "src": "img/ig-posts/17994478235754167.jpg",
-        "type": "photo",
-        "date": "2025-02-06"
-      },
-      {
-        "src": "img/ig-posts/18073312672735436.jpg",
-        "type": "photo",
-        "date": "2025-02-02"
-      },
-      {
-        "src": "img/ig-posts/18070529983759325.jpg",
-        "type": "photo",
-        "date": "2025-02-02"
-      },
-      {
-        "src": "img/ig-posts/18484576858009958.jpg",
-        "type": "photo",
-        "date": "2025-02-02"
-      },
-      {
-        "src": "img/ig-posts/18097188871454245.jpg",
-        "type": "photo",
-        "date": "2025-02-02"
-      },
-      {
-        "src": "",
-        "type": "vimeo",
-        "date": "2025-01-30",
-        "vimeoId": "1051933571",
-        "title": "The Incredible Drunkertons"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
@@ -789,13 +637,13 @@
       "img/ig-posts/18027928682567022.jpg",
       "img/ig-posts/18004340135516503.jpg",
       "img/ig-posts/18051835394478811.jpg",
-      "img/ig-posts/18285387382240370.jpg",
       "img/ig-posts/18051162140049271.jpg",
       "img/ig-posts/18368496973116113.jpg",
       "img/ig-posts/18052717222825265.jpg",
       "img/ig-posts/18062014891806666.jpg",
       "img/ig-posts/17891631609110873.jpg",
-      "img/ig-posts/18476855458017926.jpg"
+      "img/ig-posts/18476855458017926.jpg",
+      "img/ig-posts/18040481003224285.jpg"
     ],
     "recapCaption": "Thank you to everyone who came to Unprofessional Variety Show: A Magic Show and cast a spell. It was truly Magic-as seen in the work of these brilliant performers.",
     "videos": [
@@ -825,20 +673,8 @@
       },
       {
         "src": "",
-        "vimeoId": "1041240001",
-        "title": "Mr. Rogers: Lady Elaine",
-        "thumb": ""
-      },
-      {
-        "src": "",
         "vimeoId": "1041242033",
         "title": "Magic! Fortification Spell",
-        "thumb": ""
-      },
-      {
-        "src": "",
-        "vimeoId": "1041243561",
-        "title": "Mr. Rogers: Neighbor Siobhan Meow",
         "thumb": ""
       },
       {
@@ -846,88 +682,15 @@
         "vimeoId": "1051933571",
         "title": "The Incredible Drunkertons",
         "thumb": ""
+      },
+      {
+        "src": "img/ig-reels/17871578262248338.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/17871578262248338.jpg"
       }
     ],
-    "mediaItems": [
-      {
-        "src": "",
-        "type": "vimeo",
-        "date": "2024-12-20",
-        "vimeoId": "1041240001",
-        "title": "Mr. Rogers: Lady Elaine"
-      },
-      {
-        "src": "",
-        "type": "vimeo",
-        "date": "2024-12-20",
-        "vimeoId": "1041242033",
-        "title": "Magic! Fortification Spell"
-      },
-      {
-        "src": "",
-        "type": "vimeo",
-        "date": "2024-12-20",
-        "vimeoId": "1041243561",
-        "title": "Mr. Rogers: Neighbor Siobhan Meow"
-      },
-      {
-        "src": "img/ig-posts/18285387382240370.jpg",
-        "type": "photo",
-        "date": "2024-12-15"
-      },
-      {
-        "src": "img/ig-posts/17891631609110873.jpg",
-        "type": "photo",
-        "date": "2024-12-15"
-      },
-      {
-        "src": "img/ig-posts/18040481003224285.jpg",
-        "type": "photo",
-        "date": "2024-12-15"
-      },
-      {
-        "src": "img/ig-posts/18476855458017926.jpg",
-        "type": "photo",
-        "date": "2024-12-15"
-      },
-      {
-        "src": "img/ig-posts/18276964210218050.jpg",
-        "type": "photo",
-        "date": "2024-12-15"
-      },
-      {
-        "src": "img/ig-thumbs/17871578262248338.jpg",
-        "type": "reel",
-        "date": "2024-12-12",
-        "videoSrc": "img/ig-reels/17871578262248338.mp4"
-      },
-      {
-        "src": "img/ig-posts/18051162140049271.jpg",
-        "type": "photo",
-        "date": "2024-12-09"
-      },
-      {
-        "src": "img/ig-thumbs/18052438088311420.jpg",
-        "type": "reel",
-        "date": "2024-12-08",
-        "videoSrc": "img/ig-reels/18052438088311420.mp4"
-      },
-      {
-        "src": "img/ig-posts/18368496973116113.jpg",
-        "type": "photo",
-        "date": "2024-12-07"
-      },
-      {
-        "src": "img/ig-posts/18052717222825265.jpg",
-        "type": "photo",
-        "date": "2024-12-02"
-      },
-      {
-        "src": "img/ig-posts/18062014891806666.jpg",
-        "type": "photo",
-        "date": "2024-11-29"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
@@ -1048,19 +811,12 @@
       "img/ig-posts/18050365624639300.jpg",
       "img/ig-posts/18019088333468829.jpg",
       "img/ig-posts/18099219220408090.jpg",
-      "img/ig-posts/18028973696009226.jpg",
       "img/ig-posts/17998232321374447.jpg",
       "img/ig-posts/18267682552225362.jpg",
       "img/ig-posts/17927162513778667.jpg",
       "img/ig-posts/18017635613471619.jpg",
-      "img/ig-posts/17919376364909977.jpg",
-      "img/ig-posts/17939752898707461.jpg",
-      "img/ig-posts/17900383670979284.jpg",
-      "img/ig-posts/18042925432788830.jpg",
-      "img/ig-posts/17899380071983893.jpg",
-      "img/ig-posts/18041014621745573.jpg",
-      "img/ig-posts/17994067589628673.jpg",
-      "img/ig-posts/18010975676461011.jpg"
+      "img/ig-posts/18028973696009226.jpg",
+      "img/ig-posts/17919376364909977.jpg"
     ],
     "recapCaption": "Thank you to everyone who came to the tenth iteration of the Unprofessional Variety Show!! We had a gay ol' time telling stories. . .",
     "videos": [
@@ -1071,128 +827,13 @@
         "thumb": "img/ig-thumbs/18106830763389403.jpg"
       },
       {
-        "src": "img/ig-reels/17984526110661630.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/17984526110661630.jpg"
-      },
-      {
         "src": "img/ig-videos/17915588609927589.mp4",
         "vimeoId": "",
         "title": "",
         "thumb": "img/ig-thumbs/17915588609927589.jpg"
       }
     ],
-    "mediaItems": [
-      {
-        "src": "img/ig-posts/17866709673110234.jpg",
-        "type": "photo",
-        "date": "2024-05-22"
-      },
-      {
-        "src": "img/ig-thumbs/18106830763389403.jpg",
-        "type": "video",
-        "date": "2024-05-22",
-        "videoSrc": "img/ig-videos/18106830763389403.mp4"
-      },
-      {
-        "src": "img/ig-posts/18070417096519064.jpg",
-        "type": "photo",
-        "date": "2024-05-22"
-      },
-      {
-        "src": "img/ig-thumbs/17915588609927589.jpg",
-        "type": "video",
-        "date": "2024-05-22",
-        "videoSrc": "img/ig-videos/17915588609927589.mp4"
-      },
-      {
-        "src": "img/ig-posts/18050365624639300.jpg",
-        "type": "photo",
-        "date": "2024-05-22"
-      },
-      {
-        "src": "img/ig-posts/18019088333468829.jpg",
-        "type": "photo",
-        "date": "2024-05-22"
-      },
-      {
-        "src": "img/ig-posts/18099219220408090.jpg",
-        "type": "photo",
-        "date": "2024-05-22"
-      },
-      {
-        "src": "img/ig-thumbs/17984526110661630.jpg",
-        "type": "reel",
-        "date": "2024-05-19",
-        "videoSrc": "img/ig-reels/17984526110661630.mp4"
-      },
-      {
-        "src": "img/ig-posts/18028973696009226.jpg",
-        "type": "photo",
-        "date": "2024-05-16"
-      },
-      {
-        "src": "img/ig-posts/17998232321374447.jpg",
-        "type": "photo",
-        "date": "2024-05-14"
-      },
-      {
-        "src": "img/ig-posts/18267682552225362.jpg",
-        "type": "photo",
-        "date": "2024-05-12"
-      },
-      {
-        "src": "img/ig-posts/17927162513778667.jpg",
-        "type": "photo",
-        "date": "2024-05-05"
-      },
-      {
-        "src": "img/ig-posts/18017635613471619.jpg",
-        "type": "photo",
-        "date": "2024-05-02"
-      },
-      {
-        "src": "img/ig-posts/17919376364909977.jpg",
-        "type": "photo",
-        "date": "2024-04-28"
-      },
-      {
-        "src": "img/ig-posts/17939752898707461.jpg",
-        "type": "photo",
-        "date": "2024-04-21"
-      },
-      {
-        "src": "img/ig-posts/17900383670979284.jpg",
-        "type": "photo",
-        "date": "2024-04-21"
-      },
-      {
-        "src": "img/ig-posts/18042925432788830.jpg",
-        "type": "photo",
-        "date": "2024-04-21"
-      },
-      {
-        "src": "img/ig-posts/17899380071983893.jpg",
-        "type": "photo",
-        "date": "2024-04-21"
-      },
-      {
-        "src": "img/ig-posts/18041014621745573.jpg",
-        "type": "photo",
-        "date": "2024-04-21"
-      },
-      {
-        "src": "img/ig-posts/17994067589628673.jpg",
-        "type": "photo",
-        "date": "2024-04-21"
-      },
-      {
-        "src": "img/ig-posts/18010975676461011.jpg",
-        "type": "photo",
-        "date": "2024-04-21"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
@@ -1285,60 +926,7 @@
         "thumb": "img/ig-thumbs/17979228878645744.jpg"
       }
     ],
-    "mediaItems": [
-      {
-        "src": "img/ig-thumbs/18002372132457190.jpg",
-        "type": "reel",
-        "date": "2024-02-17",
-        "videoSrc": "img/ig-reels/18002372132457190.mp4"
-      },
-      {
-        "src": "img/ig-posts/18052609384554350.jpg",
-        "type": "photo",
-        "date": "2024-02-14"
-      },
-      {
-        "src": "img/ig-posts/18015377537495362.jpg",
-        "type": "photo",
-        "date": "2024-02-12"
-      },
-      {
-        "src": "img/ig-posts/18048629212595861.jpg",
-        "type": "photo",
-        "date": "2024-02-11"
-      },
-      {
-        "src": "img/ig-thumbs/17979228878645744.jpg",
-        "type": "reel",
-        "date": "2024-02-10",
-        "videoSrc": "img/ig-reels/17979228878645744.mp4"
-      },
-      {
-        "src": "img/ig-posts/17854256865111007.jpg",
-        "type": "photo",
-        "date": "2024-02-03"
-      },
-      {
-        "src": "img/ig-posts/18009286109240035.jpg",
-        "type": "photo",
-        "date": "2024-02-01"
-      },
-      {
-        "src": "img/ig-posts/17945799848772457.jpg",
-        "type": "photo",
-        "date": "2024-01-29"
-      },
-      {
-        "src": "img/ig-posts/18222193564270579.jpg",
-        "type": "photo",
-        "date": "2024-01-20"
-      },
-      {
-        "src": "img/ig-posts/18003153761353913.jpg",
-        "type": "photo",
-        "date": "2024-01-20"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
@@ -1422,51 +1010,15 @@
         "vimeoId": "",
         "title": "",
         "thumb": "img/ig-thumbs/18073690435441331.jpg"
+      },
+      {
+        "src": "img/ig-reels/17861725104060019.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/17861725104060019.jpg"
       }
     ],
-    "mediaItems": [
-      {
-        "src": "img/ig-thumbs/17861725104060019.jpg",
-        "type": "reel",
-        "date": "2023-12-06",
-        "videoSrc": "img/ig-reels/17861725104060019.mp4"
-      },
-      {
-        "src": "img/ig-posts/17891141399948348.jpg",
-        "type": "photo",
-        "date": "2023-12-05"
-      },
-      {
-        "src": "img/ig-posts/17867423994024074.jpg",
-        "type": "photo",
-        "date": "2023-12-03"
-      },
-      {
-        "src": "img/ig-posts/18023135185723182.jpg",
-        "type": "photo",
-        "date": "2023-11-30"
-      },
-      {
-        "src": "img/ig-posts/17944827170734193.jpg",
-        "type": "photo",
-        "date": "2023-11-25"
-      },
-      {
-        "src": "img/ig-posts/17897027015842525.jpg",
-        "type": "photo",
-        "date": "2023-11-22"
-      },
-      {
-        "src": "img/ig-posts/17954628575696087.jpg",
-        "type": "photo",
-        "date": "2023-11-19"
-      },
-      {
-        "src": "img/ig-posts/17871141464965404.jpg",
-        "type": "photo",
-        "date": "2023-11-19"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
