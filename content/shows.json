@@ -67,7 +67,7 @@
     "accompaniment": "AI Bot with prompt: \"Sparse synth pop, 1980s electro, New Wave in the style of Blue Monday by New Order for a moody female vocalist\"",
     "emcee": "Maya Suess",
     "dj": "",
-    "notes": "Costumes by @evvintagecollective styled by Maegan. Tech by Vandy @vanburgocollective. Door by @macauleydevun. Mics by @pigpenhaulin.",
+    "notes": "Costumes by East Village Vintage @evvintagecollective styled by Maegan. \n\nTech by Vandy @vanburgocollective. \nDoor by @macauleydevun. \nStage Handing by @pigpenhaulin",
     "ticketUrl": "",
     "posterImage": "img/ig-posts/18174652480372608.jpg",
     "isUpcoming": false,
@@ -129,6 +129,12 @@
         "thumb": "img/ig-thumbs/18079027946457725.jpg"
       },
       {
+        "src": "img/ig-reels/18119681440595853.mp4",
+        "vimeoId": "",
+        "title": "",
+        "thumb": "img/ig-thumbs/18119681440595853.jpg"
+      },
+      {
         "src": "img/ig-reels/18079027946457725.mp4",
         "vimeoId": "",
         "title": "",
@@ -141,45 +147,7 @@
         "thumb": "img/ig-thumbs/18119681440595853.jpg"
       }
     ],
-    "mediaItems": [
-      {
-        "src": "img/ig-thumbs/18079027946457725.jpg",
-        "type": "reel",
-        "date": "2026-02-14",
-        "videoSrc": "img/ig-reels/18079027946457725.mp4"
-      },
-      {
-        "src": "img/ig-thumbs/18119681440595853.jpg",
-        "type": "reel",
-        "date": "2026-02-10",
-        "videoSrc": "img/ig-reels/18119681440595853.mp4"
-      },
-      {
-        "src": "img/ig-posts/17865021930492753.jpg",
-        "type": "photo",
-        "date": "2026-02-09"
-      },
-      {
-        "src": "img/ig-posts/18089470052036386.jpg",
-        "type": "photo",
-        "date": "2026-02-05"
-      },
-      {
-        "src": "img/ig-posts/17998272122903582.jpg",
-        "type": "photo",
-        "date": "2026-02-02"
-      },
-      {
-        "src": "img/ig-posts/18092149580068787.jpg",
-        "type": "photo",
-        "date": "2026-01-27"
-      },
-      {
-        "src": "img/ig-posts/18174652480372608.jpg",
-        "type": "photo",
-        "date": "2026-01-20"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
@@ -315,7 +283,7 @@
     "accompaniment": "Klovis Gaynor",
     "emcee": "Maya Suess",
     "dj": "",
-    "notes": "Stylists: Libby Paloma @libbys_arty_party, Erin Connolly @e.connolly123, HMac @hmacsauz. \"BADVICE\" Banner by @libbys_arty_party.",
+    "notes": "Stylists: \nLibby Paloma @libbys_arty_party\nErin Connolly @e.connolly123, \nHMac @hmacsauz. \n\n\"BADVICE\" Banner by Libby Paloma @libbys_arty_party\n\nGuest Performance: Sarah Edmondson, giving us really good (bad) Advice. And she knows,",
     "ticketUrl": "",
     "posterImage": "img/ig-posts/17932002821960776.jpg",
     "isUpcoming": false,
@@ -336,28 +304,7 @@
     ],
     "recapCaption": "Thank you to everyone who comes to Unprofessional Variety Show. The last show gave us some baaad baaad (and some super good) advice. But just remember, you're fiiiiiiiiiine.",
     "videos": [],
-    "mediaItems": [
-      {
-        "src": "img/ig-posts/17911499088211597.jpg",
-        "type": "photo",
-        "date": "2025-09-16"
-      },
-      {
-        "src": "img/ig-posts/18049432655300328.jpg",
-        "type": "photo",
-        "date": "2025-09-08"
-      },
-      {
-        "src": "img/ig-posts/17851809525536419.jpg",
-        "type": "photo",
-        "date": "2025-08-30"
-      },
-      {
-        "src": "img/ig-posts/18080670305500881.jpg",
-        "type": "photo",
-        "date": "2025-08-22"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
