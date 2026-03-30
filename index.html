@@ -118,9 +118,9 @@ nav .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
 .hero-title{
   font-family:'Space Grotesk',sans-serif;
   font-size:7rem;
-  line-height:0.85;text-align:center;max-width:85%;
+  line-height:0.85;text-align:center;width:100%;
   position:relative;z-index:2;
-  color:var(--cream);
+  color:var(--cream);visibility:hidden;
 }
 .hero-title .line1{display:block;color:var(--pink)}
 .hero-title .line2{display:block;font-size:0.6em;color:var(--cream)}
@@ -499,7 +499,7 @@ footer a:hover{color:var(--pink)}
 @media(max-width:768px){
   /* Hero - visible title + marquee, compact */
   .hero{padding:30px 5vw 15px;min-height:auto}
-  .hero-title{font-size:clamp(2.5rem,12vw,4.5rem);max-width:100%;word-break:break-word}
+  .hero-title{max-width:100%}
   .hero-tagline{font-size:1rem;white-space:normal;margin-top:12px;padding:0 2vw}
   .marquee-wrap{margin-top:20px}
   .marquee-track span{font-size:1rem;padding:0 24px}
@@ -597,7 +597,6 @@ footer a:hover{color:var(--pink)}
 }
 
 @media(max-width:400px){
-  .hero-title{font-size:clamp(1.8rem,8vw,2.8rem)}
   .next-show-poster{width:90vw}
   .shows-grid{grid-template-columns:1fr;gap:16px}
   .gallery{grid-template-columns:1fr;gap:12px}
@@ -1591,19 +1590,37 @@ document.addEventListener('keydown', function(e) {
 /* ========================================
    MARQUEE - pixel-perfect seamless loop
    ======================================== */
-function fitText(el) {
+function fitText(el, pct) {
   if (!el) return;
   el.style.whiteSpace = 'nowrap';
   var parent = el.parentElement;
-  var targetW = parent.clientWidth * 0.9;
+  var targetW = parent.clientWidth * (pct || 0.9);
   var size = 10;
   el.style.fontSize = size + 'px';
-  while (el.scrollWidth < targetW && size < 200) {
+  while (el.scrollWidth < targetW && size < 300) {
     size += 2;
     el.style.fontSize = size + 'px';
   }
   el.style.fontSize = (size - 2) + 'px';
   el.style.visibility = 'visible';
+}
+function fitHeroTitle() {
+  var line1 = document.querySelector('.hero-title .line1');
+  var title = document.querySelector('.hero-title');
+  if (!line1 || !title) return;
+  var pct = window.innerWidth <= 768 ? 0.9 : 0.75;
+  title.style.whiteSpace = 'nowrap';
+  var container = title.parentElement;
+  var targetW = container.clientWidth * pct;
+  var size = 10;
+  title.style.fontSize = size + 'px';
+  while (line1.scrollWidth < targetW && size < 300) {
+    size += 2;
+    title.style.fontSize = size + 'px';
+  }
+  title.style.fontSize = (size - 2) + 'px';
+  title.style.whiteSpace = '';
+  title.style.visibility = 'visible';
 }
 
 function initMarquees() {
@@ -1678,7 +1695,11 @@ init();
 initMarquees();
 initMobileNav();
 fitText(document.getElementById('headingAbout'));
-window.addEventListener('resize', function() { fitText(document.getElementById('headingAbout')); });
+fitHeroTitle();
+window.addEventListener('resize', function() {
+  fitText(document.getElementById('headingAbout'));
+  fitHeroTitle();
+});
 window.addEventListener('resize', function() {
   var nav = document.querySelector('nav');
   if (window.innerWidth > 768) nav.classList.add('nav-visible');
