@@ -1728,6 +1728,12 @@ function collectInlineEdits() {
   el = document.querySelector('[data-field="tagline"]');
   if (el) DATA.settings.tagline = el.textContent.trim();
   // aboutText is edited via Settings panel textarea only (not inline)
+  el = document.querySelector('[data-field="aboutQuote"]');
+  if (el) DATA.settings.aboutQuote = el.textContent.trim();
+  el = document.querySelector('[data-field="aboutQuoteAttr"]');
+  if (el) DATA.settings.aboutQuoteAttr = el.textContent.trim();
+  el = document.querySelector('[data-field="contactCta"]');
+  if (el) DATA.settings.contactCta = el.textContent.trim();
 
   document.querySelectorAll('[data-shop]').forEach(function(el) {
     var idx = parseInt(el.dataset.shop);

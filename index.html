@@ -832,33 +832,9 @@ footer a:hover{color:var(--pink)}
   <div class="about-grid" style="margin-top:50px;">
     <div style="margin-top:1.5em">
       <div class="about-text" id="aboutText"></div>
-      <div class="about-quote">
-        "Allied Productions exemplifies one of the things I love about this neighborhood, which is the diverse legacy of experimental queer and radical art and performance. At the Unprofessional Variety Show, I try to make the programming truly intergenerational."
-        <div class="attr">- Maya Suess, EV Grieve, Feb 2024</div>
-      </div>
+      <div class="about-quote" id="aboutQuote"></div>
     </div>
-    <div class="about-details">
-      <div class="detail-item">
-        <h4>The Venue</h4>
-        <p id="venueDetail"></p>
-      </div>
-      <div class="detail-item">
-        <h4>Maya Suess</h4>
-        <p>Artist, educator, and arts administrator. Born on a small island off western Canada's coast. BFA from Emily Carr, MFA from Simon Fraser. She makes drawings, installations, videos, performances, and other mischievous entities.</p>
-      </div>
-      <div class="detail-item">
-        <h4>Klovis Gaynor</h4>
-        <p>Musical accompaniment at nearly every edition. Queer musician and "baroque punk" artist. Queens-based. Sometimes joined by Mamie Minch on guitar.</p>
-      </div>
-      <div class="detail-item">
-        <h4>Libby Paloma</h4>
-        <p>Set designer and production support. Queercrip, Mexican-American interdisciplinary artist working in sculpture, installation, and performance. In the business of "world-softening."</p>
-      </div>
-      <div class="detail-item">
-        <h4>The Deal</h4>
-        <p>Sliding scale cover. All monies go directly to the performers. Tickets through Humanitix, where 100% of booking fees go to charity. That's the whole deal.</p>
-      </div>
-    </div>
+    <div class="about-details" id="aboutDetails"></div>
   </div>
 </section>
 
@@ -930,9 +906,7 @@ footer a:hover{color:var(--pink)}
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="section-title" id="headingContact" style="color:var(--green)">Get Involved</div>
-  <p class="contact-cta">
-    Want to perform? Have a wild idea? Just want to be part of whatever this is? Reach out. The show is built by its community, and the door is always open.
-  </p>
+  <p class="contact-cta" id="contactCta"></p>
   <div class="contact-links" id="contactLinks"></div>
 
   <!-- NEWSLETTER -->
@@ -993,14 +967,34 @@ function renderSettings() {
   const s = DATA.settings;
   document.getElementById('heroTagline').textContent = s.tagline || '';
 
-  const aboutEl = document.getElementById('aboutText');
+  // About text
+  var aboutEl = document.getElementById('aboutText');
   var aboutParas = (s.aboutText || '').split('\n').filter(function(p){return p.trim()});
   aboutEl.innerHTML = aboutParas.map(function(p){return '<p>' + escHtml(p) + '</p>'}).join('');
 
-  const venueEl = document.getElementById('venueDetail');
-  venueEl.textContent = (s.venue || 'The Parkside Lounge') +
-    '. A dive bar and performance venue catering to the artists, musicians, and freaks of the Lower East Side since 1908. ' +
-    (s.venueAddress || '');
+  // About quote
+  var quoteEl = document.getElementById('aboutQuote');
+  var quoteText = s.aboutQuote || '"Allied Productions exemplifies one of the things I love about this neighborhood, which is the diverse legacy of experimental queer and radical art and performance. At the Unprofessional Variety Show, I try to make the programming truly intergenerational."';
+  var quoteAttr = s.aboutQuoteAttr || '- Maya Suess, EV Grieve, Feb 2024';
+  quoteEl.innerHTML = escHtml(quoteText) + '<div class="attr">' + escHtml(quoteAttr) + '</div>';
+
+  // About detail boxes
+  var detailsEl = document.getElementById('aboutDetails');
+  var details = s.aboutDetails || [
+    {title: 'The Venue', text: (s.venue || 'The Parkside Lounge') + '. A dive bar and performance venue catering to the artists, musicians, and freaks of the Lower East Side since 1908. ' + (s.venueAddress || '')},
+    {title: 'Maya Suess', text: "Artist, educator, and arts administrator. Born on a small island off western Canada's coast. BFA from Emily Carr, MFA from Simon Fraser. She makes drawings, installations, videos, performances, and other mischievous entities."},
+    {title: 'Klovis Gaynor', text: 'Musical accompaniment at nearly every edition. Queer musician and "baroque punk" artist. Queens-based. Sometimes joined by Mamie Minch on guitar.'},
+    {title: 'Libby Paloma', text: 'Set designer and production support. Queercrip, Mexican-American interdisciplinary artist working in sculpture, installation, and performance. In the business of "world-softening."'},
+    {title: 'The Deal', text: "Sliding scale cover. All monies go directly to the performers. Tickets through Humanitix, where 100% of booking fees go to charity. That's the whole deal."}
+  ];
+  detailsEl.innerHTML = details.map(function(d) {
+    var text = escHtml(d.text || '').replace(/&lt;br&gt;/g, '<br>');
+    return '<div class="detail-item"><h4>' + escHtml(d.title || '') + '</h4><p>' + text + '</p></div>';
+  }).join('');
+
+  // Contact CTA
+  var ctaEl = document.getElementById('contactCta');
+  ctaEl.textContent = s.contactCta || 'Want to perform? Have a wild idea? Just want to be part of whatever this is? Reach out. The show is built by its community, and the door is always open.';
 
   // Section headings
   if (s.headingAbout) document.getElementById('headingAbout').textContent = s.headingAbout;
