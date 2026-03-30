@@ -67,7 +67,7 @@
     "accompaniment": "AI Bot with prompt: \"Sparse synth pop, 1980s electro, New Wave in the style of Blue Monday by New Order for a moody female vocalist\"",
     "emcee": "Maya Suess",
     "dj": "",
-    "notes": "Costumes by @evvintagecollective styled by Maegan. Tech by Vandy @vanburgocollective. Door by @macauleydevun. Mics by @pigpenhaulin.",
+    "notes": "- Costumes by Maegan at the East Village Vintage Collective\n- Tech and Cat Videos by Vandy \n- Door by Macauley Devun\n- Stage hand extraordinaire and body painter, Silky\n- Video Documentation by Martin Dicicco",
     "ticketUrl": "",
     "posterImage": "img/ig-posts/18174652480372608.jpg",
     "isUpcoming": false,
@@ -129,57 +129,13 @@
         "thumb": "img/ig-thumbs/18079027946457725.jpg"
       },
       {
-        "src": "img/ig-reels/18079027946457725.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/18079027946457725.jpg"
-      },
-      {
         "src": "img/ig-reels/18119681440595853.mp4",
         "vimeoId": "",
         "title": "",
         "thumb": "img/ig-thumbs/18119681440595853.jpg"
       }
     ],
-    "mediaItems": [
-      {
-        "src": "img/ig-thumbs/18079027946457725.jpg",
-        "type": "reel",
-        "date": "2026-02-14",
-        "videoSrc": "img/ig-reels/18079027946457725.mp4"
-      },
-      {
-        "src": "img/ig-thumbs/18119681440595853.jpg",
-        "type": "reel",
-        "date": "2026-02-10",
-        "videoSrc": "img/ig-reels/18119681440595853.mp4"
-      },
-      {
-        "src": "img/ig-posts/17865021930492753.jpg",
-        "type": "photo",
-        "date": "2026-02-09"
-      },
-      {
-        "src": "img/ig-posts/18089470052036386.jpg",
-        "type": "photo",
-        "date": "2026-02-05"
-      },
-      {
-        "src": "img/ig-posts/17998272122903582.jpg",
-        "type": "photo",
-        "date": "2026-02-02"
-      },
-      {
-        "src": "img/ig-posts/18092149580068787.jpg",
-        "type": "photo",
-        "date": "2026-01-27"
-      },
-      {
-        "src": "img/ig-posts/18174652480372608.jpg",
-        "type": "photo",
-        "date": "2026-01-20"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
@@ -226,7 +182,7 @@
     "accompaniment": "Klovis Gaynor",
     "emcee": "Maya Suess",
     "dj": "",
-    "notes": "Sponsored by the Bad Review Fund. \n\nMaya styled by Dylan Gong. \n\nLorenzo Triburgo on video documentation, Vandy Van Dyke on tech, Tata Lopera taking Photos.",
+    "notes": "This show was sponsored by the Bad Review Fund\n\n- Costumes by Dylan Gong. \n- Lorenzo Triburgo on video documentation\n- Vandy Van Dyke on tech\n- Photos by Tata Lopera",
     "ticketUrl": "",
     "posterImage": "img/ig-posts/18366407008089307.jpg",
     "isUpcoming": false,
@@ -1160,7 +1116,7 @@
     "accompaniment": "Klovis Gaynor",
     "emcee": "Maya Suess",
     "dj": "Serge Rodriguez",
-    "notes": "- Puppet Lady Elaine Fairchild Costume by Sarah Dahlinger \n- Mister Rogers costumes by the East Village Vintage Collective\n- Tech by Libby Paloma & Kipp \n- After-party playlist by Serge Rodriguez Expertfundude\n\n- Guest Neighbor, Siobhan Meow",
+    "notes": "- Puppet Lady Elaine Fairchild Costume by Sarah Dahlinger \n- Mister Rogers costumes by the East Village Vintage Collective\n- Tech by Libby Paloma & Kipp \n- After-party playlist by Serge Rodriguez Expertfundude\n- Video Documentation by Martin Dicicco\n\n- Guest Neighbor, Siobhan Meow",
     "ticketUrl": "",
     "posterImage": "img/ig-posts/18179721469280516.jpg",
     "isUpcoming": false,
