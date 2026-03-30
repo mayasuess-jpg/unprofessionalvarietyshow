@@ -1221,7 +1221,7 @@ function renderContact() {
     '<a href="' + escHtml(s.parksideUrl || '#') + '" target="_blank" class="contact-link">The Parkside Lounge</a>';
 
   const accessEl = document.getElementById('accessNote');
-  var accessText = escHtml(s.venue || '') + ' - ' + escHtml(s.venueAddress || '') + ' - ' +
+  var accessText = escHtml(s.venue || '') + ' - ' + escHtml(s.venueAddress || '') + '<br>' +
     escHtml(s.accessibilityNote || 'Ground floor bar, portable ramp to performance space, accessible bathrooms');
   accessEl.innerHTML = accessText.replace(/&lt;br&gt;/g, '<br>');
 
