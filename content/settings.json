@@ -17,46 +17,22 @@
       "type": "press"
     },
     {
-      "title": "Allied Productions - Maya Suess",
-      "url": "https://www.alliedproductions.org/maya-suess",
-      "date": "",
-      "type": "feature"
-    },
-    {
-      "title": "Parsons School of Design - Faculty",
-      "url": "https://www.newschool.edu/parsons/faculty/maya-suess/",
-      "date": "",
-      "type": "feature"
-    },
-    {
-      "title": "Maya Suess - Artist Portfolio",
-      "url": "https://mayasuess.weebly.com/bio.html",
-      "date": "",
-      "type": "feature"
-    },
-    {
       "title": "The Parkside Lounge - Events",
       "url": "https://www.parksidelounge.nyc/",
       "date": "",
-      "type": "listing"
+      "type": "feature"
     },
     {
-      "title": "Humanitix - Upcoming Shows",
-      "url": "https://events.humanitix.com/unprofessional-variety-show",
-      "date": "",
-      "type": "listing"
-    },
-    {
-      "title": "Auntie Climax - Dance Party (Maya Suess)",
+      "title": "Auntie Climax - Dance Party at Parkside",
       "url": "https://events.humanitix.com/auntie-climax",
       "date": "",
-      "type": "listing"
+      "type": "feature"
     }
   ],
   "aboutDetails": [
     {
       "title": "The Venue",
-      "text": "The Parkside Lounge. A dive bar and performance venue catering to the artists, musicians, and freaks of the Lower East Side since 1908."
+      "text": "The Parkside Lounge. A dive bar and performance venue catering to the artists, musicians, and freaks of the Lower East Side since 1908. On the corner of Houston and Attorney."
     },
     {
       "title": "Maya Suess",
