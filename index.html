@@ -127,7 +127,7 @@ nav .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
 
 .hero-tagline{
   font-family:'Playfair Display',serif;font-size:1.2rem;
-  text-align:center;
+  text-align:justify;text-align-last:center;
   margin-top:30px;position:relative;z-index:2;
   color:rgba(var(--cream-rgb),0.85);line-height:1.5;
 }
@@ -500,7 +500,7 @@ footer a:hover{color:var(--pink)}
   /* Hero - visible title + marquee, compact */
   .hero{padding:30px 5vw 15px;min-height:auto}
   .hero-title{max-width:100%}
-  .hero-tagline{font-size:1rem;white-space:normal;margin-top:12px;padding:0 2vw}
+  .hero-tagline{font-size:1rem;white-space:normal;margin-top:12px;padding:0 2vw;text-align:justify;text-align-last:left}
   .marquee-wrap{margin-top:20px}
   .marquee-track span{font-size:1rem;padding:0 24px}
 
@@ -531,7 +531,7 @@ footer a:hover{color:var(--pink)}
 
   /* Section titles */
   .section-title{font-size:clamp(2.5rem,14vw,5rem);padding:0 5vw}
-  .section-subtitle{padding:0 5vw}
+  .section-subtitle{padding:0 5vw;text-align:justify;text-align-last:left}
 
   /* About */
   .about{padding:50px 5vw}
@@ -1236,7 +1236,7 @@ function renderContact() {
   document.getElementById('newsletterSection').innerHTML =
     '<div style="margin-top:60px;position:relative;z-index:1;text-align:center">' +
       '<div style="font-family:Space Grotesk,sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--pink);margin-bottom:12px">Newsletter</div>' +
-      '<p style="font-size:0.85rem;color:rgba(var(--cream-rgb),0.5);margin-bottom:24px;line-height:1.6">' + escHtml(nlText) + '</p>' +
+      '<p style="font-size:0.85rem;color:rgba(var(--cream-rgb),0.5);margin-bottom:24px;line-height:1.6;text-align:justify;text-align-last:center">' + escHtml(nlText) + '</p>' +
       '<form action="' + escHtml(nlUrl) + '" method="post" target="_blank" style="display:flex;flex-direction:column;gap:10px;max-width:440px;margin:0 auto">' +
         '<input type="email" name="EMAIL" required placeholder="Email address" style="' + inputStyle + '">' +
         '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">' +
