@@ -828,7 +828,7 @@ footer a:hover{color:var(--pink)}
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <div class="section-title" id="headingAbout" style="color:var(--pink);padding:0">There will be antics.</div>
+  <div class="section-title" id="headingAbout" style="color:var(--pink);padding:0 5%;white-space:nowrap">There will be antics.</div>
   <div class="about-grid" style="margin-top:50px;">
     <div style="margin-top:1.5em">
       <div class="about-text" id="aboutText"></div>
@@ -1589,6 +1589,19 @@ document.addEventListener('keydown', function(e) {
 /* ========================================
    MARQUEE - pixel-perfect seamless loop
    ======================================== */
+function fitText(el) {
+  if (!el) return;
+  var parent = el.parentElement;
+  var targetW = parent.clientWidth * 0.9;
+  var size = 10;
+  el.style.fontSize = size + 'px';
+  while (el.scrollWidth < targetW && size < 200) {
+    size += 2;
+    el.style.fontSize = size + 'px';
+  }
+  el.style.fontSize = (size - 2) + 'px';
+}
+
 function initMarquees() {
   document.querySelectorAll('.marquee-track, .big-running .track').forEach(function(track) {
     var spans = track.children;
@@ -1660,6 +1673,8 @@ function initMobileNav() {
 init();
 initMarquees();
 initMobileNav();
+fitText(document.getElementById('headingAbout'));
+window.addEventListener('resize', function() { fitText(document.getElementById('headingAbout')); });
 window.addEventListener('resize', function() {
   var nav = document.querySelector('nav');
   if (window.innerWidth > 768) nav.classList.add('nav-visible');
