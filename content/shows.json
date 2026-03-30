@@ -712,6 +712,11 @@
         "bio": "Kelli Dunham is the nonbinary queer polyamorous ex-nun storytelling nurse comedian so common in modern Brooklyn. Kelli has appeared on Showtime and the Discovery Channel, PBS Stories From the Stage, the Moth Mainstage, NPR, nationwide at colleges, prides, fundraisers, oh so many nursing conferences and even the occasional livestock auction. Kelli is the author of seven hilarious nonfiction books about not humorous subjects including puberty, grief and death and you can hear Kelli chat with an eclectic group of guests about these very subjects as well as LGBT health, caregiving, mutual aid, and knock-knock jokes on her forthcoming podcast Second Helping. Former NYC Mayor Bill DeBlasio once called Kelli a show off. To her face."
       },
       {
+        "name": "Libby Palomma ",
+        "instagram": "@libbys_arty_party",
+        "bio": "Libby Paloma is a queercrip, Mexican-American interdisciplinary artist working in sculpture, installation, and performance. Embracing maximalist aesthetics, humor, and craft traditions, they are in the business of “world-softening.” Creating plush, embracable versions of the objects around us, Libby intervenes in dominant and oppressive structures by offering an alternative, softer, more joyous way of engaging with ourselves and others."
+      },
+      {
         "name": "Vague Static",
         "instagram": "@vague_static",
         "bio": "Drag creature and maker of games, Vague Static is the buzz in the back of your brain -- stirring up fae mischief and magic, they call you back into the wilds of nature. NYC born and raised, Vague is a black genderfluid storyteller and mixed media artist, bringing forth whatever world, characters, and clowns the occasion requires! You can see hymn sparkling around different clubs of Brooklyn, as well as helping bring the joy to life at the all-inclusive Lil Park Drag Show (and will be hosting the upcoming \"Cartoons\" show - Oct. 5th)!! Diversify your mind, see hymn flicker and shock before your very eyes!!"
@@ -823,14 +828,20 @@
       {
         "src": "img/ig-videos/18106830763389403.mp4",
         "vimeoId": "",
-        "title": "",
+        "title": "Bernard and Jonathon ",
         "thumb": "img/ig-thumbs/18106830763389403.jpg"
       },
       {
         "src": "img/ig-videos/17915588609927589.mp4",
         "vimeoId": "",
-        "title": "",
+        "title": "Gil Rivera",
         "thumb": "img/ig-thumbs/17915588609927589.jpg"
+      },
+      {
+        "src": "img/ig-reels/18045900766800975.mp4",
+        "vimeoId": "",
+        "title": "The Wolf Speaks",
+        "thumb": ""
       }
     ],
     "mediaItems": [],
@@ -1119,175 +1130,13 @@
         "thumb": "img/ig-thumbs/18010745926760635.jpg"
       },
       {
-        "src": "img/ig-videos/17921249081700626.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/17921249081700626.jpg"
-      },
-      {
-        "src": "img/ig-videos/17967584540621043.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/17967584540621043.jpg"
-      },
-      {
-        "src": "img/ig-videos/18018879505699039.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/18018879505699039.jpg"
-      },
-      {
-        "src": "img/ig-videos/17894318198876798.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/17894318198876798.jpg"
-      },
-      {
-        "src": "img/ig-videos/18010745926760635.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/18010745926760635.jpg"
-      },
-      {
         "src": "img/ig-reels/17946558479593467.mp4",
         "vimeoId": "",
         "title": "",
         "thumb": "img/ig-thumbs/17946558479593467.jpg"
       }
     ],
-    "mediaItems": [
-      {
-        "src": "img/ig-posts/18006293419979935.jpg",
-        "type": "photo",
-        "date": "2023-09-20"
-      },
-      {
-        "src": "img/ig-posts/17963741720628565.jpg",
-        "type": "photo",
-        "date": "2023-09-20"
-      },
-      {
-        "src": "img/ig-thumbs/17921249081700626.jpg",
-        "type": "video",
-        "date": "2023-09-20",
-        "videoSrc": "img/ig-videos/17921249081700626.mp4"
-      },
-      {
-        "src": "img/ig-thumbs/17967584540621043.jpg",
-        "type": "video",
-        "date": "2023-09-20",
-        "videoSrc": "img/ig-videos/17967584540621043.mp4"
-      },
-      {
-        "src": "img/ig-posts/17970540305609581.jpg",
-        "type": "photo",
-        "date": "2023-09-20"
-      },
-      {
-        "src": "img/ig-thumbs/18018879505699039.jpg",
-        "type": "video",
-        "date": "2023-09-20",
-        "videoSrc": "img/ig-videos/18018879505699039.mp4"
-      },
-      {
-        "src": "img/ig-posts/17991679508252480.jpg",
-        "type": "photo",
-        "date": "2023-09-20"
-      },
-      {
-        "src": "img/ig-thumbs/17894318198876798.jpg",
-        "type": "video",
-        "date": "2023-09-20",
-        "videoSrc": "img/ig-videos/17894318198876798.mp4"
-      },
-      {
-        "src": "img/ig-thumbs/18010745926760635.jpg",
-        "type": "video",
-        "date": "2023-09-20",
-        "videoSrc": "img/ig-videos/18010745926760635.mp4"
-      },
-      {
-        "src": "img/ig-posts/17982833687417327.jpg",
-        "type": "photo",
-        "date": "2023-09-20"
-      },
-      {
-        "src": "img/ig-thumbs/17946558479593467.jpg",
-        "type": "reel",
-        "date": "2023-09-16",
-        "videoSrc": "img/ig-reels/17946558479593467.mp4"
-      },
-      {
-        "src": "img/ig-posts/18008340361799038.jpg",
-        "type": "photo",
-        "date": "2023-09-14"
-      },
-      {
-        "src": "img/ig-posts/18026611825628167.jpg",
-        "type": "photo",
-        "date": "2023-09-13"
-      },
-      {
-        "src": "img/ig-posts/18052424665482614.jpg",
-        "type": "photo",
-        "date": "2023-09-13"
-      },
-      {
-        "src": "img/ig-posts/17985207668179563.jpg",
-        "type": "photo",
-        "date": "2023-09-13"
-      },
-      {
-        "src": "img/ig-posts/17856410550022750.jpg",
-        "type": "photo",
-        "date": "2023-09-13"
-      },
-      {
-        "src": "img/ig-posts/17896998959803175.jpg",
-        "type": "photo",
-        "date": "2023-09-12"
-      },
-      {
-        "src": "img/ig-posts/17979634994291586.jpg",
-        "type": "photo",
-        "date": "2023-09-12"
-      },
-      {
-        "src": "img/ig-posts/17930020211752990.jpg",
-        "type": "photo",
-        "date": "2023-09-12"
-      },
-      {
-        "src": "img/ig-posts/17998029587292655.jpg",
-        "type": "photo",
-        "date": "2023-09-12"
-      },
-      {
-        "src": "img/ig-posts/17906246444828847.jpg",
-        "type": "photo",
-        "date": "2023-09-11"
-      },
-      {
-        "src": "img/ig-posts/18013716727710910.jpg",
-        "type": "photo",
-        "date": "2023-09-07"
-      },
-      {
-        "src": "img/ig-posts/17974994429586164.jpg",
-        "type": "photo",
-        "date": "2023-09-04"
-      },
-      {
-        "src": "img/ig-posts/18030763366521106.jpg",
-        "type": "photo",
-        "date": "2023-08-29"
-      },
-      {
-        "src": "img/ig-posts/17977426073292076.jpg",
-        "type": "photo",
-        "date": "2023-08-27"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
@@ -1338,121 +1187,35 @@
       "img/ig-posts/18178629295286826.jpg",
       "img/ig-posts/18083221279354595.jpg",
       "img/ig-posts/17937713792549225.jpg",
-      "img/ig-posts/17973101249338194.jpg",
-      "img/ig-posts/18003667009631537.jpg",
       "img/ig-posts/17964637268426553.jpg",
       "img/ig-posts/18139528129288665.jpg",
       "img/ig-posts/18033652558489016.jpg",
       "img/ig-posts/17954764175400477.jpg",
-      "img/ig-posts/18179721469280516.jpg"
+      "img/ig-posts/18179721469280516.jpg",
+      "img/ig-posts/18003667009631537.jpg"
     ],
     "recapCaption": "Thank you everyone who attended UNPROFESSIONAL VARIETY SHOW #6: Won't You Be My Neighbor? All the fun we had together, neighbors!",
     "videos": [
       {
+        "src": "img/ig-reels/17946558479593467.mp4",
+        "vimeoId": "",
+        "title": "Lady Elaine Tells a Story",
+        "thumb": ""
+      },
+      {
         "src": "",
         "vimeoId": "1041240001",
-        "title": "Mr. Rogers: Lady Elaine",
+        "title": "Lady Elaine Fairechild",
         "thumb": ""
       },
       {
         "src": "",
         "vimeoId": "1041243561",
-        "title": "Mr. Rogers: Neighbor Siobhan Meow",
+        "title": "Mr. Rogers + Neighbor Siobhan Meow",
         "thumb": ""
       }
     ],
-    "mediaItems": [
-      {
-        "src": "img/ig-posts/18007307533725188.jpg",
-        "type": "photo",
-        "date": "2023-05-17"
-      },
-      {
-        "src": "img/ig-posts/17985909344106619.jpg",
-        "type": "photo",
-        "date": "2023-05-17"
-      },
-      {
-        "src": "img/ig-posts/17879522051816773.jpg",
-        "type": "photo",
-        "date": "2023-05-17"
-      },
-      {
-        "src": "img/ig-posts/17877542309873224.jpg",
-        "type": "photo",
-        "date": "2023-05-17"
-      },
-      {
-        "src": "img/ig-posts/17855636369938312.jpg",
-        "type": "photo",
-        "date": "2023-05-17"
-      },
-      {
-        "src": "img/ig-posts/17982516446298265.jpg",
-        "type": "photo",
-        "date": "2023-05-17"
-      },
-      {
-        "src": "img/ig-posts/18178629295286826.jpg",
-        "type": "photo",
-        "date": "2023-05-17"
-      },
-      {
-        "src": "img/ig-posts/18083221279354595.jpg",
-        "type": "photo",
-        "date": "2023-05-17"
-      },
-      {
-        "src": "img/ig-posts/17937713792549225.jpg",
-        "type": "photo",
-        "date": "2023-05-14"
-      },
-      {
-        "src": "img/ig-posts/17973101249338194.jpg",
-        "type": "photo",
-        "date": "2023-05-14"
-      },
-      {
-        "src": "img/ig-posts/17934948266663833.jpg",
-        "type": "photo",
-        "date": "2023-05-14"
-      },
-      {
-        "src": "img/ig-posts/18003667009631537.jpg",
-        "type": "photo",
-        "date": "2023-05-14"
-      },
-      {
-        "src": "img/ig-posts/17964637268426553.jpg",
-        "type": "photo",
-        "date": "2023-05-11"
-      },
-      {
-        "src": "img/ig-posts/18139528129288665.jpg",
-        "type": "photo",
-        "date": "2023-05-08"
-      },
-      {
-        "src": "img/ig-posts/18272576458133976.jpg",
-        "type": "photo",
-        "date": "2023-05-04"
-      },
-      {
-        "src": "img/ig-posts/18033652558489016.jpg",
-        "type": "photo",
-        "date": "2023-05-04"
-      },
-      {
-        "src": "img/ig-posts/17954764175400477.jpg",
-        "type": "photo",
-        "date": "2023-05-01"
-      },
-      {
-        "src": "img/ig-posts/18179721469280516.jpg",
-        "type": "photo",
-        "date": "2023-04-24"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
@@ -1503,20 +1266,26 @@
       "img/ig-posts/17995354054725870.jpg",
       "img/ig-posts/18281532751103918.jpg",
       "img/ig-posts/17963186087197017.jpg",
-      "img/ig-posts/18180520489255618.jpg"
+      "img/ig-posts/18180520489255618.jpg",
+      "img/ig-posts/18002877025615777.jpg",
+      "img/ig-posts/18187515028247047.jpg",
+      "img/ig-posts/17987028964848835.jpg",
+      "img/ig-posts/17868251045857054.jpg",
+      "img/ig-posts/18050205079401184.jpg",
+      "img/ig-posts/17940523235613612.jpg"
     ],
     "recapCaption": "THANK YOU to all the performers and our smoking hot audience who came out to support another Unprofessional Variety Show. What a dream this line up was, here's a little snippet if you missed it.",
     "videos": [
       {
         "src": "img/ig-videos/17866299047867907.mp4",
         "vimeoId": "",
-        "title": "",
+        "title": "Klovis Gaynor",
         "thumb": "img/ig-thumbs/17866299047867907.jpg"
       },
       {
         "src": "img/ig-reels/17993274961651720.mp4",
         "vimeoId": "",
-        "title": "",
+        "title": "Mistah Coles",
         "thumb": "img/ig-thumbs/17993274961651720.jpg"
       },
       {
@@ -1526,137 +1295,7 @@
         "thumb": "img/ig-thumbs/17986555900712048.jpg"
       }
     ],
-    "mediaItems": [
-      {
-        "src": "img/ig-posts/17966823464218473.jpg",
-        "type": "photo",
-        "date": "2023-03-01"
-      },
-      {
-        "src": "img/ig-posts/18177739165264356.jpg",
-        "type": "photo",
-        "date": "2023-03-01"
-      },
-      {
-        "src": "img/ig-posts/17992882825749946.jpg",
-        "type": "photo",
-        "date": "2023-03-01"
-      },
-      {
-        "src": "img/ig-posts/18245662621155852.jpg",
-        "type": "photo",
-        "date": "2023-03-01"
-      },
-      {
-        "src": "img/ig-posts/17949144263356851.jpg",
-        "type": "photo",
-        "date": "2023-03-01"
-      },
-      {
-        "src": "img/ig-thumbs/17866299047867907.jpg",
-        "type": "video",
-        "date": "2023-03-01",
-        "videoSrc": "img/ig-videos/17866299047867907.mp4"
-      },
-      {
-        "src": "img/ig-posts/17945638661590209.jpg",
-        "type": "photo",
-        "date": "2023-03-01"
-      },
-      {
-        "src": "img/ig-posts/17967802259273007.jpg",
-        "type": "photo",
-        "date": "2023-03-01"
-      },
-      {
-        "src": "img/ig-posts/18002877025615777.jpg",
-        "type": "photo",
-        "date": "2023-03-01"
-      },
-      {
-        "src": "img/ig-thumbs/17962278776350731.jpg",
-        "type": "reel",
-        "date": "2023-02-26",
-        "videoSrc": "img/ig-reels/17962278776350731.mp4"
-      },
-      {
-        "src": "img/ig-posts/18187515028247047.jpg",
-        "type": "photo",
-        "date": "2023-02-25"
-      },
-      {
-        "src": "img/ig-posts/18130228411293441.jpg",
-        "type": "photo",
-        "date": "2023-02-25"
-      },
-      {
-        "src": "img/ig-posts/18176368063259376.jpg",
-        "type": "photo",
-        "date": "2023-02-25"
-      },
-      {
-        "src": "img/ig-posts/17973500971965190.jpg",
-        "type": "photo",
-        "date": "2023-02-25"
-      },
-      {
-        "src": "img/ig-posts/18180520489255618.jpg",
-        "type": "photo",
-        "date": "2023-02-25"
-      },
-      {
-        "src": "img/ig-posts/17987028964848835.jpg",
-        "type": "photo",
-        "date": "2023-02-25"
-      },
-      {
-        "src": "img/ig-posts/17868251045857054.jpg",
-        "type": "photo",
-        "date": "2023-02-23"
-      },
-      {
-        "src": "img/ig-posts/18050205079401184.jpg",
-        "type": "photo",
-        "date": "2023-02-21"
-      },
-      {
-        "src": "img/ig-posts/17940523235613612.jpg",
-        "type": "photo",
-        "date": "2023-02-19"
-      },
-      {
-        "src": "img/ig-posts/17946849719379234.jpg",
-        "type": "photo",
-        "date": "2023-02-17"
-      },
-      {
-        "src": "img/ig-thumbs/17993274961651720.jpg",
-        "type": "reel",
-        "date": "2023-02-16",
-        "videoSrc": "img/ig-reels/17993274961651720.mp4"
-      },
-      {
-        "src": "img/ig-posts/17995354054725870.jpg",
-        "type": "photo",
-        "date": "2023-02-14"
-      },
-      {
-        "src": "img/ig-posts/18281532751103918.jpg",
-        "type": "photo",
-        "date": "2023-02-12"
-      },
-      {
-        "src": "img/ig-posts/17963186087197017.jpg",
-        "type": "photo",
-        "date": "2023-02-09"
-      },
-      {
-        "src": "img/ig-thumbs/17986555900712048.jpg",
-        "type": "reel",
-        "date": "2023-01-28",
-        "videoSrc": "img/ig-reels/17986555900712048.mp4"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
@@ -1697,7 +1336,7 @@
     "accompaniment": "",
     "emcee": "Maya Suess",
     "dj": "Serge Rodriguez",
-    "notes": "After-party playlist by Serge Rodriguez @expertfundude. Tech by Dew @suppressingyays. Costume Sponsors: 3rd & B'zaar @3rdandbzaar and the East Village Vintage Collective @evvintagecollective.",
+    "notes": "- Tech by Dew Igworia\n- Costumes by The East Village Vintage Collective\n- After-party playlist by Serge Rodriguez Expertfundude",
     "ticketUrl": "",
     "posterImage": "img/ig-posts/Teenager Show Flyer.jpg",
     "isUpcoming": false,
@@ -1717,26 +1356,22 @@
       "img/ig-posts/17968793041948187.jpg",
       "img/ig-posts/17983798540666442.jpg",
       "img/ig-posts/17948963771464515.jpg",
-      "img/ig-posts/18153676885285822.jpg",
       "img/ig-posts/18019046377467810.jpg",
-      "img/ig-posts/18329551984027649.jpg",
-      "img/ig-posts/18006481507509808.jpg",
-      "img/ig-posts/17981189098691197.jpg",
-      "img/ig-posts/18331088632000990.jpg"
+      "img/ig-posts/18006481507509808.jpg"
     ],
     "recapCaption": "Thank you to everyone who joined us at Unprofessional Variety Show #4: The Teen Edition!! It was, like, uh, okayyyy. . .",
     "videos": [
       {
-        "src": "img/ig-reels/18020132791457270.mp4",
+        "src": "img/ig-reels/17986555900712048.mp4",
         "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/18020132791457270.jpg"
+        "title": "Dexter Angel",
+        "thumb": ""
       },
       {
-        "src": "img/ig-reels/17985908683641037.mp4",
+        "src": "img/ig-reels/17861725104060019.mp4",
         "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/17985908683641037.jpg"
+        "title": "Suzanna Cook",
+        "thumb": ""
       },
       {
         "src": "img/ig-reels/18020132791457270.mp4",
@@ -1751,120 +1386,7 @@
         "thumb": "img/ig-thumbs/17985908683641037.jpg"
       }
     ],
-    "mediaItems": [
-      {
-        "src": "img/ig-posts/18153676885285822.jpg",
-        "type": "photo",
-        "date": "2022-12-10"
-      },
-      {
-        "src": "img/ig-posts/17935888787416599.jpg",
-        "type": "photo",
-        "date": "2022-12-07"
-      },
-      {
-        "src": "img/ig-posts/17852750402872233.jpg",
-        "type": "photo",
-        "date": "2022-12-07"
-      },
-      {
-        "src": "img/ig-posts/17956431125087598.jpg",
-        "type": "photo",
-        "date": "2022-12-07"
-      },
-      {
-        "src": "img/ig-posts/17973514153924034.jpg",
-        "type": "photo",
-        "date": "2022-12-07"
-      },
-      {
-        "src": "img/ig-posts/17995408414592430.jpg",
-        "type": "photo",
-        "date": "2022-12-07"
-      },
-      {
-        "src": "img/ig-posts/18021253195460729.jpg",
-        "type": "photo",
-        "date": "2022-12-07"
-      },
-      {
-        "src": "img/ig-posts/17995158445600912.jpg",
-        "type": "photo",
-        "date": "2022-12-03"
-      },
-      {
-        "src": "img/ig-posts/17963864111091563.jpg",
-        "type": "photo",
-        "date": "2022-12-03"
-      },
-      {
-        "src": "img/ig-posts/18019046377467810.jpg",
-        "type": "photo",
-        "date": "2022-12-01"
-      },
-      {
-        "src": "img/ig-posts/18329551984027649.jpg",
-        "type": "photo",
-        "date": "2022-12-01"
-      },
-      {
-        "src": "img/ig-posts/18006481507509808.jpg",
-        "type": "photo",
-        "date": "2022-12-01"
-      },
-      {
-        "src": "img/ig-thumbs/18020132791457270.jpg",
-        "type": "reel",
-        "date": "2022-11-30",
-        "videoSrc": "img/ig-reels/18020132791457270.mp4"
-      },
-      {
-        "src": "img/ig-posts/17978225953726334.jpg",
-        "type": "photo",
-        "date": "2022-11-29"
-      },
-      {
-        "src": "img/ig-posts/17949809174348178.jpg",
-        "type": "photo",
-        "date": "2022-11-28"
-      },
-      {
-        "src": "img/ig-posts/17948963771464515.jpg",
-        "type": "photo",
-        "date": "2022-11-26"
-      },
-      {
-        "src": "img/ig-posts/17994613855593361.jpg",
-        "type": "photo",
-        "date": "2022-11-23"
-      },
-      {
-        "src": "img/ig-posts/17968793041948187.jpg",
-        "type": "photo",
-        "date": "2022-11-20"
-      },
-      {
-        "src": "img/ig-posts/17983798540666442.jpg",
-        "type": "photo",
-        "date": "2022-11-19"
-      },
-      {
-        "src": "img/ig-posts/17981189098691197.jpg",
-        "type": "photo",
-        "date": "2022-11-16"
-      },
-      {
-        "src": "img/ig-posts/18331088632000990.jpg",
-        "type": "photo",
-        "date": "2022-11-16"
-      },
-      {
-        "src": "img/ig-thumbs/17985908683641037.jpg",
-        "type": "reel",
-        "date": "2022-11-11",
-        "videoSrc": "img/ig-reels/17985908683641037.mp4"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
@@ -2066,7 +1588,8 @@
       "img/ig-posts/18225415267141332.jpg",
       "img/ig-posts/17862871406720928.jpg",
       "img/ig-posts/17976020650534406.jpg",
-      "img/ig-posts/17873632562692438.jpg"
+      "img/ig-posts/17873632562692438.jpg",
+      "img/ig-posts/17926913684174576.jpg"
     ],
     "recapCaption": "Thank you to everyone who came to Unprofessional 2.0: Pasts and Futures. The performances were the best that a lavender night could offer.",
     "videos": [
@@ -2077,104 +1600,7 @@
         "thumb": "img/ig-thumbs/17978658157541611.jpg"
       }
     ],
-    "mediaItems": [
-      {
-        "src": "img/ig-posts/18209754391148174.jpg",
-        "type": "photo",
-        "date": "2022-05-26"
-      },
-      {
-        "src": "img/ig-posts/17995598953427524.jpg",
-        "type": "photo",
-        "date": "2022-05-26"
-      },
-      {
-        "src": "img/ig-posts/17846168174782483.jpg",
-        "type": "photo",
-        "date": "2022-05-26"
-      },
-      {
-        "src": "img/ig-posts/17973867454563109.jpg",
-        "type": "photo",
-        "date": "2022-05-26"
-      },
-      {
-        "src": "img/ig-thumbs/17978658157541611.jpg",
-        "type": "video",
-        "date": "2022-05-26",
-        "videoSrc": "img/ig-videos/17978658157541611.mp4"
-      },
-      {
-        "src": "img/ig-posts/17936756765150188.jpg",
-        "type": "photo",
-        "date": "2022-05-26"
-      },
-      {
-        "src": "img/ig-posts/17878151648680437.jpg",
-        "type": "photo",
-        "date": "2022-05-26"
-      },
-      {
-        "src": "img/ig-posts/18207085423157411.jpg",
-        "type": "photo",
-        "date": "2022-05-26"
-      },
-      {
-        "src": "img/ig-posts/17952187387748062.jpg",
-        "type": "photo",
-        "date": "2022-05-26"
-      },
-      {
-        "src": "img/ig-posts/18161794150240716.jpg",
-        "type": "photo",
-        "date": "2022-05-22"
-      },
-      {
-        "src": "img/ig-posts/17926913684174576.jpg",
-        "type": "photo",
-        "date": "2022-05-20"
-      },
-      {
-        "src": "img/ig-posts/17873632562692438.jpg",
-        "type": "photo",
-        "date": "2022-05-18"
-      },
-      {
-        "src": "img/ig-posts/17956051453717033.jpg",
-        "type": "photo",
-        "date": "2022-05-16"
-      },
-      {
-        "src": "img/ig-posts/18225415267141332.jpg",
-        "type": "photo",
-        "date": "2022-05-14"
-      },
-      {
-        "src": "img/ig-posts/17912786009380839.jpg",
-        "type": "photo",
-        "date": "2022-05-09"
-      },
-      {
-        "src": "img/ig-posts/17927202215149959.jpg",
-        "type": "photo",
-        "date": "2022-05-09"
-      },
-      {
-        "src": "img/ig-posts/17924421947491622.jpg",
-        "type": "photo",
-        "date": "2022-05-09"
-      },
-      {
-        "src": "img/ig-posts/17862871406720928.jpg",
-        "type": "photo",
-        "date": "2022-05-04"
-      },
-      {
-        "src": "img/ig-posts/17976020650534406.jpg",
-        "type": "photo",
-        "date": "2022-04-27"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   },
   {
@@ -2227,7 +1653,7 @@
     "dj": "Serge Rodriguez",
     "notes": "Free entry. No cover. Come ready to tip the bartenders and the performers. Support queer/trans run spaces. The first ever Unprofessional Variety Show!",
     "ticketUrl": "",
-    "posterImage": "img/ig-posts/18030802729332339.jpg",
+    "posterImage": "img/ig-posts/Screenshot 2026-03-30 at 7.21.56 AM.png",
     "isUpcoming": false,
     "description": "Happy birthday to us all!!",
     "recapImages": [
@@ -2243,9 +1669,9 @@
       "img/ig-posts/17919477539099157.jpg",
       "img/ig-posts/17876509544635136.jpg",
       "img/ig-posts/17919512255285020.jpg",
-      "img/ig-posts/17938655515918559.jpg",
       "img/ig-posts/18030802729332339.jpg",
-      "img/ig-posts/17947476262725388.jpg"
+      "img/ig-posts/17947476262725388.jpg",
+      "img/ig-posts/17938655515918559.jpg"
     ],
     "recapCaption": "Thank you to everyone who came to the FIRST Unprofessional Variety Show. Happy birthday to us all!! Brilliant performances by CICLON, Jack Waters & Peter Cramer, Cherish Violet Blood and Klovis Gaynor.",
     "videos": [
@@ -2274,100 +1700,7 @@
         "thumb": "img/ig-thumbs/17954886835611020.jpg"
       }
     ],
-    "mediaItems": [
-      {
-        "src": "img/ig-posts/18101668897303014.jpg",
-        "type": "photo",
-        "date": "2022-02-21"
-      },
-      {
-        "src": "img/ig-posts/17938655515918559.jpg",
-        "type": "photo",
-        "date": "2022-02-20"
-      },
-      {
-        "src": "img/ig-posts/17876509544635136.jpg",
-        "type": "photo",
-        "date": "2022-02-18"
-      },
-      {
-        "src": "img/ig-posts/18022356487360754.jpg",
-        "type": "photo",
-        "date": "2022-02-18"
-      },
-      {
-        "src": "img/ig-posts/18206525989123136.jpg",
-        "type": "photo",
-        "date": "2022-02-18"
-      },
-      {
-        "src": "img/ig-posts/17893076900584123.jpg",
-        "type": "photo",
-        "date": "2022-02-17"
-      },
-      {
-        "src": "img/ig-posts/17946031576775375.jpg",
-        "type": "photo",
-        "date": "2022-02-13"
-      },
-      {
-        "src": "img/ig-posts/17901414866385087.jpg",
-        "type": "photo",
-        "date": "2022-02-10"
-      },
-      {
-        "src": "img/ig-posts/17910701789248716.jpg",
-        "type": "photo",
-        "date": "2022-02-09"
-      },
-      {
-        "src": "img/ig-posts/17934010951948841.jpg",
-        "type": "photo",
-        "date": "2022-02-08"
-      },
-      {
-        "src": "img/ig-posts/17913063614487918.jpg",
-        "type": "photo",
-        "date": "2022-02-07"
-      },
-      {
-        "src": "img/ig-posts/17919477539099157.jpg",
-        "type": "photo",
-        "date": "2022-02-07"
-      },
-      {
-        "src": "img/ig-posts/17900042519524203.jpg",
-        "type": "photo",
-        "date": "2022-02-06"
-      },
-      {
-        "src": "img/ig-posts/18030802729332339.jpg",
-        "type": "photo",
-        "date": "2022-01-27"
-      },
-      {
-        "src": "img/ig-thumbs/17929109693014515.jpg",
-        "type": "video",
-        "date": "2022-01-27",
-        "videoSrc": "img/ig-videos/17929109693014515.mp4"
-      },
-      {
-        "src": "img/ig-thumbs/17954886835611020.jpg",
-        "type": "video",
-        "date": "2022-01-27",
-        "videoSrc": "img/ig-videos/17954886835611020.mp4"
-      },
-      {
-        "src": "img/ig-posts/17947476262725388.jpg",
-        "type": "photo",
-        "date": "2022-01-27"
-      },
-      {
-        "src": "img/ig-posts/17919512255285020.jpg",
-        "type": "photo",
-        "date": "2022-01-23"
-      }
-    ],
+    "mediaItems": [],
     "sets": ""
   }
 ]
