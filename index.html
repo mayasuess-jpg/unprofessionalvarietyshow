@@ -1594,19 +1594,16 @@ function fitText(el, pct) {
   if (!el) return;
   var parent = el.parentElement;
   var targetW = parent.clientWidth * (pct || 0.9);
-  el.style.display = 'inline-block';
+  if (targetW <= 0) { el.style.visibility = 'visible'; return; }
+  // Measure text at a known size
+  var probe = 100;
+  el.style.cssText += ';display:inline-block;white-space:nowrap;width:auto;font-size:' + probe + 'px;position:absolute;visibility:hidden';
+  var textW = el.offsetWidth;
+  // Calculate exact size needed
+  var finalSize = Math.floor(probe * targetW / textW);
+  el.style.cssText = '';
+  el.style.fontSize = finalSize + 'px';
   el.style.whiteSpace = 'nowrap';
-  el.style.width = 'auto';
-  var size = 10;
-  el.style.fontSize = size + 'px';
-  while (el.offsetWidth < targetW && size < 300) {
-    size += 2;
-    el.style.fontSize = size + 'px';
-  }
-  el.style.fontSize = (size - 2) + 'px';
-  el.style.display = '';
-  el.style.whiteSpace = 'nowrap';
-  el.style.width = '';
   el.style.visibility = 'visible';
 }
 function fitHeroTitle() {
@@ -1616,23 +1613,18 @@ function fitHeroTitle() {
   var pct = window.innerWidth <= 768 ? 0.9 : 0.75;
   var container = title.parentElement;
   var targetW = container.clientWidth * pct;
-  // Measure line1 text width by making it inline
+  if (targetW <= 0) { title.style.visibility = 'visible'; return; }
+  // Measure line1 at known size
+  var probe = 100;
+  var origStyle = title.style.cssText;
+  title.style.cssText += ';display:inline-block;white-space:nowrap;width:auto;font-size:' + probe + 'px;position:absolute;visibility:hidden';
   line1.style.display = 'inline';
-  title.style.whiteSpace = 'nowrap';
-  title.style.width = 'auto';
-  title.style.display = 'inline-block';
-  var size = 10;
-  title.style.fontSize = size + 'px';
-  while (line1.offsetWidth < targetW && size < 300) {
-    size += 2;
-    title.style.fontSize = size + 'px';
-  }
-  title.style.fontSize = (size - 2) + 'px';
-  // Restore display
+  var textW = line1.offsetWidth;
+  var finalSize = Math.floor(probe * targetW / textW);
+  // Restore
   line1.style.display = '';
-  title.style.display = '';
-  title.style.whiteSpace = '';
-  title.style.width = '';
+  title.style.cssText = '';
+  title.style.fontSize = finalSize + 'px';
   title.style.visibility = 'visible';
 }
 
