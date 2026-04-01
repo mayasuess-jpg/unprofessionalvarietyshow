@@ -926,7 +926,7 @@ footer a:hover{color:var(--pink)}
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer id="siteFooter">
   <span>Unprofessional Variety Show</span>
   <span>Est. 2022 - The Parkside Lounge, LES NYC</span>
   <span>Site by <a href="https://pietsuess.com" target="_blank">Piet Suess</a></span>
@@ -964,6 +964,7 @@ async function init() {
     renderPress();
     renderShop();
     renderContact();
+    renderFooter();
     injectEventSchema();
   } catch(e) { console.error('Init error:', e); }
 }
@@ -1257,6 +1258,18 @@ function renderContact() {
         '<button type="submit" class="btn" style="width:100%;border:none;cursor:pointer;font-family:Space Grotesk,sans-serif">Subscribe</button>' +
       '</form>' +
     '</div>';
+}
+
+function renderFooter() {
+  var s = DATA.settings;
+  var el = document.getElementById('siteFooter');
+  if (!el) return;
+  var html = '';
+  html += '<span>' + escHtml(s.footer1 || 'Unprofessional Variety Show') + '</span>';
+  html += '<span>' + escHtml(s.footer2 || 'Est. 2022 - The Parkside Lounge, LES NYC') + '</span>';
+  var f3 = s.footer3 || '';
+  if (f3) html += '<span>' + escHtml(f3) + '</span>';
+  el.innerHTML = html;
 }
 
 /* ========================================

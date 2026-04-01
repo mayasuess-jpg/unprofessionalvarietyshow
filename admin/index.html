@@ -765,6 +765,14 @@ body.admin-mode{padding-top:48px}
   <div id="pressLinksEditor"></div>
   <button class="add-perf-btn" onclick="addPressLink()" style="margin-top:8px">+ Add Press Link</button>
 
+  <h3>Footer</h3>
+  <label>Line 1 (e.g. show name)</label>
+  <input id="setFooter1" oninput="settingsChanged()">
+  <label>Line 2 (e.g. established, venue)</label>
+  <input id="setFooter2" oninput="settingsChanged()">
+  <label>Line 3 (e.g. site credit)</label>
+  <input id="setFooter3" oninput="settingsChanged()">
+
   <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(245,240,230,0.08)">
     <button onclick="saveSettings()" style="width:100%;padding:12px;background:var(--pink);border:1px solid var(--pink);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;border-radius:0;letter-spacing:0.05em">Save Draft</button>
     <div style="text-align:center;font-size:0.7rem;color:rgba(245,240,230,0.3);margin-top:8px">Saves locally. Hit Publish to go live.</div>
@@ -1352,6 +1360,9 @@ function populateSettings() {
   document.getElementById('setHeadingContact').value = s.headingContact || '';
   document.getElementById('setNewsletterUrl').value = s.newsletterUrl || '';
   document.getElementById('setNewsletterText').value = s.newsletterText || '';
+  document.getElementById('setFooter1').value = s.footer1 || 'Unprofessional Variety Show';
+  document.getElementById('setFooter2').value = s.footer2 || 'Est. 2022 - The Parkside Lounge, LES NYC';
+  document.getElementById('setFooter3').value = s.footer3 || 'Site by Piet Suess';
   renderLogoPreview();
   renderPressLinksEditor();
   setupLogoInput();
@@ -1865,6 +1876,9 @@ function collectSettings() {
   DATA.settings.headingContact = document.getElementById('setHeadingContact').value.trim();
   DATA.settings.newsletterUrl = document.getElementById('setNewsletterUrl').value.trim();
   DATA.settings.newsletterText = document.getElementById('setNewsletterText').value.trim();
+  DATA.settings.footer1 = document.getElementById('setFooter1').value.trim();
+  DATA.settings.footer2 = document.getElementById('setFooter2').value.trim();
+  DATA.settings.footer3 = document.getElementById('setFooter3').value.trim();
 }
 
 function settingsChanged() {
