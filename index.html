@@ -1360,7 +1360,12 @@ function lbNav(e, dir) {
 
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('active');
-  document.body.style.overflow = '';
+  var sd = document.getElementById('showDetail');
+  if (sd.classList.contains('active')) {
+    sd.style.overflow = 'auto';
+  } else {
+    document.body.style.overflow = '';
+  }
   document.getElementById('lb-img').src = '';
   const vid = document.getElementById('lb-video');
   vid.pause(); vid.src = ''; vid.style.display = 'none';
@@ -1607,6 +1612,7 @@ function openShowMediaLb(idx) {
   currentLbIndex = idx;
   showLbItem();
   document.getElementById('lightbox').classList.add('active');
+  document.getElementById('showDetail').style.overflow = 'hidden';
 }
 function openLbDirect(src) {
   // Poster click - open at index 0 of show media
