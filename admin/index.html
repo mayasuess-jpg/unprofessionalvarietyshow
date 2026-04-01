@@ -681,6 +681,21 @@ body.admin-mode{padding-top:48px}
     <input type="file" id="logoInput" accept="image/*" style="display:none">
   </div>
 
+  <h3>Section Headings</h3>
+  <label>About Headline</label>
+  <input id="setHeadingAbout" oninput="settingsChanged()" placeholder="There will be antics.">
+  <label>Shows</label>
+  <input id="setHeadingShows" oninput="settingsChanged()" placeholder="Past Shows">
+  <label>Media</label>
+  <input id="setHeadingMedia" oninput="settingsChanged()" placeholder="Media">
+  <label>Shop</label>
+  <input id="setHeadingShop" oninput="settingsChanged()" placeholder="Shop">
+  <label>Contact</label>
+  <input id="setHeadingContact" oninput="settingsChanged()" placeholder="Get Involved">
+
+  <h3>About Text</h3>
+  <textarea id="setAboutText" rows="6" oninput="settingsChanged()"></textarea>
+
   <h3>Venue</h3>
   <label>Venue Name</label>
   <input id="setVenue" oninput="settingsChanged()">
@@ -693,7 +708,26 @@ body.admin-mode{padding-top:48px}
   <div id="contactLinksEditor"></div>
   <button class="add-perf-btn" onclick="addContactLink()" style="margin-top:8px">+ Add Link</button>
 
-  <h3>Font</h3>
+  <h3>Newsletter</h3>
+  <label>MailChimp Form Action URL</label>
+  <div style="font-size:0.7rem;color:rgba(245,240,230,0.35);line-height:1.6;margin-bottom:8px">To find this: MailChimp > Forms > Embedded form > copy the URL from the <strong style="color:rgba(245,240,230,0.5)">action="..."</strong> part of the form tag. Starts with https://...list-manage.com/subscribe/post</div>
+  <input id="setNewsletterUrl" oninput="settingsChanged()" placeholder="https://...list-manage.com/subscribe/post?u=...&id=...">
+  <label>Newsletter Text</label>
+  <input id="setNewsletterText" oninput="settingsChanged()" placeholder="Get show announcements and news. No spam, just antics.">
+
+  <h3>Press Links</h3>
+  <div id="pressLinksEditor"></div>
+  <button class="add-perf-btn" onclick="addPressLink()" style="margin-top:8px">+ Add Press Link</button>
+
+  <h3>Footer</h3>
+  <label>Line 1 (e.g. show name)</label>
+  <input id="setFooter1" oninput="settingsChanged()">
+  <label>Line 2 (e.g. established, venue)</label>
+  <input id="setFooter2" oninput="settingsChanged()">
+  <label>Line 3 (e.g. site credit)</label>
+  <input id="setFooter3" oninput="settingsChanged()">
+
+  <h3>Styling</h3>
   <label>Heading Font</label>
   <select id="setHeadingFont" onchange="applyFont();markDirty()">
     <option value="'Space Grotesk',sans-serif">Space Grotesk</option>
@@ -708,9 +742,7 @@ body.admin-mode{padding-top:48px}
     <option value="'Playfair Display',serif">Playfair Display</option>
     <option value="system-ui,sans-serif">System UI</option>
   </select>
-
-  <h3>Colors</h3>
-  <div class="color-row">
+  <div class="color-row" style="margin-top:16px">
     <input type="color" id="colPlum" value="#1a0a1e" onchange="applyColor('plum',this.value);markDirty()">
     <span>Background (Plum)</span>
   </div>
@@ -738,40 +770,6 @@ body.admin-mode{padding-top:48px}
     <input type="color" id="colCream" value="#f5f0e6" onchange="applyColor('cream',this.value);markDirty()">
     <span>Text (Cream)</span>
   </div>
-
-  <h3>Section Headings</h3>
-  <label>About Headline</label>
-  <input id="setHeadingAbout" oninput="settingsChanged()" placeholder="There will be antics.">
-  <label>Shows</label>
-  <input id="setHeadingShows" oninput="settingsChanged()" placeholder="Past Shows">
-  <label>Media</label>
-  <input id="setHeadingMedia" oninput="settingsChanged()" placeholder="Media">
-  <label>Shop</label>
-  <input id="setHeadingShop" oninput="settingsChanged()" placeholder="Shop">
-  <label>Contact</label>
-  <input id="setHeadingContact" oninput="settingsChanged()" placeholder="Get Involved">
-
-  <h3>Newsletter</h3>
-  <label>MailChimp Form Action URL</label>
-  <div style="font-size:0.7rem;color:rgba(245,240,230,0.35);line-height:1.6;margin-bottom:8px">To find this: MailChimp > Forms > Embedded form > copy the URL from the <strong style="color:rgba(245,240,230,0.5)">action="..."</strong> part of the form tag. Starts with https://...list-manage.com/subscribe/post</div>
-  <input id="setNewsletterUrl" oninput="settingsChanged()" placeholder="https://...list-manage.com/subscribe/post?u=...&id=...">
-  <label>Newsletter Text</label>
-  <input id="setNewsletterText" oninput="settingsChanged()" placeholder="Get show announcements and news. No spam, just antics.">
-
-  <h3>About Text</h3>
-  <textarea id="setAboutText" rows="6" oninput="settingsChanged()"></textarea>
-
-  <h3>Press Links</h3>
-  <div id="pressLinksEditor"></div>
-  <button class="add-perf-btn" onclick="addPressLink()" style="margin-top:8px">+ Add Press Link</button>
-
-  <h3>Footer</h3>
-  <label>Line 1 (e.g. show name)</label>
-  <input id="setFooter1" oninput="settingsChanged()">
-  <label>Line 2 (e.g. established, venue)</label>
-  <input id="setFooter2" oninput="settingsChanged()">
-  <label>Line 3 (e.g. site credit)</label>
-  <input id="setFooter3" oninput="settingsChanged()">
 
   <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(245,240,230,0.08)">
     <button onclick="saveSettings()" style="width:100%;padding:12px;background:var(--pink);border:1px solid var(--pink);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;border-radius:0;letter-spacing:0.05em">Save Draft</button>
