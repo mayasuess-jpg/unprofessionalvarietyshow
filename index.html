@@ -640,7 +640,8 @@ footer a:hover{color:var(--pink)}
 .sd-load-more{display:block;width:100%;margin:12px 0 0;padding:12px;background:rgba(245,240,230,0.05);border:1px solid rgba(245,240,230,0.12);color:rgba(245,240,230,0.6);font-family:'Space Grotesk',sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,color 0.2s}
 .sd-load-more:hover{background:rgba(245,240,230,0.1);color:rgba(245,240,230,0.9)}
 .show-detail-content .sd-recap-caption{font-family:'Playfair Display',serif;font-size:0.9rem;color:rgba(var(--cream-rgb),0.5);line-height:1.6;margin-top:16px;white-space:pre-line;text-align:justify;text-align-last:left}
-.show-detail-content .sd-notes{font-size:0.85rem;color:rgba(var(--cream-rgb),0.5);margin-top:16px;line-height:1.7;padding:12px 16px;border-left:2px solid rgba(var(--cream-rgb),0.15)}
+.show-detail-content .sd-notes-label{font-family:'Space Grotesk',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--pink);margin-top:16px;margin-bottom:4px}
+.show-detail-content .sd-notes{font-size:0.85rem;color:rgba(var(--cream-rgb),0.5);line-height:1.7;padding:12px 16px;border-left:2px solid rgba(var(--cream-rgb),0.15)}
 .show-detail-content .sd-section-content{font-size:0.85rem;color:rgba(var(--cream-rgb),0.8);line-height:1.8;margin-bottom:8px}
 .show-detail-content .sd-crew{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
 .show-detail-content .sd-crew span{padding:6px 14px;border:1px solid rgba(var(--cream-rgb),0.12);border-radius:0;font-size:0.8rem;color:rgba(var(--cream-rgb),0.6)}
@@ -1471,6 +1472,10 @@ function openShowDetail(idx) {
   if (show.accompaniment) html += '<span>' + escHtml(show.accompanimentLabel || 'Accompaniment') + ': ' + escHtml(show.accompaniment) + '</span>';
   if (show.sets) html += '<span>' + escHtml(show.setsLabel || 'Sets') + ': ' + escHtml(show.sets) + '</span>';
   html += '</div>';
+  if (show.notes) {
+    html += '<div class="sd-notes-label">' + escHtml(show.notesLabel || 'Show Notes') + '</div>';
+    html += '<div class="sd-notes">' + escHtml(show.notes).replace(/\n/g, '<br>') + '</div>';
+  }
   if (show.ticketUrl) html += '<div style="margin:20px 0"><a href="' + escHtml(show.ticketUrl) + '" target="_blank" class="btn">Get Tickets</a></div>';
   html += '<div style="clear:both"></div>';
   if (show.performers && show.performers.length) {
@@ -1490,9 +1495,8 @@ function openShowDetail(idx) {
       html += '</div>';
     });
   }
-  // Custom sections (migrated from notes or new)
+  // Custom sections (only explicitly created ones, notes stay in upper section)
   var sections = show.customSections || [];
-  if (!sections.length && show.notes) sections = [{ label: 'Show Notes', content: show.notes }];
   if (sections.length) {
     sections.forEach(function(s) {
       if (!s.content) return;

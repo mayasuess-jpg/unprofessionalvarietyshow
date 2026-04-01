@@ -828,6 +828,10 @@ body.admin-mode{padding-top:48px}
       <input id="seSets" placeholder="Libby Paloma">
     </div>
     <div class="se-field">
+      <input id="seNotesLabel" placeholder="Show Notes" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 2px;margin-bottom:6px;width:100%">
+      <textarea id="seNotes" placeholder="Credits, notes, description..." rows="3"></textarea>
+    </div>
+    <div class="se-field">
       <label style="display:flex;align-items:center;gap:8px">
         <input type="checkbox" id="seUpcoming" style="width:auto;margin:0"> Mark as Upcoming Show
       </label>
@@ -1452,6 +1456,8 @@ function openShowEditor(idx) {
   document.getElementById('seSets').value = show.sets || '';
   document.getElementById('seUpcoming').checked = !!show.isUpcoming;
   document.getElementById('seRecapCaption').value = show.recapCaption || '';
+  document.getElementById('seNotesLabel').value = show.notesLabel || 'Show Notes';
+  document.getElementById('seNotes').value = show.notes || '';
   document.getElementById('sePerformersLabel').value = show.performersLabel || 'Performers';
   document.getElementById('sePhotosLabel').value = show.photosLabel || 'Photos';
   document.getElementById('seVideosLabel').value = show.videosLabel || 'Videos';
@@ -1467,14 +1473,8 @@ function openShowEditor(idx) {
   });
   renderPerformerList();
 
-  // Load custom sections (migrate old notes field if needed)
-  if (show.customSections && show.customSections.length) {
-    editorCustomSections = show.customSections.map(function(s) { return { label: s.label || '', content: s.content || '' }; });
-  } else if (show.notes) {
-    editorCustomSections = [{ label: 'Show Notes', content: show.notes }];
-  } else {
-    editorCustomSections = [];
-  }
+  // Load custom sections (only explicitly created ones)
+  editorCustomSections = (show.customSections || []).map(function(s) { return { label: s.label || '', content: s.content || '' }; });
   renderCustomSections();
 
   editorRecapFiles = [];
@@ -1534,7 +1534,8 @@ function saveShow() {
   show.setsLabel = document.getElementById('seSetsLabel').value.trim();
   show.sets = document.getElementById('seSets').value.trim();
   show.customSections = editorCustomSections.filter(function(s) { return s.content.trim(); });
-  show.notes = '';
+  show.notesLabel = document.getElementById('seNotesLabel').value.trim();
+  show.notes = document.getElementById('seNotes').value.trim();
   show.isUpcoming = document.getElementById('seUpcoming').checked;
   show.recapCaption = document.getElementById('seRecapCaption').value.trim();
   show.performersLabel = document.getElementById('sePerformersLabel').value.trim();
