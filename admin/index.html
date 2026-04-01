@@ -784,7 +784,7 @@ body.admin-mode{padding-top:48px}
         <input id="seTitle" placeholder="e.g. Physique">
       </div>
       <div class="se-field">
-        <label>Edition #</label>
+        <input id="seEditionLabel" placeholder="Edition #" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 2px;margin-bottom:6px;width:100%">
         <input id="seEdition" type="number" placeholder="18">
       </div>
     </div>
@@ -800,7 +800,7 @@ body.admin-mode{padding-top:48px}
     </div>
     <div class="se-row">
       <div class="se-field">
-        <label>Doors</label>
+        <input id="seDoorsLabel" placeholder="Doors" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 2px;margin-bottom:6px;width:100%">
         <input id="seDoors" placeholder="7:00 PM">
       </div>
       <div class="se-field">
@@ -814,16 +814,16 @@ body.admin-mode{padding-top:48px}
     </div>
     <div class="se-row">
       <div class="se-field">
-        <label>Emcee</label>
+        <input id="seEmceeLabel" placeholder="Emcee" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 2px;margin-bottom:6px;width:100%">
         <input id="seEmcee" placeholder="Maya Suess">
       </div>
       <div class="se-field">
-        <label>Accompaniment</label>
+        <input id="seAccompanimentLabel" placeholder="Accompaniment" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 2px;margin-bottom:6px;width:100%">
         <input id="seAccompaniment" placeholder="Klovis Gaynor, Mamie Minch">
       </div>
     </div>
     <div class="se-field">
-      <label>Sets</label>
+      <input id="seSetsLabel" placeholder="Sets" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 2px;margin-bottom:6px;width:100%">
       <input id="seSets" placeholder="Libby Paloma">
     </div>
     <div class="se-field">
@@ -843,7 +843,7 @@ body.admin-mode{padding-top:48px}
     </div>
     <div id="posterPreview" style="margin-top:12px"></div>
 
-    <h3 style="font-family:'Space Grotesk',sans-serif;color:var(--pink);margin:32px 0 12px">Performers</h3>
+    <input id="sePerformersLabel" placeholder="Performers" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:1.1rem;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 4px;margin:32px 0 12px;width:100%">
     <div class="perf-list" id="perfList"></div>
     <button class="add-perf-btn" onclick="addPerformer()">+ Add Performer</button>
 
@@ -852,14 +852,14 @@ body.admin-mode{padding-top:48px}
       <textarea id="seRecapCaption" placeholder="Thank you to everyone who came..." rows="4"></textarea>
     </div>
 
-    <h3 style="font-family:'Space Grotesk',sans-serif;color:var(--pink);margin:32px 0 12px">Recap Photos</h3>
+    <input id="sePhotosLabel" placeholder="Photos" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:1.1rem;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 4px;margin:32px 0 12px;width:100%">
     <div class="media-dropzone" id="recapDrop" onclick="document.getElementById('recapInput').click()">
       <div>Drop recap photos here or click to browse</div>
       <input type="file" id="recapInput" accept="image/*" multiple>
     </div>
     <div class="media-thumbs" id="recapThumbs"></div>
 
-    <h3 style="font-family:'Space Grotesk',sans-serif;color:var(--pink);margin:32px 0 12px">Videos</h3>
+    <input id="seVideosLabel" placeholder="Videos" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:1.1rem;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 4px;margin:32px 0 12px;width:100%">
     <div id="videoList"></div>
     <button class="add-perf-btn" onclick="addVideo()">+ Add Video</button>
   </div>
@@ -1182,7 +1182,7 @@ function renderNextShowInner(show) {
       '<div class="date">' + formatDateLong(show.date) + '</div>' +
       '<div class="venue">' + esc(DATA.settings.venue || '') + '</div>' +
       (perfs ? '<div class="performers">' + perfs + '</div>' : '') +
-      '<div style="margin-bottom:16px"><span style="font-size:0.8rem;color:rgba(245,240,230,0.4)">Emcee: ' + esc(show.emcee || '') + (show.accompaniment ? ' - Accompaniment: ' + esc(show.accompaniment) : '') + '</span></div>' +
+      '<div style="margin-bottom:16px"><span style="font-size:0.8rem;color:rgba(245,240,230,0.4)">' + esc(show.emceeLabel || 'Emcee') + ': ' + esc(show.emcee || '') + (show.accompaniment ? ' - ' + esc(show.accompanimentLabel || 'Accompaniment') + ': ' + esc(show.accompaniment) : '') + '</span></div>' +
       (show.ticketUrl ? '<span class="btn" style="pointer-events:none">Get Tickets</span>' : '') +
     '</div></div>';
 }
@@ -1400,18 +1400,26 @@ function openShowEditor(idx) {
   var show = idx >= 0 ? DATA.shows[idx] : {};
   document.getElementById('showEditorTitle').textContent = idx >= 0 ? 'Edit: ' + (show.title || 'Show') : 'New Show';
   document.getElementById('seTitle').value = show.title || '';
+  document.getElementById('seEditionLabel').value = show.editionLabel || 'Edition #';
   document.getElementById('seEdition').value = show.edition || '';
   document.getElementById('seDate').value = show.date || '';
   document.getElementById('seTime').value = show.time || '';
+  document.getElementById('seDoorsLabel').value = show.doorsLabel || 'Doors';
   document.getElementById('seDoors').value = show.doors || '';
   document.getElementById('seTicketUrl').value = show.ticketUrl || '';
   document.getElementById('seTheme').value = show.theme || show.description || '';
+  document.getElementById('seEmceeLabel').value = show.emceeLabel || 'Emcee';
   document.getElementById('seEmcee').value = show.emcee || '';
+  document.getElementById('seAccompanimentLabel').value = show.accompanimentLabel || 'Accompaniment';
   document.getElementById('seAccompaniment').value = show.accompaniment || '';
+  document.getElementById('seSetsLabel').value = show.setsLabel || 'Sets';
   document.getElementById('seSets').value = show.sets || '';
   document.getElementById('seNotes').value = show.notes || '';
   document.getElementById('seUpcoming').checked = !!show.isUpcoming;
   document.getElementById('seRecapCaption').value = show.recapCaption || '';
+  document.getElementById('sePerformersLabel').value = show.performersLabel || 'Performers';
+  document.getElementById('sePhotosLabel').value = show.photosLabel || 'Photos';
+  document.getElementById('seVideosLabel').value = show.videosLabel || 'Videos';
 
   editorPosterFile = null;
   editorPosterSrc = show.posterImage || '';
@@ -1464,19 +1472,27 @@ function closeShowEditor() {
 function saveShow() {
   var show = editingShowIdx >= 0 ? DATA.shows[editingShowIdx] : {};
   show.title = document.getElementById('seTitle').value.trim();
+  show.editionLabel = document.getElementById('seEditionLabel').value.trim();
   show.edition = parseInt(document.getElementById('seEdition').value) || '';
   show.date = document.getElementById('seDate').value;
   show.time = document.getElementById('seTime').value.trim();
+  show.doorsLabel = document.getElementById('seDoorsLabel').value.trim();
   show.doors = document.getElementById('seDoors').value.trim();
   show.ticketUrl = document.getElementById('seTicketUrl').value.trim();
   show.theme = document.getElementById('seTheme').value.trim();
   show.description = show.theme;
+  show.emceeLabel = document.getElementById('seEmceeLabel').value.trim();
   show.emcee = document.getElementById('seEmcee').value.trim();
+  show.accompanimentLabel = document.getElementById('seAccompanimentLabel').value.trim();
   show.accompaniment = document.getElementById('seAccompaniment').value.trim();
+  show.setsLabel = document.getElementById('seSetsLabel').value.trim();
   show.sets = document.getElementById('seSets').value.trim();
   show.notes = document.getElementById('seNotes').value.trim();
   show.isUpcoming = document.getElementById('seUpcoming').checked;
   show.recapCaption = document.getElementById('seRecapCaption').value.trim();
+  show.performersLabel = document.getElementById('sePerformersLabel').value.trim();
+  show.photosLabel = document.getElementById('sePhotosLabel').value.trim();
+  show.videosLabel = document.getElementById('seVideosLabel').value.trim();
   show.performers = editorPerformers.filter(function(p) { return p.name.trim(); });
   show.recapImages = editorRecapSrcs;
   show.videos = editorVideos.filter(function(v) { return v.src || v.vimeoId; });

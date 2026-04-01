@@ -1015,7 +1015,7 @@ function renderNextShow() {
   if (!show) { container.style.display = 'none'; return; }
 
   const dateStr = formatDateLong(show.date);
-  const doorsStr = show.doors ? 'Doors ' + show.doors : '';
+  const doorsStr = show.doors ? (show.doorsLabel || 'Doors') + ' ' + show.doors : '';
   const timeStr = show.time || '';
   const venueStr = DATA.settings.venue || 'The Parkside Lounge';
   const performersHtml = (show.performers || []).map(p => {
@@ -1047,8 +1047,8 @@ function renderNextShow() {
         '<div class="venue">' + escHtml(venueStr) + ' - ' + escHtml(doorsStr + (doorsStr && timeStr ? ' / Show ' : '') + timeStr) + '</div>' +
         (performersHtml ? '<div class="performers">' + performersHtml + '</div>' : '') +
         '<div class="" style="margin-bottom:16px">' +
-          '<span style="font-size:0.8rem;color:rgba(var(--cream-rgb),0.4)">Emcee: ' + escHtml(show.emcee || '') +
-          (show.accompaniment ? ' - Accompaniment: ' + escHtml(show.accompaniment) : '') +
+          '<span style="font-size:0.8rem;color:rgba(var(--cream-rgb),0.4)">' + escHtml(show.emceeLabel || 'Emcee') + ': ' + escHtml(show.emcee || '') +
+          (show.accompaniment ? ' - ' + escHtml(show.accompanimentLabel || 'Accompaniment') + ': ' + escHtml(show.accompaniment) : '') +
           '</span>' +
         '</div>' +
         ticketHtml +
@@ -1450,17 +1450,17 @@ function openShowDetail(idx) {
   }
   html += '<h1>' + escHtml(show.title) + '</h1>';
   html += '<div class="sd-meta">' + dateStr + (show.time ? ' - ' + escHtml(show.time) : '') + '</div>';
-  html += '<div class="sd-venue">' + escHtml(venue) + ' - ' + escHtml(addr) + (show.doors ? ' - Doors ' + escHtml(show.doors) : '') + '</div>';
-  if (show.edition) html += '<div class="sd-notes">Edition #' + show.edition + '</div>';
+  html += '<div class="sd-venue">' + escHtml(venue) + ' - ' + escHtml(addr) + (show.doors ? ' - ' + escHtml(show.doorsLabel || 'Doors') + ' ' + escHtml(show.doors) : '') + '</div>';
+  if (show.edition) html += '<div class="sd-notes">' + escHtml(show.editionLabel || 'Edition #') + show.edition + '</div>';
   html += '<div class="sd-crew">';
-  if (show.emcee) html += '<span>Emcee: ' + escHtml(show.emcee) + '</span>';
-  if (show.accompaniment) html += '<span>Accompaniment: ' + escHtml(show.accompaniment) + '</span>';
-  if (show.sets) html += '<span>Sets: ' + escHtml(show.sets) + '</span>';
+  if (show.emcee) html += '<span>' + escHtml(show.emceeLabel || 'Emcee') + ': ' + escHtml(show.emcee) + '</span>';
+  if (show.accompaniment) html += '<span>' + escHtml(show.accompanimentLabel || 'Accompaniment') + ': ' + escHtml(show.accompaniment) + '</span>';
+  if (show.sets) html += '<span>' + escHtml(show.setsLabel || 'Sets') + ': ' + escHtml(show.sets) + '</span>';
   html += '</div>';
   if (show.notes) html += '<div class="sd-notes">' + escHtml(show.notes) + '</div>';
   if (show.ticketUrl) html += '<div style="margin:20px 0"><a href="' + escHtml(show.ticketUrl) + '" target="_blank" class="btn">Get Tickets</a></div>';
   if (show.performers && show.performers.length) {
-    html += '<div style="clear:both"></div><div class="sd-section-title">Performers</div>';
+    html += '<div style="clear:both"></div><div class="sd-section-title">' + escHtml(show.performersLabel || 'Performers') + '</div>';
     show.performers.forEach(function(p) {
       if (typeof p === 'string') { html += '<div class="sd-performer"><div class="sd-perf-name">' + escHtml(p) + '</div></div>'; return; }
       html += '<div class="sd-performer">';
@@ -1514,7 +1514,7 @@ function openShowDetail(idx) {
 
   currentRecapImages = showPhotos.map(function(p) { return p.src; });
   if (showPhotos.length) {
-    html += '<div class="sd-section-title">Photos (' + showPhotos.length + ')</div>';
+    html += '<div class="sd-section-title">' + escHtml(show.photosLabel || 'Photos') + ' (' + showPhotos.length + ')</div>';
     if (show.recapCaption) html += '<div class="sd-recap-caption">' + escHtml(show.recapCaption) + '</div>';
     html += '<div class="sd-recap-grid">';
     // Photos start after poster in allShowMedia (index 1 if poster exists)
@@ -1525,7 +1525,7 @@ function openShowDetail(idx) {
     html += '</div>';
   } else { currentRecapImages = []; }
   if (allVids.length) {
-    html += '<div class="sd-section-title">Videos (' + allVids.length + ')</div>';
+    html += '<div class="sd-section-title">' + escHtml(show.videosLabel || 'Videos') + ' (' + allVids.length + ')</div>';
     html += '<div class="sd-recap-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">';
     var vidOffset = (show.posterImage ? 1 : 0) + showPhotos.length;
     allVids.forEach(function(v, vi) {
