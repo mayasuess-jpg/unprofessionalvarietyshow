@@ -573,6 +573,8 @@ footer a:hover{color:var(--pink)}
   .show-detail-back{top:12px;left:12px;padding:8px 14px;font-size:0.75rem}
   .show-detail-close{top:12px;right:12px}
   .sd-recap-grid{grid-template-columns:1fr 1fr !important}
+  .sd-media-capped{max-height:calc(2 * (45vw + 8px)) !important}
+  .sd-media-capped-vid{max-height:calc(2 * (45vw * 9/16 + 40px)) !important}
 
   /* Arrows - small, tucked into gutters */
   .show-nav-arrow{width:28px !important;height:80px !important;opacity:0.35 !important}
@@ -633,6 +635,10 @@ footer a:hover{color:var(--pink)}
 .show-detail-content .sd-perf-bio{font-size:0.85rem;color:rgba(var(--cream-rgb),0.65);line-height:1.6;text-align:justify;text-align-last:left}
 .show-detail-content .sd-recap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:16px}
 .show-detail-content .sd-recap-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:0;cursor:pointer}
+.sd-media-capped{max-height:432px;overflow:hidden;position:relative}
+.sd-media-capped-vid{max-height:480px}
+.sd-load-more{display:block;width:100%;margin:12px 0 0;padding:12px;background:rgba(245,240,230,0.05);border:1px solid rgba(245,240,230,0.12);color:rgba(245,240,230,0.6);font-family:'Space Grotesk',sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,color 0.2s}
+.sd-load-more:hover{background:rgba(245,240,230,0.1);color:rgba(245,240,230,0.9)}
 .show-detail-content .sd-recap-caption{font-family:'Playfair Display',serif;font-size:0.9rem;color:rgba(var(--cream-rgb),0.5);line-height:1.6;margin-top:16px;white-space:pre-line;text-align:justify;text-align-last:left}
 .show-detail-content .sd-notes{font-size:0.85rem;color:rgba(var(--cream-rgb),0.5);margin-top:16px;line-height:1.7;padding:12px 16px;border-left:2px solid rgba(var(--cream-rgb),0.1)}
 .show-detail-content .sd-crew{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
@@ -1516,17 +1522,22 @@ function openShowDetail(idx) {
   if (showPhotos.length) {
     html += '<div class="sd-section-title">' + escHtml(show.photosLabel || 'Photos') + ' (' + showPhotos.length + ')</div>';
     if (show.recapCaption) html += '<div class="sd-recap-caption">' + escHtml(show.recapCaption).replace(/\n/g, '<br>') + '</div>';
-    html += '<div class="sd-recap-grid">';
+    var photoGridId = 'photoGrid-' + idx;
+    html += '<div class="sd-recap-grid sd-media-capped" id="' + photoGridId + '">';
     // Photos start after poster in allShowMedia (index 1 if poster exists)
     var photoOffset = show.posterImage ? 1 : 0;
     showPhotos.forEach(function(p, ri) {
       html += '<img src="' + escHtml(p.src) + '" alt="" loading="lazy" onclick="event.stopPropagation();openShowMediaLb(' + (ri + photoOffset) + ')">';
     });
     html += '</div>';
+    if (showPhotos.length > 8) {
+      html += '<button class="sd-load-more" onclick="event.stopPropagation();var g=document.getElementById(\'' + photoGridId + '\');g.classList.remove(\'sd-media-capped\');this.remove()">Load More Photos</button>';
+    }
   } else { currentRecapImages = []; }
   if (allVids.length) {
     html += '<div class="sd-section-title">' + escHtml(show.videosLabel || 'Videos') + ' (' + allVids.length + ')</div>';
-    html += '<div class="sd-recap-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">';
+    var vidGridId = 'vidGrid-' + idx;
+    html += '<div class="sd-recap-grid sd-media-capped sd-media-capped-vid" id="' + vidGridId + '" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">';
     var vidOffset = (show.posterImage ? 1 : 0) + showPhotos.length;
     allVids.forEach(function(v, vi) {
       var mediaIdx = vidOffset + vi;
@@ -1545,6 +1556,9 @@ function openShowDetail(idx) {
       }
     });
     html += '</div>';
+    if (allVids.length > 6) {
+      html += '<button class="sd-load-more" onclick="event.stopPropagation();var g=document.getElementById(\'' + vidGridId + '\');g.classList.remove(\'sd-media-capped\');g.classList.remove(\'sd-media-capped-vid\');this.remove()">Load More Videos</button>';
+    }
   }
   html += '</div>';
   document.getElementById('showDetailContent').innerHTML = html;
