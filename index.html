@@ -1526,8 +1526,9 @@ function openShowDetail(idx) {
     html += '<div class="sd-recap-grid sd-media-capped" id="' + photoGridId + '">';
     // Photos start after poster in allShowMedia (index 1 if poster exists)
     var photoOffset = show.posterImage ? 1 : 0;
+    var imgAlts = show.recapImageAlts || {};
     showPhotos.forEach(function(p, ri) {
-      html += '<img src="' + escHtml(p.src) + '" alt="" loading="lazy" onclick="event.stopPropagation();openShowMediaLb(' + (ri + photoOffset) + ')">';
+      html += '<img src="' + escHtml(p.src) + '" alt="' + escHtml(imgAlts[p.src] || '') + '" loading="lazy" onclick="event.stopPropagation();openShowMediaLb(' + (ri + photoOffset) + ')">';
     });
     html += '</div>';
     if (showPhotos.length > 8) {
@@ -1543,14 +1544,14 @@ function openShowDetail(idx) {
       var mediaIdx = vidOffset + vi;
       if (v.vimeoId) {
         html += '<div style="position:relative;cursor:pointer" onclick="event.stopPropagation();openShowMediaLb(' + mediaIdx + ')">';
-        html += '<img src="https://vumbnail.com/' + v.vimeoId + '.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover">';
+        html += '<img src="https://vumbnail.com/' + v.vimeoId + '.jpg" alt="' + escHtml(v.alt || v.title || '') + '" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover">';
         html += '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;margin-left:3px"><polygon points="8,5 19,12 8,19"/></svg></div>';
         html += '<div style="padding:8px 0;font-size:0.8rem;color:rgba(var(--cream-rgb),0.7)">' + escHtml(v.title || '') + (v.duration ? ' (' + v.duration + ')' : '') + '</div>';
         html += '</div>';
       } else if (v.src) {
         html += '<div style="position:relative;cursor:pointer" onclick="event.stopPropagation();openShowMediaLb(' + mediaIdx + ')">';
         if (v.thumb) {
-          html += '<img src="' + escHtml(v.thumb) + '" alt="" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover">';
+          html += '<img src="' + escHtml(v.thumb) + '" alt="' + escHtml(v.alt || v.title || '') + '" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover">';
         } else {
           html += '<video src="' + escHtml(v.src) + '" preload="metadata" muted style="width:100%;aspect-ratio:1;object-fit:cover;pointer-events:none"></video>';
         }
