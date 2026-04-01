@@ -1518,10 +1518,10 @@ function openShowDetail(idx) {
   });
   currentShowMedia = allShowMedia;
 
+  if (show.recapCaption) html += '<div class="sd-recap-caption">' + escHtml(show.recapCaption).replace(/\n/g, '<br>') + '</div>';
   currentRecapImages = showPhotos.map(function(p) { return p.src; });
   if (showPhotos.length) {
     html += '<div class="sd-section-title">' + escHtml(show.photosLabel || 'Photos') + ' (' + showPhotos.length + ')</div>';
-    if (show.recapCaption) html += '<div class="sd-recap-caption">' + escHtml(show.recapCaption).replace(/\n/g, '<br>') + '</div>';
     var photoGridId = 'photoGrid-' + idx;
     html += '<div class="sd-recap-grid sd-media-capped" id="' + photoGridId + '">';
     // Photos start after poster in allShowMedia (index 1 if poster exists)
