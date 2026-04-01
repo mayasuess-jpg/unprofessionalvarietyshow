@@ -634,7 +634,7 @@ footer a:hover{color:var(--pink)}
 .show-detail-content .sd-recap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:16px}
 .show-detail-content .sd-recap-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:0;cursor:pointer}
 .show-detail-content .sd-recap-caption{font-family:'Playfair Display',serif;font-size:0.9rem;color:rgba(var(--cream-rgb),0.5);line-height:1.6;margin-top:16px;white-space:pre-line;text-align:justify;text-align-last:left}
-.show-detail-content .sd-notes{font-size:0.85rem;color:rgba(var(--cream-rgb),0.4);margin-top:12px}
+.show-detail-content .sd-notes{font-size:0.85rem;color:rgba(var(--cream-rgb),0.5);margin-top:16px;line-height:1.7;padding:12px 16px;border-left:2px solid rgba(var(--cream-rgb),0.1)}
 .show-detail-content .sd-crew{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
 .show-detail-content .sd-crew span{padding:6px 14px;border:1px solid rgba(var(--cream-rgb),0.12);border-radius:0;font-size:0.8rem;color:rgba(var(--cream-rgb),0.6)}
 
@@ -1457,7 +1457,7 @@ function openShowDetail(idx) {
   if (show.accompaniment) html += '<span>' + escHtml(show.accompanimentLabel || 'Accompaniment') + ': ' + escHtml(show.accompaniment) + '</span>';
   if (show.sets) html += '<span>' + escHtml(show.setsLabel || 'Sets') + ': ' + escHtml(show.sets) + '</span>';
   html += '</div>';
-  if (show.notes) html += '<div class="sd-notes">' + escHtml(show.notes) + '</div>';
+  if (show.notes) html += '<div class="sd-notes">' + escHtml(show.notes).replace(/\n/g, '<br>') + '</div>';
   if (show.ticketUrl) html += '<div style="margin:20px 0"><a href="' + escHtml(show.ticketUrl) + '" target="_blank" class="btn">Get Tickets</a></div>';
   if (show.performers && show.performers.length) {
     html += '<div style="clear:both"></div><div class="sd-section-title">' + escHtml(show.performersLabel || 'Performers') + '</div>';
@@ -1515,7 +1515,7 @@ function openShowDetail(idx) {
   currentRecapImages = showPhotos.map(function(p) { return p.src; });
   if (showPhotos.length) {
     html += '<div class="sd-section-title">' + escHtml(show.photosLabel || 'Photos') + ' (' + showPhotos.length + ')</div>';
-    if (show.recapCaption) html += '<div class="sd-recap-caption">' + escHtml(show.recapCaption) + '</div>';
+    if (show.recapCaption) html += '<div class="sd-recap-caption">' + escHtml(show.recapCaption).replace(/\n/g, '<br>') + '</div>';
     html += '<div class="sd-recap-grid">';
     // Photos start after poster in allShowMedia (index 1 if poster exists)
     var photoOffset = show.posterImage ? 1 : 0;
