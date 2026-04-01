@@ -690,14 +690,8 @@ body.admin-mode{padding-top:48px}
   <textarea id="setAccess" oninput="settingsChanged()"></textarea>
 
   <h3>Links</h3>
-  <label>Instagram (Show)</label>
-  <input id="setIgShow" oninput="settingsChanged()">
-  <label>Instagram (Maya)</label>
-  <input id="setIgMaya" oninput="settingsChanged()">
-  <label>Ticket Platform URL</label>
-  <input id="setTicketUrl" oninput="settingsChanged()">
-  <label>Parkside URL</label>
-  <input id="setParksideUrl" oninput="settingsChanged()">
+  <div id="contactLinksEditor"></div>
+  <button class="add-perf-btn" onclick="addContactLink()" style="margin-top:8px">+ Add Link</button>
 
   <h3>Font</h3>
   <label>Heading Font</label>
@@ -834,10 +828,6 @@ body.admin-mode{padding-top:48px}
       <input id="seSets" placeholder="Libby Paloma">
     </div>
     <div class="se-field">
-      <label>Notes (crew credits, etc)</label>
-      <textarea id="seNotes" placeholder="Costumes by... Tech by..."></textarea>
-    </div>
-    <div class="se-field">
       <label style="display:flex;align-items:center;gap:8px">
         <input type="checkbox" id="seUpcoming" style="width:auto;margin:0"> Mark as Upcoming Show
       </label>
@@ -853,6 +843,9 @@ body.admin-mode{padding-top:48px}
     <input id="sePerformersLabel" placeholder="Performers" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:1.1rem;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 4px;margin:32px 0 12px;width:100%">
     <div class="perf-list" id="perfList"></div>
     <button class="add-perf-btn" onclick="addPerformer()">+ Add Performer</button>
+
+    <div id="customSectionsList" style="margin-top:24px"></div>
+    <button class="add-perf-btn" onclick="addCustomSection()">+ Add Section</button>
 
     <h3 style="font-family:'Space Grotesk',sans-serif;color:var(--pink);margin:32px 0 12px">Recap Caption</h3>
     <div class="se-field">
@@ -964,6 +957,7 @@ var editorPosterSrc = '';
 var editorRecapFiles = [];
 var editorRecapSrcs = [];
 var editorRecapAlts = {};
+var editorCustomSections = [];
 var confirmCallback = null;
 var pendingFiles = {}; /* path -> base64 string, persisted to localStorage */
 var localPreviews = {}; /* path -> data URL for local preview */
@@ -1114,10 +1108,18 @@ function renderSite() {
   html += '<div class="section-title" style="color:var(--green)">' + esc(s.headingContact || 'Get Involved') + '</div>';
   html += '<p class="contact-cta" contenteditable="true" data-field="contactCta">Want to perform? Have a wild idea? Just want to be part of whatever this is? Reach out. The show is built by its community, and the door is always open.</p>';
   html += '<div class="contact-links">';
-  html += '<span class="contact-link">@unprofessionalvarietyshow</span>';
-  html += '<span class="contact-link">@MayaSuess</span>';
-  html += '<span class="contact-link">Humanitix Tickets</span>';
-  html += '<span class="contact-link">The Parkside Lounge</span>';
+  var clinks = s.contactLinks || [];
+  if (!clinks.length) {
+    clinks = [
+      { label: '@unprofessionalvarietyshow' },
+      { label: '@MayaSuess' },
+      { label: 'Humanitix Tickets' },
+      { label: 'The Parkside Lounge' }
+    ];
+  }
+  clinks.forEach(function(l) {
+    html += '<span class="contact-link">' + esc(l.label) + '</span>';
+  });
   html += '</div>';
 
   // Newsletter
@@ -1329,10 +1331,15 @@ function populateSettings() {
   document.getElementById('setVenue').value = s.venue || '';
   document.getElementById('setVenueAddr').value = s.venueAddress || '';
   document.getElementById('setAccess').value = s.accessibilityNote || '';
-  document.getElementById('setIgShow').value = s.instagramShow || '';
-  document.getElementById('setIgMaya').value = s.instagramMaya || '';
-  document.getElementById('setTicketUrl').value = s.ticketPlatform || '';
-  document.getElementById('setParksideUrl').value = s.parksideUrl || '';
+  // Migrate old hardcoded links to contactLinks array
+  if (!s.contactLinks || !s.contactLinks.length) {
+    s.contactLinks = [];
+    if (s.instagramShow) s.contactLinks.push({ label: '@unprofessionalvarietyshow', url: s.instagramShow });
+    if (s.instagramMaya) s.contactLinks.push({ label: '@MayaSuess', url: s.instagramMaya });
+    if (s.ticketPlatform) s.contactLinks.push({ label: 'Humanitix Tickets', url: s.ticketPlatform });
+    if (s.parksideUrl) s.contactLinks.push({ label: 'The Parkside Lounge', url: s.parksideUrl });
+  }
+  renderContactLinksEditor();
   document.getElementById('setAboutText').value = s.aboutText || '';
   document.getElementById('setHeadingAbout').value = s.headingAbout || '';
   document.getElementById('setHeadingShows').value = s.headingShows || '';
@@ -1400,6 +1407,27 @@ function addPressLink() {
 function removePressLink(i) { DATA.settings.pressLinks.splice(i, 1); renderPressLinksEditor(); markDirty(); }
 function updatePressLink(i, field, val) { DATA.settings.pressLinks[i][field] = val; markDirty(); }
 
+/* Contact Links */
+function renderContactLinksEditor() {
+  var links = DATA.settings.contactLinks || [];
+  var html = '';
+  links.forEach(function(l, i) {
+    html += '<div style="position:relative;padding:10px 12px;margin-bottom:8px;background:rgba(245,240,230,0.03);border:1px solid rgba(245,240,230,0.08)">';
+    html += '<button onclick="removeContactLink(' + i + ')" style="position:absolute;top:4px;right:4px;width:20px;height:20px;background:none;border:1px solid rgba(245,240,230,0.15);color:var(--cream);cursor:pointer;font-size:0.7rem;display:flex;align-items:center;justify-content:center">&times;</button>';
+    html += '<input value="' + esc(l.label) + '" placeholder="Display label (e.g. @MayaSuess)" onchange="updateContactLink(' + i + ',\'label\',this.value)" style="width:100%;padding:6px;margin-bottom:6px;background:rgba(245,240,230,0.05);border:1px solid rgba(245,240,230,0.08);color:var(--pink);font-size:0.85rem;border-radius:0;font-family:\'Space Grotesk\',sans-serif">';
+    html += '<input value="' + esc(l.url) + '" placeholder="URL (e.g. https://instagram.com/...)" onchange="updateContactLink(' + i + ',\'url\',this.value)" style="width:100%;padding:6px;background:rgba(245,240,230,0.05);border:1px solid rgba(245,240,230,0.08);color:rgba(245,240,230,0.5);font-size:0.8rem;border-radius:0">';
+    html += '</div>';
+  });
+  document.getElementById('contactLinksEditor').innerHTML = html;
+}
+function addContactLink() {
+  if (!DATA.settings.contactLinks) DATA.settings.contactLinks = [];
+  DATA.settings.contactLinks.push({ label: '', url: '' });
+  renderContactLinksEditor(); markDirty();
+}
+function removeContactLink(i) { DATA.settings.contactLinks.splice(i, 1); renderContactLinksEditor(); markDirty(); }
+function updateContactLink(i, field, val) { DATA.settings.contactLinks[i][field] = val; markDirty(); }
+
 /* ========================================
    SHOW EDITOR
    ======================================== */
@@ -1422,7 +1450,6 @@ function openShowEditor(idx) {
   document.getElementById('seAccompaniment').value = show.accompaniment || '';
   document.getElementById('seSetsLabel').value = show.setsLabel || 'Sets';
   document.getElementById('seSets').value = show.sets || '';
-  document.getElementById('seNotes').value = show.notes || '';
   document.getElementById('seUpcoming').checked = !!show.isUpcoming;
   document.getElementById('seRecapCaption').value = show.recapCaption || '';
   document.getElementById('sePerformersLabel').value = show.performersLabel || 'Performers';
@@ -1439,6 +1466,16 @@ function openShowEditor(idx) {
     return { name: p.name || '', instagram: p.instagram || '', bio: p.bio || '' };
   });
   renderPerformerList();
+
+  // Load custom sections (migrate old notes field if needed)
+  if (show.customSections && show.customSections.length) {
+    editorCustomSections = show.customSections.map(function(s) { return { label: s.label || '', content: s.content || '' }; });
+  } else if (show.notes) {
+    editorCustomSections = [{ label: 'Show Notes', content: show.notes }];
+  } else {
+    editorCustomSections = [];
+  }
+  renderCustomSections();
 
   editorRecapFiles = [];
   editorRecapAlts = show.recapImageAlts || {};
@@ -1496,7 +1533,8 @@ function saveShow() {
   show.accompaniment = document.getElementById('seAccompaniment').value.trim();
   show.setsLabel = document.getElementById('seSetsLabel').value.trim();
   show.sets = document.getElementById('seSets').value.trim();
-  show.notes = document.getElementById('seNotes').value.trim();
+  show.customSections = editorCustomSections.filter(function(s) { return s.content.trim(); });
+  show.notes = '';
   show.isUpcoming = document.getElementById('seUpcoming').checked;
   show.recapCaption = document.getElementById('seRecapCaption').value.trim();
   show.performersLabel = document.getElementById('sePerformersLabel').value.trim();
@@ -1593,6 +1631,21 @@ function loadVimeoThumb(i, vimeoId) {
     }).catch(function(){});
 }
 function addVideo() { editorVideos.push({ src: '', vimeoId: '', title: '', thumb: '', alt: '' }); renderVideoList(); }
+
+/* Custom Sections */
+function renderCustomSections() {
+  var html = '';
+  editorCustomSections.forEach(function(s, i) {
+    html += '<div class="perf-item" style="position:relative;padding:16px;margin-bottom:12px;background:rgba(245,240,230,0.02);border:1px solid rgba(245,240,230,0.08)">';
+    html += '<button class="perf-remove" onclick="removeCustomSection(' + i + ')">&times;</button>';
+    html += '<input value="' + esc(s.label) + '" placeholder="Section Title" onchange="editorCustomSections[' + i + '].label=this.value" style="display:block;font-family:\'Space Grotesk\',sans-serif;font-size:1.1rem;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 4px;margin-bottom:10px;width:100%">';
+    html += '<textarea onchange="editorCustomSections[' + i + '].content=this.value" placeholder="Section content..." rows="4" style="width:100%;padding:12px;background:rgba(245,240,230,0.05);border:1px solid rgba(245,240,230,0.1);color:var(--cream);font-family:\'DM Sans\',sans-serif;font-size:0.95rem;border-radius:0">' + esc(s.content) + '</textarea>';
+    html += '</div>';
+  });
+  document.getElementById('customSectionsList').innerHTML = html;
+}
+function addCustomSection() { editorCustomSections.push({ label: '', content: '' }); renderCustomSections(); }
+function removeCustomSection(i) { editorCustomSections.splice(i, 1); renderCustomSections(); }
 function removeVideo(i) { editorVideos.splice(i, 1); renderVideoList(); }
 
 /* Drop zone setup */
@@ -1802,10 +1855,7 @@ function collectSettings() {
   DATA.settings.venue = document.getElementById('setVenue').value.trim();
   DATA.settings.venueAddress = document.getElementById('setVenueAddr').value.trim();
   DATA.settings.accessibilityNote = document.getElementById('setAccess').value.trim();
-  DATA.settings.instagramShow = document.getElementById('setIgShow').value.trim();
-  DATA.settings.instagramMaya = document.getElementById('setIgMaya').value.trim();
-  DATA.settings.ticketPlatform = document.getElementById('setTicketUrl').value.trim();
-  DATA.settings.parksideUrl = document.getElementById('setParksideUrl').value.trim();
+  // contactLinks are already updated live via onchange handlers
   DATA.settings.aboutText = document.getElementById('setAboutText').value.trim();
   DATA.settings.headingAbout = document.getElementById('setHeadingAbout').value.trim();
   DATA.settings.headingShows = document.getElementById('setHeadingShows').value.trim();
