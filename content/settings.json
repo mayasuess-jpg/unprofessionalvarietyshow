@@ -64,5 +64,26 @@
   "newsletterText": "",
   "aboutQuote": "\"Allied Productions exemplifies one of the things I love about this neighborhood, which is the diverse legacy of experimental queer and radical art and performance. At the Unprofessional Variety Show, I try to make the programming truly intergenerational.\"",
   "aboutQuoteAttr": "- Maya Suess, EV Grieve, Feb 2024",
-  "contactCta": "Want to perform? Have a wild idea? Just want to be part of whatever this is? Reach out. The show is built by its community, and the door is always open."
+  "contactCta": "Want to perform? Have a wild idea? Just want to be part of whatever this is? Reach out. The show is built by its community, and the door is always open.",
+  "contactLinks": [
+    {
+      "label": "@unprofessionalvarietyshow",
+      "url": "https://www.instagram.com/unprofessionalvarietyshow/"
+    },
+    {
+      "label": "@MayaSuess",
+      "url": "https://www.instagram.com/MayaSuess/"
+    },
+    {
+      "label": "Humanitix Tickets",
+      "url": "https://events.humanitix.com/unprofessional-variety-show"
+    },
+    {
+      "label": "The Parkside Lounge",
+      "url": "https://www.parksidelounge.nyc/"
+    }
+  ],
+  "footer1": "Unprofessional Variety Show",
+  "footer2": "Est. 2022 - The Parkside Lounge, LES NYC",
+  "footer3": "Site by Piet Suess"
 }
