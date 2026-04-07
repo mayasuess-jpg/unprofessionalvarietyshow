@@ -1079,7 +1079,7 @@ function buildHeroMediaStrip() {
     } else {
       html += '<div class="ms-item' + (m.type === 'poster' ? ' ms-poster' : '') + '" onclick="openHeroStripLb(' + i + ')">';
       html += '<img src="' + escHtml(m.src) + '" alt="" loading="lazy">';
-      if (m.type === 'poster') html += '<div class="ms-credit">original hand drawn art by Maya Suess</div>';
+      /* credit shown in lightbox caption only */
       html += '</div>';
     }
   });
