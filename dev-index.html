@@ -135,7 +135,6 @@ nav .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
   text-align:center;
   margin-top:30px;position:relative;z-index:2;
   color:rgba(var(--cream-rgb),0.85);line-height:1.3;
-  visibility:hidden;
 }
 
 /* MARQUEE (text) */
@@ -995,7 +994,12 @@ async function init() {
     renderFooter();
     injectEventSchema();
     buildHeroMediaStrip();
-    fitHeroTagline();
+    // Fit tagline after fonts are ready (init fills text, fonts needed for measurement)
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function() { fitHeroTagline(); });
+    } else {
+      fitHeroTagline();
+    }
   } catch(e) { console.error('Init error:', e); }
 }
 
