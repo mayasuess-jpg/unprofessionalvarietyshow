@@ -50,7 +50,7 @@ a{color:inherit;text-decoration:none}
 /* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:16px 4vw;
+  padding:6px 4vw;
   display:flex;justify-content:space-between;align-items:center;
   background:rgba(26,10,30,0.85);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
@@ -60,8 +60,9 @@ nav{
 nav .logo{
   font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;
   color:var(--cream);letter-spacing:0.02em;
-  flex-shrink:0;
+  flex-shrink:0;position:relative;z-index:101;
 }
+nav .logo img{height:50px;width:auto;margin-bottom:-12px}
 nav .nav-links{display:flex;gap:28px;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase}
 nav .nav-links a{color:var(--cream);position:relative}
 nav .nav-links a::after{
@@ -75,7 +76,8 @@ nav .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
 
 /* MOBILE NAV */
 @media(max-width:768px){
-  nav{opacity:0;pointer-events:none;transition:opacity 0.4s}
+  nav{opacity:0;pointer-events:none;transition:opacity 0.4s;padding:4px 4vw}
+  nav .logo img{height:36px;margin-bottom:-8px}
   nav.nav-visible{opacity:1;pointer-events:auto}
   nav .nav-links{display:none !important}
   .hamburger{display:flex !important}
@@ -132,10 +134,10 @@ nav .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
   font-family:'Playfair Display',serif;font-size:1.2rem;
   text-align:center;
   margin-top:30px;position:relative;z-index:2;
-  color:rgba(var(--cream-rgb),0.85);line-height:1.5;
+  color:rgba(var(--cream-rgb),0.85);line-height:1.3;
 }
 
-/* MARQUEE */
+/* MARQUEE (text) */
 .marquee-wrap{
   width:100%;overflow:hidden;
   padding:20px 0;position:relative;z-index:2;
@@ -152,6 +154,46 @@ nav .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
   flex-shrink:0;
 }
 .marquee-track span em{font-style:normal;color:var(--pink)}
+
+/* HERO MEDIA STRIP */
+.hero-media-strip{
+  width:100%;overflow:hidden;
+  margin-top:40px;position:relative;z-index:2;
+  border-top:1px solid rgba(var(--cream-rgb),0.1);
+  border-bottom:1px solid rgba(var(--cream-rgb),0.1);
+  padding:8px 0;
+}
+.hero-media-track{
+  display:flex;gap:8px;
+  will-change:transform;
+}
+.hero-media-track .ms-item{
+  flex-shrink:0;width:140px;height:140px;
+  border-radius:4px;overflow:hidden;cursor:pointer;
+  position:relative;
+}
+.hero-media-track .ms-item img,
+.hero-media-track .ms-item video{
+  width:100%;height:100%;object-fit:cover;
+  display:block;
+}
+.hero-media-track .ms-item .ms-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:32px;height:32px;background:rgba(0,0,0,0.5);
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;opacity:0.7;
+}
+.hero-media-track .ms-item:hover{opacity:0.85;transition:opacity 0.2s}
+.hero-media-track .ms-credit{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:4px 6px;
+  font-family:'DM Sans',sans-serif;font-size:0.55rem;
+  letter-spacing:0.04em;
+  color:rgba(var(--cream-rgb),0.85);
+  background:linear-gradient(transparent,rgba(0,0,0,0.7));
+  text-align:center;white-space:nowrap;
+  pointer-events:none;
+}
 
 /* NEXT SHOW */
 .next-show-header{display:none}
@@ -503,9 +545,13 @@ footer a:hover{color:var(--pink)}
   /* Hero - visible title + marquee, compact */
   .hero{padding:30px 5vw 15px;min-height:auto}
   .hero-title{max-width:100%}
-  .hero-tagline{font-size:1rem;white-space:normal;margin-top:12px;padding:0 2vw;text-align:center}
+  .hero-tagline{margin-top:12px;padding:0 2vw;text-align:center}
   .marquee-wrap{margin-top:20px}
   .marquee-track span{font-size:1rem;padding:0 24px}
+  .hero-media-strip{margin-top:15px;padding:6px 0}
+  .hero-media-track{gap:5px}
+  .hero-media-track .ms-item{width:70px;height:70px}
+  .hero-media-track .ms-credit{font-size:0.4rem;padding:2px 3px}
 
   /* Next show date banner - compact on mobile */
   .next-show-date-banner{padding:12px 5vw 12px !important;margin-top:0 !important}
@@ -774,7 +820,7 @@ footer a:hover{color:var(--pink)}
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo"><img src="img/upvs-logo-purple.png" alt="UPVS" style="height:80px;width:auto"></a>
+  <a href="#" class="logo"><img src="img/upvs-logo-purple.png" alt="UPVS"></a>
   <div class="nav-links">
     <a href="#shows">Shows</a>
     <a href="#media">Media</a>
@@ -800,32 +846,9 @@ footer a:hover{color:var(--pink)}
     <span class="line2">Variety Show</span>
   </h1>
   <p class="hero-tagline" id="heroTagline"></p>
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span>Quarterly at <em>The Parkside Lounge</em></span>
-      <span>Lower East Side, NYC</span>
-      <span>Programmed by <em>Maya Suess</em></span>
-      <span>You never quite know what you'll get</span>
-      <span>But it's always gonna be a time</span>
-      <span>All monies go to the performers</span>
-      <span>Quarterly at <em>The Parkside Lounge</em></span>
-      <span>Lower East Side, NYC</span>
-      <span>Programmed by <em>Maya Suess</em></span>
-      <span>You never quite know what you'll get</span>
-      <span>But it's always gonna be a time</span>
-      <span>All monies go to the performers</span>
-      <span>Quarterly at <em>The Parkside Lounge</em></span>
-      <span>Lower East Side, NYC</span>
-      <span>Programmed by <em>Maya Suess</em></span>
-      <span>You never quite know what you'll get</span>
-      <span>But it's always gonna be a time</span>
-      <span>All monies go to the performers</span>
-      <span>Quarterly at <em>The Parkside Lounge</em></span>
-      <span>Lower East Side, NYC</span>
-      <span>Programmed by <em>Maya Suess</em></span>
-      <span>You never quite know what you'll get</span>
-      <span>But it's always gonna be a time</span>
-      <span>All monies go to the performers</span>
+  <div class="hero-media-strip">
+    <div class="hero-media-track" id="heroMediaTrack">
+      <!-- populated by JS from media.json -->
     </div>
   </div>
 </section>
@@ -970,7 +993,145 @@ async function init() {
     renderContact();
     renderFooter();
     injectEventSchema();
+    buildHeroMediaStrip();
+    // Fit tagline after fonts are ready (init fills text, fonts needed for measurement)
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function() { fitHeroTagline(); });
+    } else {
+      fitHeroTagline();
+    }
   } catch(e) { console.error('Init error:', e); }
+}
+
+/* ========================================
+   HERO MEDIA STRIP - scrolling media thumbnails
+   ======================================== */
+function buildHeroMediaStrip() {
+  var track = document.getElementById('heroMediaTrack');
+  if (!track) return;
+  var allMedia = DATA.media;
+  if (!allMedia.length) return;
+
+  // All show videos + all show posters, interleaved
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+  }
+
+  // Collect all show videos
+  var showVideos = [];
+  DATA.shows.forEach(function(show) {
+    (show.videos || []).forEach(function(v) {
+      if (v.src) showVideos.push({ type: 'video', videoSrc: v.src, thumbSrc: v.thumb || '', caption: show.title || '' });
+    });
+  });
+
+  // Collect all show posters
+  var showPosters = [];
+  DATA.shows.forEach(function(show) {
+    if (show.posterImage) showPosters.push({ type: 'poster', src: show.posterImage, caption: show.title || '' });
+  });
+
+  // Collect recap photos from shows
+  var recapPhotos = [];
+  DATA.shows.forEach(function(show) {
+    (show.recapImages || []).forEach(function(src) {
+      recapPhotos.push({ type: 'photo', src: src, caption: show.title || '' });
+    });
+  });
+
+  shuffle(showVideos);
+  shuffle(showPosters);
+  shuffle(recapPhotos);
+
+  // Mix videos with some photos (~1 photo per 4 videos)
+  var mixed = [];
+  var ri = 0;
+  for (var v = 0; v < showVideos.length; v++) {
+    mixed.push(showVideos[v]);
+    if ((v + 1) % 4 === 0 && ri < recapPhotos.length) {
+      mixed.push(recapPhotos[ri++]);
+    }
+  }
+
+  // Interleave posters: space so none are adjacent (min 3 items between)
+  var stripItems = [];
+  var gap = showPosters.length ? Math.max(3, Math.floor(mixed.length / showPosters.length)) : 0;
+  var mi = 0, pi = 0;
+  while (mi < mixed.length || pi < showPosters.length) {
+    var batch = (pi < showPosters.length) ? gap : mixed.length - mi;
+    for (var b = 0; b < batch && mi < mixed.length; b++, mi++) {
+      stripItems.push(mixed[mi]);
+    }
+    if (pi < showPosters.length) stripItems.push(showPosters[pi++]);
+  }
+
+  // Store for lightbox
+  var heroStripMedia = stripItems.map(function(m) {
+    if (m.type === 'video') {
+      return { src: m.thumbSrc || '', videoSrc: m.videoSrc, type: 'video', caption: m.caption || '' };
+    }
+    var cap = m.caption || '';
+    if (m.type === 'poster') cap = (cap ? cap + ' \u2014 ' : '') + 'original hand drawn art by Maya Suess';
+    return { src: m.src, type: 'photo', caption: cap };
+  });
+
+  // Build one copy of items
+  var html = '';
+  stripItems.forEach(function(m, i) {
+    if (m.type === 'video' && m.videoSrc) {
+      html += '<div class="ms-item" onclick="openHeroStripLb(' + i + ')">';
+      html += '<video src="' + escHtml(m.videoSrc) + '"' + (m.thumbSrc ? ' poster="' + escHtml(m.thumbSrc) + '"' : '') + ' muted autoplay loop playsinline preload="metadata"></video>';
+      html += '</div>';
+    } else {
+      html += '<div class="ms-item' + (m.type === 'poster' ? ' ms-poster' : '') + '" onclick="openHeroStripLb(' + i + ')">';
+      html += '<img src="' + escHtml(m.src) + '" alt="" loading="lazy">';
+      /* credit shown in lightbox caption only */
+      html += '</div>';
+    }
+  });
+
+  // Write 3 copies for seamless loop
+  track.innerHTML = html + html + html;
+
+  // Store media list globally for lightbox
+  window._heroStripMedia = heroStripMedia;
+
+  // Init the strip animation after a frame
+  requestAnimationFrame(function() { initHeroStripAnim(); });
+}
+
+function initHeroStripAnim() {
+  var track = document.getElementById('heroMediaTrack');
+  if (!track || !track.children.length) return;
+  var totalItems = window._heroStripMedia ? window._heroStripMedia.length : 0;
+  if (!totalItems) return;
+
+  // Measure width of one copy (first N items)
+  var copyWidth = 0;
+  for (var i = 0; i < totalItems; i++) {
+    copyWidth += track.children[i].offsetWidth + 8; // 8px gap
+  }
+
+  var speed = 35; // pixels per second (slower than text marquee)
+  var duration = copyWidth / speed;
+  var id = 'herostrip' + Math.random().toString(36).substr(2, 6);
+  var style = document.createElement('style');
+  style.textContent = '@keyframes ' + id + '{0%{transform:translateX(0)}100%{transform:translateX(-' + copyWidth + 'px)}}';
+  document.head.appendChild(style);
+  track.style.animation = id + ' ' + duration + 's linear infinite';
+}
+
+function openHeroStripLb(idx) {
+  if (!window._heroStripMedia) return;
+  currentLbList = window._heroStripMedia;
+  currentLbIndex = idx;
+  showLbItem();
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
 
 /* ========================================
@@ -1770,6 +1931,17 @@ function runFitText() {
     }
   }
   fitHeroTitle();
+  fitHeroTagline();
+}
+function fitHeroTagline() {
+  var tagline = document.getElementById('heroTagline');
+  if (!tagline || !tagline.textContent.trim()) return;
+  // Same width target as fitHeroTitle: 75% desktop, 90% mobile
+  var pct = window.innerWidth <= 768 ? 0.9 : 0.75;
+  var container = tagline.parentElement;
+  var targetW = container.clientWidth * pct;
+  if (targetW <= 0) { tagline.style.visibility = 'visible'; return; }
+  fitText(tagline, pct);
 }
 // Run after fonts load to get accurate measurements
 if (document.fonts && document.fonts.ready) {
