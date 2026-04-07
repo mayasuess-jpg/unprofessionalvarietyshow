@@ -990,11 +990,8 @@ function buildHeroMediaStrip() {
   var allMedia = DATA.media;
   if (!allMedia.length) return;
 
-  // Pick ~24 items: prioritize videos (auto-play), fill rest with photos
-  var videos = allMedia.filter(function(m) { return m.type === 'video' && m.videoSrc; });
-  var photos = allMedia.filter(function(m) { return m.type === 'photo'; });
-
-  // Shuffle helper
+  // Ratio 6:2:1 — show videos : show posters : recap photos
+  // Pull from show data (not generic media.json)
   function shuffle(arr) {
     for (var i = arr.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -1002,30 +999,56 @@ function buildHeroMediaStrip() {
     }
     return arr;
   }
-  shuffle(videos);
-  shuffle(photos);
 
-  // Take up to 8 videos and fill to 24 with photos
-  var stripItems = videos.slice(0, 8);
-  var remaining = 24 - stripItems.length;
-  stripItems = stripItems.concat(photos.slice(0, remaining));
-  shuffle(stripItems);
+  // Collect show videos (with src + thumb)
+  var showVideos = [];
+  DATA.shows.forEach(function(show) {
+    (show.videos || []).forEach(function(v) {
+      if (v.src) showVideos.push({ type: 'video', videoSrc: v.src, thumbSrc: v.thumb || '', caption: show.title || '' });
+    });
+  });
+
+  // Collect show posters
+  var showPosters = [];
+  DATA.shows.forEach(function(show) {
+    if (show.posterImage) showPosters.push({ type: 'photo', src: show.posterImage, caption: show.title || '' });
+  });
+
+  // Collect recap photos from shows
+  var recapPhotos = [];
+  DATA.shows.forEach(function(show) {
+    (show.recapImages || []).forEach(function(src) {
+      recapPhotos.push({ type: 'photo', src: src, caption: show.title || '' });
+    });
+  });
+
+  shuffle(showVideos);
+  shuffle(showPosters);
+  shuffle(recapPhotos);
+
+  // Target ~27 items (6:2:1 = 18:6:3)
+  var numVideos = Math.min(18, showVideos.length);
+  var numPosters = Math.min(6, showPosters.length);
+  var numPhotos = Math.min(3, recapPhotos.length);
+
+  var stripItems = [];
+  // Interleave in ratio pattern: V V V V V V P P Ph — repeat
+  var vi = 0, pi = 0, ri = 0;
+  while (stripItems.length < numVideos + numPosters + numPhotos) {
+    // 6 videos
+    for (var v = 0; v < 6 && vi < numVideos; v++, vi++) stripItems.push(showVideos[vi]);
+    // 2 posters
+    for (var p = 0; p < 2 && pi < numPosters; p++, pi++) stripItems.push(showPosters[pi]);
+    // 1 photo
+    if (ri < numPhotos) { stripItems.push(recapPhotos[ri]); ri++; }
+  }
 
   // Store for lightbox
   var heroStripMedia = stripItems.map(function(m) {
     if (m.type === 'video') {
-      return {
-        src: m.thumbSrc || m.src,
-        videoSrc: m.videoSrc,
-        type: 'video',
-        caption: m.caption || ''
-      };
+      return { src: m.thumbSrc || '', videoSrc: m.videoSrc, type: 'video', caption: m.caption || '' };
     }
-    return {
-      src: m.src,
-      type: m.type,
-      caption: m.caption || ''
-    };
+    return { src: m.src, type: 'photo', caption: m.caption || '' };
   });
 
   // Build one copy of items
