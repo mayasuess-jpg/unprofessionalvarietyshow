@@ -1013,8 +1013,16 @@ function buildHeroMediaStrip() {
 
   // Store for lightbox
   var heroStripMedia = stripItems.map(function(m) {
+    if (m.type === 'video') {
+      return {
+        src: m.thumbSrc || m.src,
+        videoSrc: m.videoSrc,
+        type: 'video',
+        caption: m.caption || ''
+      };
+    }
     return {
-      src: m.type === 'video' ? m.videoSrc : m.src,
+      src: m.src,
       type: m.type,
       caption: m.caption || ''
     };
