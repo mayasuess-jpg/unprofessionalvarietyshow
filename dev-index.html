@@ -1026,18 +1026,19 @@ function buildHeroMediaStrip() {
   shuffle(showVideos);
   shuffle(showPosters);
 
-  // Interleave: spread posters evenly across videos
+  // Interleave: space posters so none are adjacent
   var stripItems = [];
-  var posterInterval = showPosters.length ? Math.floor(showVideos.length / showPosters.length) : 0;
-  var pi = 0;
-  for (var vi = 0; vi < showVideos.length; vi++) {
-    stripItems.push(showVideos[vi]);
-    if (posterInterval && (vi + 1) % posterInterval === 0 && pi < showPosters.length) {
-      stripItems.push(showPosters[pi++]);
+  var gap = showPosters.length ? Math.max(2, Math.floor(showVideos.length / showPosters.length)) : 0;
+  var vi = 0, pi = 0;
+  while (vi < showVideos.length || pi < showPosters.length) {
+    // Insert a batch of videos
+    var batch = (pi < showPosters.length) ? gap : showVideos.length - vi;
+    for (var b = 0; b < batch && vi < showVideos.length; b++, vi++) {
+      stripItems.push(showVideos[vi]);
     }
+    // Insert one poster
+    if (pi < showPosters.length) stripItems.push(showPosters[pi++]);
   }
-  // Append any remaining posters
-  while (pi < showPosters.length) { stripItems.push(showPosters[pi++]); }
 
   // Store for lightbox
   var heroStripMedia = stripItems.map(function(m) {
