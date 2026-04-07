@@ -1080,7 +1080,7 @@ function buildHeroMediaStrip() {
   stripItems.forEach(function(m, i) {
     if (m.type === 'video' && m.videoSrc) {
       html += '<div class="ms-item" onclick="openHeroStripLb(' + i + ')">';
-      html += '<video src="' + escHtml(m.videoSrc) + '" muted autoplay loop playsinline preload="metadata"></video>';
+      html += '<video src="' + escHtml(m.videoSrc) + '"' + (m.thumbSrc ? ' poster="' + escHtml(m.thumbSrc) + '"' : '') + ' muted autoplay loop playsinline preload="metadata"></video>';
       html += '</div>';
     } else {
       html += '<div class="ms-item' + (m.type === 'poster' ? ' ms-poster' : '') + '" onclick="openHeroStripLb(' + i + ')">';
