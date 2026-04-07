@@ -134,7 +134,8 @@ nav .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
   font-family:'Playfair Display',serif;font-size:1.2rem;
   text-align:center;
   margin-top:30px;position:relative;z-index:2;
-  color:rgba(var(--cream-rgb),0.85);line-height:1.5;
+  color:rgba(var(--cream-rgb),0.85);line-height:1.3;
+  visibility:hidden;
 }
 
 /* MARQUEE (text) */
@@ -545,7 +546,7 @@ footer a:hover{color:var(--pink)}
   /* Hero - visible title + marquee, compact */
   .hero{padding:30px 5vw 15px;min-height:auto}
   .hero-title{max-width:100%}
-  .hero-tagline{font-size:1rem;white-space:normal;margin-top:12px;padding:0 2vw;text-align:center}
+  .hero-tagline{margin-top:12px;padding:0 2vw;text-align:center}
   .marquee-wrap{margin-top:20px}
   .marquee-track span{font-size:1rem;padding:0 24px}
   .hero-media-strip{margin-top:15px;padding:6px 0}
@@ -1925,6 +1926,25 @@ function runFitText() {
     }
   }
   fitHeroTitle();
+  fitHeroTagline();
+}
+function fitHeroTagline() {
+  var tagline = document.getElementById('heroTagline');
+  var title = document.querySelector('.hero-title');
+  if (!tagline || !title || !tagline.textContent.trim()) return;
+  // Match tagline width to the title's rendered width
+  var titleW = title.offsetWidth;
+  if (titleW <= 0) { tagline.style.visibility = 'visible'; return; }
+  var probe = 100;
+  var saved = tagline.style.cssText;
+  tagline.style.cssText = 'display:inline-block;white-space:nowrap;width:auto;font-size:' + probe + 'px;position:absolute;visibility:hidden;font-family:inherit;font-weight:inherit';
+  var textW = tagline.offsetWidth;
+  if (textW <= 0) { tagline.style.cssText = saved; tagline.style.visibility = 'visible'; return; }
+  var finalSize = Math.floor(probe * titleW / textW);
+  tagline.style.cssText = saved;
+  tagline.style.fontSize = finalSize + 'px';
+  tagline.style.whiteSpace = 'nowrap';
+  tagline.style.visibility = 'visible';
 }
 // Run after fonts load to get accurate measurements
 if (document.fonts && document.fonts.ready) {
