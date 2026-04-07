@@ -1930,17 +1930,22 @@ function runFitText() {
 }
 function fitHeroTagline() {
   var tagline = document.getElementById('heroTagline');
-  var title = document.querySelector('.hero-title');
-  if (!tagline || !title || !tagline.textContent.trim()) return;
-  // Match tagline width to the title's rendered width
-  var titleW = title.offsetWidth;
-  if (titleW <= 0) { tagline.style.visibility = 'visible'; return; }
+  var line1 = document.querySelector('.hero-title .line1');
+  if (!tagline || !line1 || !tagline.textContent.trim()) return;
+  // Measure actual rendered text width of "Unprofessional"
+  var span = document.createElement('span');
+  span.style.cssText = 'display:inline-block;white-space:nowrap;font-size:' + line1.parentElement.style.fontSize + ';font-family:Space Grotesk,sans-serif;font-weight:700;position:absolute;visibility:hidden';
+  span.textContent = line1.textContent;
+  document.body.appendChild(span);
+  var targetW = span.offsetWidth;
+  document.body.removeChild(span);
+  if (targetW <= 0) { tagline.style.visibility = 'visible'; return; }
   var probe = 100;
   var saved = tagline.style.cssText;
-  tagline.style.cssText = 'display:inline-block;white-space:nowrap;width:auto;font-size:' + probe + 'px;position:absolute;visibility:hidden;font-family:inherit;font-weight:inherit';
+  tagline.style.cssText = 'display:inline-block;white-space:nowrap;width:auto;font-size:' + probe + 'px;position:absolute;visibility:hidden;font-family:Playfair Display,serif';
   var textW = tagline.offsetWidth;
   if (textW <= 0) { tagline.style.cssText = saved; tagline.style.visibility = 'visible'; return; }
-  var finalSize = Math.floor(probe * titleW / textW);
+  var finalSize = Math.floor(probe * targetW / textW);
   tagline.style.cssText = saved;
   tagline.style.fontSize = finalSize + 'px';
   tagline.style.whiteSpace = 'nowrap';
