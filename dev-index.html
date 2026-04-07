@@ -180,6 +180,16 @@ nav .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
   pointer-events:none;opacity:0.7;
 }
 .hero-media-track .ms-item:hover{opacity:0.85;transition:opacity 0.2s}
+.hero-media-track .ms-credit{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:4px 6px;
+  font-family:'DM Sans',sans-serif;font-size:0.55rem;
+  letter-spacing:0.04em;
+  color:rgba(var(--cream-rgb),0.85);
+  background:linear-gradient(transparent,rgba(0,0,0,0.7));
+  text-align:center;white-space:nowrap;
+  pointer-events:none;
+}
 
 /* NEXT SHOW */
 .next-show-header{display:none}
@@ -990,8 +1000,7 @@ function buildHeroMediaStrip() {
   var allMedia = DATA.media;
   if (!allMedia.length) return;
 
-  // Ratio 6:2:1 — show videos : show posters : recap photos
-  // Pull from show data (not generic media.json)
+  // All show videos + all show posters, interleaved
   function shuffle(arr) {
     for (var i = arr.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -1000,7 +1009,7 @@ function buildHeroMediaStrip() {
     return arr;
   }
 
-  // Collect show videos (with src + thumb)
+  // Collect all show videos
   var showVideos = [];
   DATA.shows.forEach(function(show) {
     (show.videos || []).forEach(function(v) {
@@ -1008,40 +1017,27 @@ function buildHeroMediaStrip() {
     });
   });
 
-  // Collect show posters
+  // Collect all show posters
   var showPosters = [];
   DATA.shows.forEach(function(show) {
-    if (show.posterImage) showPosters.push({ type: 'photo', src: show.posterImage, caption: show.title || '' });
-  });
-
-  // Collect recap photos from shows
-  var recapPhotos = [];
-  DATA.shows.forEach(function(show) {
-    (show.recapImages || []).forEach(function(src) {
-      recapPhotos.push({ type: 'photo', src: src, caption: show.title || '' });
-    });
+    if (show.posterImage) showPosters.push({ type: 'poster', src: show.posterImage, caption: show.title || '' });
   });
 
   shuffle(showVideos);
   shuffle(showPosters);
-  shuffle(recapPhotos);
 
-  // Target ~27 items (6:2:1 = 18:6:3)
-  var numVideos = Math.min(18, showVideos.length);
-  var numPosters = Math.min(6, showPosters.length);
-  var numPhotos = Math.min(3, recapPhotos.length);
-
+  // Interleave: spread posters evenly across videos
   var stripItems = [];
-  // Interleave in ratio pattern: V V V V V V P P Ph — repeat
-  var vi = 0, pi = 0, ri = 0;
-  while (stripItems.length < numVideos + numPosters + numPhotos) {
-    // 6 videos
-    for (var v = 0; v < 6 && vi < numVideos; v++, vi++) stripItems.push(showVideos[vi]);
-    // 2 posters
-    for (var p = 0; p < 2 && pi < numPosters; p++, pi++) stripItems.push(showPosters[pi]);
-    // 1 photo
-    if (ri < numPhotos) { stripItems.push(recapPhotos[ri]); ri++; }
+  var posterInterval = showPosters.length ? Math.floor(showVideos.length / showPosters.length) : 0;
+  var pi = 0;
+  for (var vi = 0; vi < showVideos.length; vi++) {
+    stripItems.push(showVideos[vi]);
+    if (posterInterval && (vi + 1) % posterInterval === 0 && pi < showPosters.length) {
+      stripItems.push(showPosters[pi++]);
+    }
   }
+  // Append any remaining posters
+  while (pi < showPosters.length) { stripItems.push(showPosters[pi++]); }
 
   // Store for lightbox
   var heroStripMedia = stripItems.map(function(m) {
@@ -1059,8 +1055,9 @@ function buildHeroMediaStrip() {
       html += '<video src="' + escHtml(m.videoSrc) + '" muted autoplay loop playsinline preload="metadata"></video>';
       html += '</div>';
     } else {
-      html += '<div class="ms-item" onclick="openHeroStripLb(' + i + ')">';
+      html += '<div class="ms-item' + (m.type === 'poster' ? ' ms-poster' : '') + '" onclick="openHeroStripLb(' + i + ')">';
       html += '<img src="' + escHtml(m.src) + '" alt="" loading="lazy">';
+      if (m.type === 'poster') html += '<div class="ms-credit">original hand drawn art by Maya Suess</div>';
       html += '</div>';
     }
   });
