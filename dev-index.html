@@ -1062,7 +1062,9 @@ function buildHeroMediaStrip() {
     if (m.type === 'video') {
       return { src: m.thumbSrc || '', videoSrc: m.videoSrc, type: 'video', caption: m.caption || '' };
     }
-    return { src: m.src, type: 'photo', caption: m.caption || '' };
+    var cap = m.caption || '';
+    if (m.type === 'poster') cap = (cap ? cap + ' \u2014 ' : '') + 'original hand drawn art by Maya Suess';
+    return { src: m.src, type: 'photo', caption: cap };
   });
 
   // Build one copy of items
