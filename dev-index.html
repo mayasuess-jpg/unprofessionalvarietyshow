@@ -1446,8 +1446,8 @@ function renderFooter() {
   var html = '';
   html += '<span>' + escHtml(s.footer1 || 'Unprofessional Variety Show') + '</span>';
   html += '<span>' + escHtml(s.footer2 || 'Est. 2022 - The Parkside Lounge, LES NYC') + '</span>';
-  var f3 = s.footer3 || '';
-  if (f3) html += '<span>' + escHtml(f3) + '</span>';
+  var f3 = s.footer3 || 'Site by Piet Suess';
+  if (f3) html += '<span>Site by <a href="https://pietsuess.com" target="_blank">Piet Suess</a></span>';
   el.innerHTML = html;
 }
 
