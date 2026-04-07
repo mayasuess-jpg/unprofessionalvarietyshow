@@ -1023,20 +1023,37 @@ function buildHeroMediaStrip() {
     if (show.posterImage) showPosters.push({ type: 'poster', src: show.posterImage, caption: show.title || '' });
   });
 
+  // Collect recap photos from shows
+  var recapPhotos = [];
+  DATA.shows.forEach(function(show) {
+    (show.recapImages || []).forEach(function(src) {
+      recapPhotos.push({ type: 'photo', src: src, caption: show.title || '' });
+    });
+  });
+
   shuffle(showVideos);
   shuffle(showPosters);
+  shuffle(recapPhotos);
 
-  // Interleave: space posters so none are adjacent
-  var stripItems = [];
-  var gap = showPosters.length ? Math.max(2, Math.floor(showVideos.length / showPosters.length)) : 0;
-  var vi = 0, pi = 0;
-  while (vi < showVideos.length || pi < showPosters.length) {
-    // Insert a batch of videos
-    var batch = (pi < showPosters.length) ? gap : showVideos.length - vi;
-    for (var b = 0; b < batch && vi < showVideos.length; b++, vi++) {
-      stripItems.push(showVideos[vi]);
+  // Mix videos with some photos (~1 photo per 4 videos)
+  var mixed = [];
+  var ri = 0;
+  for (var v = 0; v < showVideos.length; v++) {
+    mixed.push(showVideos[v]);
+    if ((v + 1) % 4 === 0 && ri < recapPhotos.length) {
+      mixed.push(recapPhotos[ri++]);
     }
-    // Insert one poster
+  }
+
+  // Interleave posters: space so none are adjacent (min 3 items between)
+  var stripItems = [];
+  var gap = showPosters.length ? Math.max(3, Math.floor(mixed.length / showPosters.length)) : 0;
+  var mi = 0, pi = 0;
+  while (mi < mixed.length || pi < showPosters.length) {
+    var batch = (pi < showPosters.length) ? gap : mixed.length - mi;
+    for (var b = 0; b < batch && mi < mixed.length; b++, mi++) {
+      stripItems.push(mixed[mi]);
+    }
     if (pi < showPosters.length) stripItems.push(showPosters[pi++]);
   }
 
