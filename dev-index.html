@@ -187,7 +187,7 @@ nav .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
 
 /* 5TH YEAR STICKER */
 .hero-sticker{
-  position:absolute;top:-40px;right:4vw;z-index:10;
+  position:absolute;bottom:-30px;right:4vw;z-index:10;
   width:155px;height:auto;
   pointer-events:none;
   filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));
@@ -556,7 +556,7 @@ footer a:hover{color:var(--pink)}
   .hero-tagline{margin-top:12px;padding:0 2vw;text-align:center}
   .marquee-wrap{margin-top:20px}
   .marquee-track span{font-size:1rem;padding:0 24px}
-  .hero-sticker{width:100px;top:-25px;right:2vw}
+  .hero-sticker{width:100px;bottom:-20px;right:2vw}
   .hero-media-strip{margin-top:15px;padding:6px 0}
   .hero-media-track{gap:5px}
   .hero-media-track .ms-item{width:70px;height:70px}
@@ -850,13 +850,13 @@ footer a:hover{color:var(--pink)}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
+  <img src="img/5th-year-sticker.png" alt="Now in our 5th year" class="hero-sticker">
   <h1 class="hero-title">
     <span class="line1">Unprofessional</span>
     <span class="line2">Variety Show</span>
   </h1>
   <p class="hero-tagline" id="heroTagline"></p>
   <div class="hero-media-strip">
-    <img src="img/5th-year-sticker.png" alt="Now in our 5th year" class="hero-sticker">
     <div class="hero-media-track" id="heroMediaTrack">
       <!-- populated by JS from media.json -->
     </div>
