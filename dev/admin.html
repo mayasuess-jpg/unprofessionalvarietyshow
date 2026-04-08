@@ -1675,98 +1675,99 @@ function handleVideoUpload(input) {
     var w = video.videoWidth, h = video.videoHeight;
     if (w > MAX_WIDTH) { h = Math.round(h * MAX_WIDTH / w); w = MAX_WIDTH; }
     if (h > MAX_HEIGHT) { w = Math.round(w * MAX_HEIGHT / h); h = MAX_HEIGHT; }
-    // Round to even (codec requirement)
     w = w - (w % 2); h = h - (h % 2);
+    if (w < 2 || h < 2) { statusEl.textContent = 'Video too small'; return; }
 
-    statusEl.textContent = 'Compressing ' + w + 'x' + h + ' (' + dur.toFixed(1) + 's)...';
+    statusEl.textContent = 'Preparing ' + w + 'x' + h + ' (' + dur.toFixed(1) + 's)...';
 
     var canvas = document.createElement('canvas');
     canvas.width = w; canvas.height = h;
     var ctx = canvas.getContext('2d');
 
-    // Check for WebM VP8 support (Chrome/Edge), fallback to MP4 if available
-    var mimeType = 'video/webm;codecs=vp8,opus';
-    if (!MediaRecorder.isTypeSupported(mimeType)) {
-      mimeType = 'video/webm';
-      if (!MediaRecorder.isTypeSupported(mimeType)) {
-        mimeType = 'video/mp4';
-        if (!MediaRecorder.isTypeSupported(mimeType)) {
-          statusEl.textContent = 'Browser does not support video recording. Use Chrome or Edge.';
-          return;
-        }
-      }
+    // Find supported mime type
+    var mimeType = '';
+    var tryTypes = ['video/webm;codecs=vp8','video/webm','video/mp4'];
+    for (var ti = 0; ti < tryTypes.length; ti++) {
+      if (MediaRecorder.isTypeSupported(tryTypes[ti])) { mimeType = tryTypes[ti]; break; }
     }
+    if (!mimeType) { statusEl.textContent = 'Browser does not support video recording. Use Chrome or Edge.'; return; }
 
-    var stream = canvas.captureStream(24); // 24 fps
-    var recorder = new MediaRecorder(stream, { mimeType: mimeType, videoBitsPerSecond: TARGET_BITRATE });
-    var chunks = [];
-    recorder.ondataavailable = function(e) { if (e.data.size > 0) chunks.push(e.data); };
-    // Capture thumbnail at ~1 second
-    var thumbDataUrl = '';
-    var thumbCaptured = false;
-    function captureThumb() {
-      if (thumbCaptured) return;
-      if (video.currentTime >= 1 || video.ended) {
-        ctx.drawImage(video, 0, 0, w, h);
-        thumbDataUrl = canvas.toDataURL('image/jpeg', 0.8);
-        thumbCaptured = true;
-      }
-    }
+    var baseName = file.name.replace(/\.[^.]+$/, '').replace(/[^a-zA-Z0-9_-]/g, '_');
+    var ext = mimeType.indexOf('mp4') >= 0 ? 'mp4' : 'webm';
+    var path = 'img/ig-videos/' + baseName + '-compressed.' + ext;
+    var thumbPath = 'img/ig-videos/' + baseName + '-thumb.jpg';
 
-    recorder.onstop = function() {
-      var blob = new Blob(chunks, { type: mimeType });
-      var ext = mimeType.indexOf('mp4') >= 0 ? 'mp4' : 'webm';
-      var baseName = file.name.replace(/\.[^.]+$/, '');
-      var path = 'img/ig-videos/' + baseName + '-compressed.' + ext;
-      var thumbPath = 'img/ig-videos/' + baseName + '-thumb.jpg';
-      var sizeMB = (blob.size / 1048576).toFixed(1);
-      statusEl.textContent = 'Compressed: ' + sizeMB + 'MB (from ' + (file.size / 1048576).toFixed(1) + 'MB)';
-
-      // Stage thumbnail
-      if (thumbDataUrl) {
-        var thumbB64 = thumbDataUrl.split(',')[1];
-        pendingFiles[thumbPath] = thumbB64;
-        localPreviews[thumbPath] = thumbDataUrl;
-        savePendingFiles();
-      }
-
-      // Store video as base64 in memory (too large for localStorage)
-      var reader = new FileReader();
-      reader.onload = function() {
-        var b64 = reader.result.split(',')[1];
-        pendingVideoFiles[path] = b64;
-        localPreviews[path] = reader.result;
-        // Add to video list with auto-generated thumbnail
-        editorVideos.push({ src: path, vimeoId: '', title: baseName, thumb: thumbPath, alt: '' });
-        renderVideoList();
-        toast('Video compressed: ' + sizeMB + 'MB');
-      };
-      reader.readAsDataURL(blob);
-    };
-
-    // Play and record
+    // Draw first frame for thumbnail, then start recording
     video.currentTime = 0;
-    video.play();
-    recorder.start();
-    var startTime = Date.now();
-
-    function drawFrame() {
-      if (video.paused || video.ended || video.currentTime >= dur) {
-        recorder.stop();
-        video.pause();
-        return;
-      }
+    video.onseeked = function() {
+      // Draw first frame
       ctx.drawImage(video, 0, 0, w, h);
-      captureThumb();
-      var pct = Math.min(100, Math.round((video.currentTime / dur) * 100));
-      statusEl.textContent = 'Compressing... ' + pct + '% (' + w + 'x' + h + ')';
-      requestAnimationFrame(drawFrame);
-    }
-    requestAnimationFrame(drawFrame);
+
+      var stream = canvas.captureStream(0); // manual frame push
+      var recorder = new MediaRecorder(stream, { mimeType: mimeType, videoBitsPerSecond: TARGET_BITRATE });
+      var chunks = [];
+      var thumbDataUrl = '';
+      recorder.ondataavailable = function(e) { if (e.data.size > 0) chunks.push(e.data); };
+
+      recorder.onstop = function() {
+        var blob = new Blob(chunks, { type: mimeType });
+        var sizeMB = (blob.size / 1048576).toFixed(1);
+        statusEl.textContent = 'Done: ' + sizeMB + 'MB (was ' + (file.size / 1048576).toFixed(1) + 'MB)';
+
+        // Stage thumbnail
+        if (thumbDataUrl) {
+          var thumbB64 = thumbDataUrl.split(',')[1];
+          pendingFiles[thumbPath] = thumbB64;
+          localPreviews[thumbPath] = thumbDataUrl;
+          savePendingFiles();
+        }
+
+        // Store compressed video in memory
+        var reader2 = new FileReader();
+        reader2.onload = function() {
+          var b64 = reader2.result.split(',')[1];
+          pendingVideoFiles[path] = b64;
+          localPreviews[path] = reader2.result;
+          editorVideos.push({ src: path, vimeoId: '', title: file.name.replace(/\.[^.]+$/, ''), thumb: thumbPath, alt: '' });
+          renderVideoList();
+          toast('Video compressed: ' + sizeMB + 'MB');
+        };
+        reader2.readAsDataURL(blob);
+      };
+
+      // Start recording, then play
+      recorder.start(100); // collect data every 100ms
+      video.play().then(function() {
+        function drawFrame() {
+          if (video.paused || video.ended || video.currentTime >= dur) {
+            recorder.stop();
+            video.pause();
+            URL.revokeObjectURL(video.src);
+            return;
+          }
+          ctx.drawImage(video, 0, 0, w, h);
+          // Request a frame on the capture stream
+          if (stream.getVideoTracks()[0].requestFrame) stream.getVideoTracks()[0].requestFrame();
+          // Capture thumbnail at ~1s
+          if (!thumbDataUrl && video.currentTime >= 1) {
+            thumbDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+          }
+          var pct = Math.min(100, Math.round((video.currentTime / dur) * 100));
+          statusEl.textContent = 'Compressing... ' + pct + '% (' + w + 'x' + h + ', ' + dur.toFixed(0) + 's)';
+          requestAnimationFrame(drawFrame);
+        }
+        requestAnimationFrame(drawFrame);
+      }).catch(function(err) {
+        statusEl.textContent = 'Playback failed: ' + err.message;
+        recorder.stop();
+      });
+
+      video.onseeked = null; // clean up
+    };
   };
 
   video.onerror = function() {
-    statusEl.textContent = 'Error loading video. Try a different file.';
+    statusEl.textContent = 'Error loading video. Try a different format.';
   };
 
   video.src = URL.createObjectURL(file);
