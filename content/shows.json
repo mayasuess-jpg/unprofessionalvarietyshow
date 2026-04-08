@@ -95,53 +95,58 @@
         "src": "img/ig-videos/17879055264476860.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/17879055264476860.jpg"
+        "thumb": "img/ig-thumbs/17879055264476860.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-videos/18097674829941370.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/18097674829941370.jpg"
+        "thumb": "img/ig-thumbs/18097674829941370.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-videos/18001890665904527.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/18001890665904527.jpg"
+        "thumb": "img/ig-thumbs/18001890665904527.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-videos/18088611761467654.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/18088611761467654.jpg"
+        "thumb": "img/ig-thumbs/18088611761467654.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-videos/18431679346142625.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/18431679346142625.jpg"
+        "thumb": "img/ig-thumbs/18431679346142625.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-videos/18260642188289225.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/18260642188289225.jpg"
-      },
-      {
-        "src": "img/ig-reels/18079027946457725.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/18079027946457725.jpg"
-      },
-      {
-        "src": "img/ig-reels/18119681440595853.mp4",
-        "vimeoId": "",
-        "title": "",
-        "thumb": "img/ig-thumbs/18119681440595853.jpg"
+        "thumb": "img/ig-thumbs/18260642188289225.jpg",
+        "alt": ""
       }
     ],
     "mediaItems": [],
-    "sets": ""
+    "sets": "",
+    "editionLabel": "Edition #",
+    "doorsLabel": "Doors",
+    "emceeLabel": "Emcee",
+    "accompanimentLabel": "Accompaniment",
+    "setsLabel": "Sets",
+    "customSections": [],
+    "notesLabel": "Show Notes",
+    "performersLabel": "Performers",
+    "photosLabel": "Photos",
+    "videosLabel": "Videos",
+    "recapImageAlts": {}
   },
   {
     "title": "Vampires Resurrected",
