@@ -1701,21 +1701,43 @@ function handleVideoUpload(input) {
     var recorder = new MediaRecorder(stream, { mimeType: mimeType, videoBitsPerSecond: TARGET_BITRATE });
     var chunks = [];
     recorder.ondataavailable = function(e) { if (e.data.size > 0) chunks.push(e.data); };
+    // Capture thumbnail at ~1 second
+    var thumbDataUrl = '';
+    var thumbCaptured = false;
+    function captureThumb() {
+      if (thumbCaptured) return;
+      if (video.currentTime >= 1 || video.ended) {
+        ctx.drawImage(video, 0, 0, w, h);
+        thumbDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+        thumbCaptured = true;
+      }
+    }
+
     recorder.onstop = function() {
       var blob = new Blob(chunks, { type: mimeType });
       var ext = mimeType.indexOf('mp4') >= 0 ? 'mp4' : 'webm';
-      var path = 'img/ig-videos/' + file.name.replace(/\.[^.]+$/, '') + '-compressed.' + ext;
+      var baseName = file.name.replace(/\.[^.]+$/, '');
+      var path = 'img/ig-videos/' + baseName + '-compressed.' + ext;
+      var thumbPath = 'img/ig-videos/' + baseName + '-thumb.jpg';
       var sizeMB = (blob.size / 1048576).toFixed(1);
       statusEl.textContent = 'Compressed: ' + sizeMB + 'MB (from ' + (file.size / 1048576).toFixed(1) + 'MB)';
 
-      // Store as base64 in memory (too large for localStorage)
+      // Stage thumbnail
+      if (thumbDataUrl) {
+        var thumbB64 = thumbDataUrl.split(',')[1];
+        pendingFiles[thumbPath] = thumbB64;
+        localPreviews[thumbPath] = thumbDataUrl;
+        savePendingFiles();
+      }
+
+      // Store video as base64 in memory (too large for localStorage)
       var reader = new FileReader();
       reader.onload = function() {
         var b64 = reader.result.split(',')[1];
         pendingVideoFiles[path] = b64;
         localPreviews[path] = reader.result;
-        // Add to video list
-        editorVideos.push({ src: path, vimeoId: '', title: file.name.replace(/\.[^.]+$/, ''), thumb: '', alt: '' });
+        // Add to video list with auto-generated thumbnail
+        editorVideos.push({ src: path, vimeoId: '', title: baseName, thumb: thumbPath, alt: '' });
         renderVideoList();
         toast('Video compressed: ' + sizeMB + 'MB');
       };
@@ -1735,7 +1757,7 @@ function handleVideoUpload(input) {
         return;
       }
       ctx.drawImage(video, 0, 0, w, h);
-      var elapsed = (Date.now() - startTime) / 1000;
+      captureThumb();
       var pct = Math.min(100, Math.round((video.currentTime / dur) * 100));
       statusEl.textContent = 'Compressing... ' + pct + '% (' + w + 'x' + h + ')';
       requestAnimationFrame(drawFrame);
