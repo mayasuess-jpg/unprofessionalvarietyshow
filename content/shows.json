@@ -23,6 +23,11 @@
         "name": "Greer Dworman",
         "instagram": "@_gweew",
         "bio": ""
+      },
+      {
+        "name": "Brian Anand Darsie",
+        "instagram": "@anandbriand",
+        "bio": ""
       }
     ],
     "recapImages": [],
@@ -31,7 +36,18 @@
     "specialGuests": [],
     "dj": "",
     "sets": "",
-    "posterImage": "img/ig-posts/Physique.png"
+    "posterImage": "img/ig-posts/Physique.png",
+    "editionLabel": "Edition #",
+    "doorsLabel": "Doors",
+    "emceeLabel": "Emcee",
+    "accompanimentLabel": "Accompaniment",
+    "setsLabel": "Sets",
+    "customSections": [],
+    "notesLabel": "Show Notes",
+    "performersLabel": "Performers",
+    "photosLabel": "Photos",
+    "videosLabel": "Videos",
+    "recapImageAlts": {}
   },
   {
     "title": "The Internet",
@@ -309,29 +325,19 @@
     ],
     "recapCaption": "Thank you to everyone who comes to Unprofessional Variety Show. The last show gave us some baaad baaad (and some super good) advice. But just remember, you're fiiiiiiiiiine.",
     "videos": [],
-    "mediaItems": [
-      {
-        "src": "img/ig-posts/17911499088211597.jpg",
-        "type": "photo",
-        "date": "2025-09-16"
-      },
-      {
-        "src": "img/ig-posts/18049432655300328.jpg",
-        "type": "photo",
-        "date": "2025-09-08"
-      },
-      {
-        "src": "img/ig-posts/17851809525536419.jpg",
-        "type": "photo",
-        "date": "2025-08-30"
-      },
-      {
-        "src": "img/ig-posts/18080670305500881.jpg",
-        "type": "photo",
-        "date": "2025-08-22"
-      }
-    ],
-    "sets": ""
+    "mediaItems": [],
+    "sets": "",
+    "editionLabel": "Edition #",
+    "doorsLabel": "Doors",
+    "emceeLabel": "Emcee",
+    "accompanimentLabel": "Accompaniment",
+    "setsLabel": "Sets",
+    "customSections": [],
+    "notesLabel": "Show Notes",
+    "performersLabel": "Performers",
+    "photosLabel": "Photos",
+    "videosLabel": "Videos",
+    "recapImageAlts": {}
   },
   {
     "title": "Summer Camp",
