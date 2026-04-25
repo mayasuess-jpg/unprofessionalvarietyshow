@@ -55,7 +55,10 @@
     "performersLabel": "Performers",
     "photosLabel": "Photos",
     "videosLabel": "Videos",
-    "recapImageAlts": {}
+    "recapImageAlts": {
+      "img/ig-posts/Greer Dworman for Physique.jpg": "Greer stands in a power pose with a strongman log bar barbell above their head. they wear black and yellow legging shorts above the knees, a black and yellow t-shirt and a lifting belt at their waist. Draw in colored pencil against a lemon yellow ground.",
+      "img/ig-posts/Tamika Bernard for Physique.JPG": "Tami kneels (on an invisible beach), wearing green sports shorts to her mid-thighs, with white trim, green and blue printed sports bra and dark sunglasses. Shes looking slightly up at a football in the air, mid confident toss. Drawn on a ground of grey/blue"
+    }
   },
   {
     "title": "The Internet",
