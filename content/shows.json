@@ -10,9 +10,9 @@
     "description": "",
     "emcee": "Maya Suess",
     "accompaniment": "Klovis Gaynor",
-    "notes": "\"Physique Pictorial was one of the leading American beefcake magazines of the mid-20th century, exemplifying the use of bodybuilding culture and classical figure posing as a cover for homoerotic male images, and in order to evade charges of obscenity.\"",
+    "notes": "\"Physique Pictorial was one of the leading American beefcake magazines of the mid-20th century, exemplifying the use of bodybuilding culture and classical figure posing as a cover for homoerotic male images, and in order to evade charges of obscenity.\"\n\n• Emceed by Maya Suess @MayaSuess \n• Accompaniment by Klovis Gaynor",
     "isUpcoming": true,
-    "recapCaption": "PERFORMERS\n\n• Tami Bernard\n• Greer Dworman\n• More to be announced soon\n\n• Emceed by Maya Suess @MayaSuess \n• Accompaniment by Klovis Gaynor\n\n\"Physique Pictorial was one of the leading American beefcake magazines of the mid-20th century, exemplifying the use of bodybuilding culture and classical figure posing as a cover for homoerotic male images, and in order to evade charges of obscenity.\"",
+    "recapCaption": "",
     "performers": [
       {
         "name": "Tamika Bernard",
@@ -407,8 +407,7 @@
       "img/ig-posts/17941645835990693.jpg",
       "img/ig-posts/18088888957538341.jpg",
       "img/ig-posts/18392024368115104.jpg",
-      "img/ig-posts/18041545175443056.jpg",
-      "img/ig-posts/17910301938035642.jpg"
+      "img/ig-posts/18041545175443056.jpg"
     ],
     "recapCaption": "Thank you to everyone who participated in the Unprofessional Variety Show: Summer Camp edition!!! We all know that camp friends are the best friends.",
     "videos": [
@@ -416,53 +415,72 @@
         "src": "img/ig-videos/17868786714285082.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/17868786714285082.jpg"
+        "thumb": "img/ig-thumbs/17868786714285082.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-videos/17866092642310525.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/17866092642310525.jpg"
+        "thumb": "img/ig-thumbs/17866092642310525.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-videos/18093805120580107.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/18093805120580107.jpg"
+        "thumb": "img/ig-thumbs/18093805120580107.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-videos/18356484439150593.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/18356484439150593.jpg"
+        "thumb": "img/ig-thumbs/18356484439150593.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-videos/18043676957199666.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/18043676957199666.jpg"
+        "thumb": "img/ig-thumbs/18043676957199666.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-videos/18307360252212726.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/18307360252212726.jpg"
+        "thumb": "img/ig-thumbs/18307360252212726.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-videos/17884897236278385.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/17884897236278385.jpg"
+        "thumb": "img/ig-thumbs/17884897236278385.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-reels/18060162065276968.mp4",
         "vimeoId": "",
         "title": "",
-        "thumb": "img/ig-thumbs/18060162065276968.jpg"
+        "thumb": "img/ig-thumbs/18060162065276968.jpg",
+        "alt": ""
       }
     ],
     "mediaItems": [],
-    "sets": ""
+    "sets": "",
+    "editionLabel": "Edition #",
+    "doorsLabel": "Doors",
+    "emceeLabel": "Emcee",
+    "accompanimentLabel": "Accompaniment",
+    "setsLabel": "Sets",
+    "customSections": [],
+    "notesLabel": "Show Notes",
+    "performersLabel": "Performers",
+    "photosLabel": "Photos",
+    "videosLabel": "Videos",
+    "recapImageAlts": {}
   },
   {
     "title": "The Afterlife",
