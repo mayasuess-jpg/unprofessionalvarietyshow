@@ -1,5 +1,60 @@
 [
   {
+    "title": "Never Forget",
+    "editionLabel": "Edition #",
+    "edition": 19,
+    "date": "2026-09-19",
+    "time": "9:30",
+    "doorsLabel": "Doors",
+    "doors": "9 pm",
+    "ticketUrl": "https://publictheater.org/performances-jp/2026/u/unprofessional-variety-show-never-forget/",
+    "theme": "Unprofessional Variety Show is an undisciplined, unrelenting, and unqualified cabaret-style night of performance, that happens quarterly at the Parkside Lounge in Lower Manhattan.   2026 will mark Unprofessional’s fifth year, and to celebrate the occasion, producer and emcee, Maya Suess has invited a lineup of some of the best and most beloved performers to join her on the Joe’s Pub stage, including Clay Woman, Fareeha Khan, Mo Angeles, earls2gearls and more. Unprofessional regulars, such as pianist and faggotrist musician, Klovis Gaynor, Soft Sculptor and set designer, Libby Paloma, and the rest of the band, invite you to become part of the gorgeous audience who go through the portal with us four times a year. There will be antics.",
+    "description": "Unprofessional Variety Show is an undisciplined, unrelenting, and unqualified cabaret-style night of performance, that happens quarterly at the Parkside Lounge in Lower Manhattan.   2026 will mark Unprofessional’s fifth year, and to celebrate the occasion, producer and emcee, Maya Suess has invited a lineup of some of the best and most beloved performers to join her on the Joe’s Pub stage, including Clay Woman, Fareeha Khan, Mo Angeles, earls2gearls and more. Unprofessional regulars, such as pianist and faggotrist musician, Klovis Gaynor, Soft Sculptor and set designer, Libby Paloma, and the rest of the band, invite you to become part of the gorgeous audience who go through the portal with us four times a year. There will be antics.",
+    "emceeLabel": "Emcee",
+    "emcee": "Maya Suess",
+    "accompanimentLabel": "Accompaniment",
+    "accompaniment": "Klovis Gaynor",
+    "setsLabel": "Sets",
+    "sets": "Libby Paloma",
+    "customSections": [],
+    "notesLabel": "Show Notes",
+    "notes": "Photo Credit: Tata Lopera \nCostume: Jesse Harrod",
+    "isUpcoming": true,
+    "recapCaption": "",
+    "performersLabel": "Performers",
+    "photosLabel": "Photos",
+    "videosLabel": "Videos",
+    "performers": [
+      {
+        "name": "Mo Angeles",
+        "instagram": "",
+        "bio": ""
+      },
+      {
+        "name": "earls2gearls",
+        "instagram": "",
+        "bio": ""
+      },
+      {
+        "name": "Fareeha Khan",
+        "instagram": "",
+        "bio": ""
+      },
+      {
+        "name": "Clay Woman",
+        "instagram": "",
+        "bio": ""
+      }
+    ],
+    "recapImages": [],
+    "recapImageAlts": {},
+    "videos": [],
+    "mediaItems": [],
+    "posterImage": "img/ig-posts/UVS Emcee Shot.JPG",
+    "specialGuests": [],
+    "dj": ""
+  },
+  {
     "title": "Physique",
     "edition": "",
     "date": "2026-05-10",
