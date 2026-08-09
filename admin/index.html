@@ -1727,7 +1727,7 @@ function handleVideoUpload(input) {
 
     // Find supported mime type
     var mimeType = '';
-    var tryTypes = ['video/webm;codecs=vp8','video/webm','video/mp4'];
+    var tryTypes = ['video/mp4;codecs=avc1.42E01E','video/mp4','video/webm;codecs=vp8','video/webm'];
     for (var ti = 0; ti < tryTypes.length; ti++) {
       if (MediaRecorder.isTypeSupported(tryTypes[ti])) { mimeType = tryTypes[ti]; break; }
     }
