@@ -1704,7 +1704,6 @@ function openShowDetail(idx) {
   html += '<div class="sd-crew">';
   if (show.emcee) html += '<span>' + escHtml(show.emceeLabel || 'Emcee') + ': ' + escHtml(show.emcee) + '</span>';
   if (show.accompaniment) html += '<span>' + escHtml(show.accompanimentLabel || 'Accompaniment') + ': ' + escHtml(show.accompaniment) + '</span>';
-  if (show.sets) html += '<span>' + escHtml(show.setsLabel || 'Sets') + ': ' + escHtml(show.sets) + '</span>';
   html += '</div>';
   if (show.notes) {
     html += '<div class="sd-notes-label">' + escHtml(show.notesLabel || 'Show Notes') + '</div>';
@@ -1729,6 +1728,26 @@ function openShowDetail(idx) {
       html += '</div>';
     });
   }
+  // Sets / Costumes credits — listed like performers (name + Instagram). Only shown when populated.
+  function sdCreditSection(items, label) {
+    if (!items || !items.length) return '';
+    var h = '<div class="sd-section-title">' + escHtml(label) + '</div>';
+    items.forEach(function(p) {
+      if (typeof p === 'string') { h += '<div class="sd-performer"><div class="sd-perf-name">' + escHtml(p) + '</div></div>'; return; }
+      h += '<div class="sd-performer">';
+      var igHandle = (p.instagram || '').replace('@', '');
+      if (igHandle) {
+        h += '<div class="sd-perf-name"><a href="https://www.instagram.com/' + escHtml(igHandle) + '/" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--pink)">' + escHtml(p.name) + '</a></div>';
+        h += '<div class="sd-perf-ig"><a href="https://www.instagram.com/' + escHtml(igHandle) + '/" target="_blank" style="color:var(--pink)">' + escHtml(p.instagram) + '</a></div>';
+      } else {
+        h += '<div class="sd-perf-name">' + escHtml(p.name) + '</div>';
+      }
+      h += '</div>';
+    });
+    return h;
+  }
+  html += sdCreditSection(show.setCredits, show.setCreditsLabel || 'Sets');
+  html += sdCreditSection(show.costumes, show.costumesLabel || 'Costumes');
   // Custom sections (only explicitly created ones, notes stay in upper section)
   var sections = show.customSections || [];
   if (sections.length) {

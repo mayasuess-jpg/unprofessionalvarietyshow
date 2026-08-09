@@ -16,6 +16,13 @@
     "accompaniment": "Klovis Gaynor",
     "setsLabel": "Sets",
     "sets": "Libby Paloma",
+    "setCreditsLabel": "Sets",
+    "setCredits": [
+      {
+        "name": "Libby Paloma",
+        "instagram": ""
+      }
+    ],
     "customSections": [],
     "notesLabel": "Show Notes",
     "notes": "Photo Credit: Tata Lopera \nCostume: Jesse Harrod",

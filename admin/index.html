@@ -831,10 +831,6 @@ body.admin-mode{padding-top:48px}
       </div>
     </div>
     <div class="se-field">
-      <input id="seSetsLabel" placeholder="Sets" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 2px;margin-bottom:6px;width:100%">
-      <input id="seSets" placeholder="Libby Paloma">
-    </div>
-    <div class="se-field">
       <input id="seNotesLabel" placeholder="Show Notes" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 2px;margin-bottom:6px;width:100%">
       <textarea id="seNotes" placeholder="Credits, notes, description..." rows="3"></textarea>
     </div>
@@ -854,6 +850,14 @@ body.admin-mode{padding-top:48px}
     <input id="sePerformersLabel" placeholder="Performers" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:1.1rem;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 4px;margin:32px 0 12px;width:100%">
     <div class="perf-list" id="perfList"></div>
     <button class="add-perf-btn" onclick="addPerformer()">+ Add Performer</button>
+
+    <input id="seSetsLabel" placeholder="Sets" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:1.1rem;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 4px;margin:32px 0 12px;width:100%">
+    <div class="perf-list" id="setsList"></div>
+    <button class="add-perf-btn" onclick="addSet()">+ Add Set</button>
+
+    <input id="seCostumesLabel" placeholder="Costumes" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:1.1rem;color:var(--pink);background:none;border:none;border-bottom:1px dashed rgba(245,240,230,0.15);padding:0 0 4px;margin:32px 0 12px;width:100%">
+    <div class="perf-list" id="costumesList"></div>
+    <button class="add-perf-btn" onclick="addCostume()">+ Add Costume</button>
 
     <div id="customSectionsList" style="margin-top:24px"></div>
     <button class="add-perf-btn" onclick="addCustomSection()">+ Add Section</button>
@@ -970,6 +974,8 @@ var DATA = { shows: [], media: [], settings: {}, shop: [], pages: {} };
 var dirty = false;
 var editingShowIdx = -1;
 var editorPerformers = [];
+var editorSets = [];
+var editorCostumes = [];
 var editorVideos = [];
 var editorPosterFile = null;
 var editorPosterSrc = '';
@@ -1470,8 +1476,8 @@ function openShowEditor(idx) {
   document.getElementById('seEmcee').value = show.emcee || '';
   document.getElementById('seAccompanimentLabel').value = show.accompanimentLabel || 'Accompaniment';
   document.getElementById('seAccompaniment').value = show.accompaniment || '';
-  document.getElementById('seSetsLabel').value = show.setsLabel || 'Sets';
-  document.getElementById('seSets').value = show.sets || '';
+  document.getElementById('seSetsLabel').value = show.setCreditsLabel || 'Sets';
+  document.getElementById('seCostumesLabel').value = show.costumesLabel || 'Costumes';
   document.getElementById('seUpcoming').checked = !!show.isUpcoming;
   document.getElementById('seRecapCaption').value = show.recapCaption || '';
   document.getElementById('seNotesLabel').value = show.notesLabel || 'Show Notes';
@@ -1490,6 +1496,16 @@ function openShowEditor(idx) {
     return { name: p.name || '', instagram: p.instagram || '', bio: p.bio || '' };
   });
   renderPerformerList();
+
+  function toCreditArr(v) {
+    if (Array.isArray(v)) return v.map(function(p) { return typeof p === 'string' ? { name: p, instagram: '' } : { name: p.name || '', instagram: p.instagram || '' }; });
+    if (typeof v === 'string' && v.trim()) return [{ name: v.trim(), instagram: '' }]; // migrate old one-line string
+    return [];
+  }
+  editorSets = toCreditArr(show.setCredits);
+  editorCostumes = toCreditArr(show.costumes);
+  renderSetsList();
+  renderCostumesList();
 
   // Load custom sections (only explicitly created ones)
   editorCustomSections = (show.customSections || []).map(function(s) { return { label: s.label || '', content: s.content || '' }; });
@@ -1549,8 +1565,10 @@ function saveShow() {
   show.emcee = document.getElementById('seEmcee').value.trim();
   show.accompanimentLabel = document.getElementById('seAccompanimentLabel').value.trim();
   show.accompaniment = document.getElementById('seAccompaniment').value.trim();
-  show.setsLabel = document.getElementById('seSetsLabel').value.trim();
-  show.sets = document.getElementById('seSets').value.trim();
+  show.setCreditsLabel = document.getElementById('seSetsLabel').value.trim();
+  show.setCredits = editorSets.filter(function(p) { return p.name.trim(); }).map(function(p) { return { name: p.name.trim(), instagram: p.instagram.trim() }; });
+  show.costumesLabel = document.getElementById('seCostumesLabel').value.trim();
+  show.costumes = editorCostumes.filter(function(p) { return p.name.trim(); }).map(function(p) { return { name: p.name.trim(), instagram: p.instagram.trim() }; });
   show.customSections = editorCustomSections.filter(function(s) { return s.content.trim(); });
   show.notesLabel = document.getElementById('seNotesLabel').value.trim();
   show.notes = document.getElementById('seNotes').value.trim();
@@ -1612,6 +1630,28 @@ function addPerformer() {
   if (inputs[0]) inputs[0].focus();
 }
 function removePerformer(i) { editorPerformers.splice(i, 1); renderPerformerList(); }
+
+// Sets / Costumes credit lists (name + Instagram, like performers minus bio)
+function renderCreditList(listId, arr, rerender) {
+  var html = '';
+  arr.forEach(function(p, i) {
+    html += '<div class="perf-item" draggable="true" style="display:flex;gap:8px;align-items:flex-start">';
+    html += '<span class="drag-handle" title="Drag to reorder">&#9776;</span>';
+    html += '<div style="flex:1;min-width:0">';
+    html += '<button class="perf-remove" onclick="' + rerender.remove + '(' + i + ')">&times;</button>';
+    html += '<input value="' + esc(p.name) + '" placeholder="Name" onchange="' + rerender.arr + '[' + i + '].name=this.value">';
+    html += '<input value="' + esc(p.instagram) + '" placeholder="@instagram" onchange="' + rerender.arr + '[' + i + '].instagram=this.value">';
+    html += '</div></div>';
+  });
+  document.getElementById(listId).innerHTML = html;
+  setupDragReorder(document.getElementById(listId), arr, rerender.render);
+}
+function renderSetsList() { renderCreditList('setsList', editorSets, { arr: 'editorSets', remove: 'removeSet', render: renderSetsList }); }
+function addSet() { editorSets.push({ name: '', instagram: '' }); renderSetsList(); var inputs = document.querySelectorAll('#setsList .perf-item:last-child input'); if (inputs[0]) inputs[0].focus(); }
+function removeSet(i) { editorSets.splice(i, 1); renderSetsList(); }
+function renderCostumesList() { renderCreditList('costumesList', editorCostumes, { arr: 'editorCostumes', remove: 'removeCostume', render: renderCostumesList }); }
+function addCostume() { editorCostumes.push({ name: '', instagram: '' }); renderCostumesList(); var inputs = document.querySelectorAll('#costumesList .perf-item:last-child input'); if (inputs[0]) inputs[0].focus(); }
+function removeCostume(i) { editorCostumes.splice(i, 1); renderCostumesList(); }
 
 function renderVideoList() {
   var html = '';
