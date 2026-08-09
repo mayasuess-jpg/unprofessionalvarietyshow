@@ -1099,8 +1099,9 @@ function buildHeroMediaStrip() {
   var html = '';
   stripItems.forEach(function(m, i) {
     if (m.type === 'video' && m.videoSrc) {
+      var stripSrc = 'img/ig-strip/' + m.videoSrc.split('/').pop().replace(/\.[^.]+$/, '') + '.mp4';
       html += '<div class="ms-item" onclick="openHeroStripLb(' + i + ')">';
-      html += '<video src="' + escHtml(m.videoSrc) + '"' + (m.thumbSrc ? ' poster="' + escHtml(m.thumbSrc) + '"' : '') + ' muted autoplay loop playsinline preload="metadata"></video>';
+      html += '<video data-src="' + escHtml(stripSrc) + '"' + (m.thumbSrc ? ' poster="' + escHtml(m.thumbSrc) + '"' : '') + ' muted loop playsinline preload="none" class="ms-lazyvid"></video>';
       html += '</div>';
     } else {
       html += '<div class="ms-item' + (m.type === 'poster' ? ' ms-poster' : '') + '" onclick="openHeroStripLb(' + i + ')">';
@@ -1118,6 +1119,30 @@ function buildHeroMediaStrip() {
 
   // Init the strip animation after a frame
   requestAnimationFrame(function() { initHeroStripAnim(); });
+
+  // Lazy-load/play only videos in view (avoids loading + decoding all copies at once)
+  setupHeroStripLazy(track);
+}
+
+function setupHeroStripLazy(track) {
+  var vids = track.querySelectorAll('video.ms-lazyvid');
+  if (!vids.length) return;
+  if (!('IntersectionObserver' in window)) {
+    vids.forEach(function(v) { if (v.dataset.src) v.src = v.dataset.src; v.play().catch(function(){}); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      var v = e.target;
+      if (e.isIntersecting) {
+        if (!v.src && v.dataset.src) v.src = v.dataset.src;
+        v.play().catch(function(){});
+      } else {
+        v.pause();
+      }
+    });
+  }, { root: null, rootMargin: '200px', threshold: 0.01 });
+  vids.forEach(function(v) { io.observe(v); });
 }
 
 function initHeroStripAnim() {
