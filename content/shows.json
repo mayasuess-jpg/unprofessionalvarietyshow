@@ -106,8 +106,8 @@
       "img/ig-posts/LAT_5097_JoesPub_VBC_005.jpg",
       "img/ig-posts/LAT_5119_JoesPub_VBC_006.jpg",
       "img/ig-posts/LAT_5173_JoesPub_VBC_007.jpg",
-      "img/ig-posts/LAT_5191_JoesPub_VBC_008.jpg",
       "img/ig-posts/LAT_5201_JoesPub_VBC_009.jpg",
+      "img/ig-posts/LAT_5191_JoesPub_VBC_008.jpg",
       "img/ig-posts/LAT_5276_JoesPub_VBC_010.jpg",
       "img/ig-posts/LAT_5320_JoesPub_VBC_011.jpg",
       "img/ig-posts/LAT_5359_JoesPub_VBC_012.jpg",
@@ -115,13 +115,28 @@
       "img/ig-posts/LAT_5411_JoesPub_VBC_014.jpg",
       "img/ig-posts/LAT_5472_JoesPub_VBC_015.jpg",
       "img/ig-posts/LAT_5514_JoesPub_VBC_016.jpg",
-      "img/ig-posts/LAT_5545_JoesPub_VBC_017.jpg",
       "img/ig-posts/LAT_5593_JoesPub_VBC_018.jpg",
       "img/ig-posts/LAT_5619_JoesPub_VBC_019.jpg",
+      "img/ig-posts/LAT_5545_JoesPub_VBC_017.jpg",
       "img/ig-posts/LAT_5644_JoesPub_VBC_020.jpg"
     ],
     "recapImageAlts": {},
-    "videos": [],
+    "videos": [
+      {
+        "src": "",
+        "vimeoId": "https://vimeo.com/1239283174",
+        "title": "Unprofessional Variety Show: Never Forget—Full Show",
+        "thumb": "",
+        "alt": ""
+      },
+      {
+        "src": "",
+        "vimeoId": "https://vimeo.com/1239289642",
+        "title": "RuAfza",
+        "thumb": "",
+        "alt": ""
+      }
+    ],
     "mediaItems": [],
     "posterImage": "img/ig-posts/Joe's Pub Flyer.png",
     "specialGuests": [],
