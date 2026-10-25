@@ -217,7 +217,22 @@
       "img/ig-posts/LAT_4448-329.jpg",
       "img/ig-posts/LAT_4450-331.jpg"
     ],
-    "videos": [],
+    "videos": [
+      {
+        "src": "",
+        "vimeoId": "https://vimeo.com/1239292849",
+        "title": "Brian Anand Darsie Crowd Participation",
+        "thumb": "",
+        "alt": "Singer and voice teacher Brian Darsie gives the room a voice lesson. Everyone in the room arcs their arms as they sing."
+      },
+      {
+        "src": "img/ig-videos/05_Physique_History-compressed.mp4",
+        "vimeoId": "",
+        "title": "Emcee Giving Some Physique Magazine History",
+        "thumb": "img/ig-videos/05_Physique_History-thumb.jpg",
+        "alt": ""
+      }
+    ],
     "mediaItems": [],
     "specialGuests": [],
     "dj": "",
