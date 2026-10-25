@@ -1,5 +1,57 @@
 [
   {
+    "title": "A Puppet Show",
+    "editionLabel": "Edition #",
+    "edition": 20,
+    "date": "2026-12-13",
+    "time": "",
+    "doorsLabel": "Doors",
+    "doors": "",
+    "ticketUrl": "https://events.humanitix.com/unprofessional-a-puppet-show",
+    "theme": "",
+    "description": "",
+    "emceeLabel": "Emcee",
+    "emcee": "",
+    "accompanimentLabel": "Accompaniment",
+    "accompaniment": "",
+    "setCreditsLabel": "Sets",
+    "setCredits": [],
+    "costumesLabel": "Costumes",
+    "costumes": [],
+    "customSections": [],
+    "notesLabel": "Show Notes",
+    "notes": "We're all puppets, anyways.",
+    "isUpcoming": true,
+    "recapCaption": "",
+    "performersLabel": "Performers",
+    "photosLabel": "Photos",
+    "videosLabel": "Videos",
+    "performers": [
+      {
+        "name": "Sir Cum Sized",
+        "instagram": "@sircumsizeddrag",
+        "bio": ""
+      },
+      {
+        "name": "Emmanuel Elpenord",
+        "instagram": "@sword.of.elpenord",
+        "bio": ""
+      },
+      {
+        "name": "More Coming Soon",
+        "instagram": "",
+        "bio": ""
+      }
+    ],
+    "recapImages": [],
+    "recapImageAlts": {},
+    "videos": [],
+    "mediaItems": [],
+    "posterImage": "img/ig-posts/Square Flyer.png",
+    "specialGuests": [],
+    "dj": ""
+  },
+  {
     "title": "Never Forget",
     "editionLabel": "Edition #",
     "edition": 19,
@@ -26,34 +78,24 @@
     "videosLabel": "Videos",
     "performers": [
       {
-        "name": "Clay Woman",
-        "instagram": "@claywomanhello",
-        "bio": "Clay Woman is 500 million years old and comes from the Mirillion Galaxy. She never ever ever ever forgets, though sometimes she doesn’t remember a thing. She loves visiting earth and hanging out with humans. "
-      },
-      {
-        "name": "earls2gearls",
-        "instagram": "@earls2gearls ",
-        "bio": "Earls 2 Gearls (E2G) was a third-tier boyband cryogenically frozen by their evil man-ager so he could focus on other projects in 2001 and then thawed out in 2023 by @fantasygrandma when she found them in a deep freeze she bought on Facebook Marketplace.\n\nNow E2G is back from a time when Earls were Earls and Gearls were Gearls, and u know what that means, Gearl: These Earls still ride around in sick cars and play sports while Gearls still have slumber parties and look at pop stars in magazines and don’t call Earls back. These Earls need to protect their Gearls, because life is dangerous, and Earls know what’s up with it. E2G is pretty broke cause their evil man-ager stole all their money, so they are back to doing the only thing they know: being teen pop star Earls optimized for Gearl viewing pleasure. Share, like and comment, Gearls!"
-      },
-      {
-        "name": "Klovis Gaynor",
-        "instagram": "@klovisgaynor",
-        "bio": "Last but never, ever to be forgotten, Unprofessional’s beloved resident slut pianist, Klovis Gaynor, will once again tickle our keys with an original raunchy and heartfelt ballad, while also keeping the show going and holding our emcee aloft. A Queens-based singer, songwriter & performer, and front fiend of @urinalcakes666, their songs are confident, and forceful (even a little brutal) while evoking a sense of fragility and hope through loss. Klovis’ most recent album, “i think the whole world should see 2 f a g g o t s in love,” is not to be missed. We love you Klovis ⚡⚡⚡"
-      },
-      {
-        "name": "Libby Paloma ",
-        "instagram": "@libbys_arty_party",
-        "bio": "Libby Paloma is a queercrip, Mexican-American interdisciplinary artist working in sculpture, installation, and performance. Embracing maximalist aesthetics, humor, and craft traditions, they are in the business of “world-softening.” Creating plush, embracable versions of the objects around us, Libby intervenes in dominant and oppressive structures by offering an alternative, softer, more joyous way of engaging with ourselves and others. Libby will be softening Joe’s small stage and also bringing a little sass."
-      },
-      {
         "name": "Moe Angelos",
         "instagram": "",
         "bio": "Moe Angelos is a theatre artist and writer. She’s one of the Five Lesbian Brothers and has been a member of NYC’s Wow Café since 1981. Moe works with The Builders Association and has been a mentor in Queer/Art/Mentorship. A recent piece with the Builders examined artificial intelligence and its invisible influences on the democratic process, which was a lot more entertaining than it sounds. Moe’s not on the socials so no presh to click and subscribe, but make sure to follow her IRL."
       },
       {
+        "name": "earls2gearls",
+        "instagram": "",
+        "bio": ""
+      },
+      {
         "name": "RuAfza",
         "instagram": "@ru.afza",
         "bio": "RuAfza is a multidisciplinary artist and drag performer born in India and based in Lenapehoking/Brooklyn. Her work explores the figure of the showgirl as a site of spectacle, labor, and survival under capitalism, drawing on her trans, desi, and immigrant identity and her collaborative worldmaking in nightlife spaces. Working across live performance, photography, sound, and installation, she uses glamour, humor, and camp excess to examine how bodies are marketed, disciplined, and desired. She is a graduate of the School of the Museum of Fine Arts at Tufts University, where she received two Bachelor’s degrees in New Media and Studio Art. Her work has been presented at La MaMa, The Flea Theater, and The New York Historical, and she was featured in PAPER’s NYC Theater Portfolio in 2024"
+      },
+      {
+        "name": "Clay Woman",
+        "instagram": "@claywomanhello",
+        "bio": "Clay Woman is 500 million years old and comes from the Mirillion Galaxy. She never ever ever ever forgets, though sometimes she doesn’t remember a thing. She loves visiting earth and hanging out with humans. "
       }
     ],
     "recapImages": [],
@@ -81,7 +123,7 @@
     "accompaniment": "Klovis Gaynor",
     "notes": "\"Physique Pictorial was one of the leading American beefcake magazines of the mid-20th century, exemplifying the use of bodybuilding culture and classical figure posing as a cover for homoerotic male images, and in order to evade charges of obscenity.\"\n\n• Emceed by Maya Suess @MayaSuess \n• Accompaniment by Klovis Gaynor",
     "isUpcoming": false,
-    "recapCaption": "",
+    "recapCaption": "Unprofessional is sponsored by local merchants East Village Vintage Collective @evvintagecollective. Show them some love this slow shopping season!!\n\nVISIT THEIR STORE\n545 East 12th St\n@evvintagecollective\n\n& their sister store\n3rd & B’Zaar\n191 East 3rd St\n@3rdandbzaar",
     "performers": [
       {
         "name": "Tamika Bernard",
@@ -91,7 +133,7 @@
       {
         "name": "Brian Anand Darsie",
         "instagram": "@anandbriand",
-        "bio": ""
+        "bio": "In the spaces between binge reading fantasy series, long walks on the beach, and crushing the most challenging pilates classes he can find, anand darsie brings singers into a deeper connection with their voices/the divine, and teaches absolutely banging pilates sessions aimed at a new, radical kind of embodiment. He rarely performs outside of his small yoga community in the Santa Cruz Mountains of California, and can’t wait to share the joy of singing and listening with the LES <3"
       },
       {
         "name": "Greer Dworman",
