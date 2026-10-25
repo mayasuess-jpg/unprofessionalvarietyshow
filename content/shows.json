@@ -98,7 +98,28 @@
         "bio": "Clay Woman is 500 million years old and comes from the Mirillion Galaxy. She never ever ever ever forgets, though sometimes she doesn’t remember a thing. She loves visiting earth and hanging out with humans. "
       }
     ],
-    "recapImages": [],
+    "recapImages": [
+      "img/ig-posts/LAT_4982_JoesPub_VBC_001.jpg",
+      "img/ig-posts/LAT_5041_JoesPub_VBC_002.jpg",
+      "img/ig-posts/LAT_5044_JoesPub_VBC_003.jpg",
+      "img/ig-posts/LAT_5087_JoesPub_VBC_004.jpg",
+      "img/ig-posts/LAT_5097_JoesPub_VBC_005.jpg",
+      "img/ig-posts/LAT_5119_JoesPub_VBC_006.jpg",
+      "img/ig-posts/LAT_5173_JoesPub_VBC_007.jpg",
+      "img/ig-posts/LAT_5191_JoesPub_VBC_008.jpg",
+      "img/ig-posts/LAT_5201_JoesPub_VBC_009.jpg",
+      "img/ig-posts/LAT_5276_JoesPub_VBC_010.jpg",
+      "img/ig-posts/LAT_5320_JoesPub_VBC_011.jpg",
+      "img/ig-posts/LAT_5359_JoesPub_VBC_012.jpg",
+      "img/ig-posts/LAT_5399_JoesPub_VBC_013.jpg",
+      "img/ig-posts/LAT_5411_JoesPub_VBC_014.jpg",
+      "img/ig-posts/LAT_5472_JoesPub_VBC_015.jpg",
+      "img/ig-posts/LAT_5514_JoesPub_VBC_016.jpg",
+      "img/ig-posts/LAT_5545_JoesPub_VBC_017.jpg",
+      "img/ig-posts/LAT_5593_JoesPub_VBC_018.jpg",
+      "img/ig-posts/LAT_5619_JoesPub_VBC_019.jpg",
+      "img/ig-posts/LAT_5644_JoesPub_VBC_020.jpg"
+    ],
     "recapImageAlts": {},
     "videos": [],
     "mediaItems": [],
@@ -112,7 +133,7 @@
   },
   {
     "title": "Physique",
-    "edition": "",
+    "edition": 18,
     "date": "2026-05-10",
     "time": "8 pm",
     "doors": "7:30",
@@ -952,23 +973,47 @@
         "src": "img/ig-videos/18106830763389403.mp4",
         "vimeoId": "",
         "title": "Bernard and Jonathon ",
-        "thumb": "img/ig-thumbs/18106830763389403.jpg"
+        "thumb": "img/ig-thumbs/18106830763389403.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-videos/17915588609927589.mp4",
         "vimeoId": "",
         "title": "Gil Rivera",
-        "thumb": "img/ig-thumbs/17915588609927589.jpg"
+        "thumb": "img/ig-thumbs/17915588609927589.jpg",
+        "alt": ""
       },
       {
         "src": "img/ig-reels/18045900766800975.mp4",
         "vimeoId": "",
         "title": "The Wolf Speaks",
-        "thumb": ""
+        "thumb": "",
+        "alt": ""
+      },
+      {
+        "src": "",
+        "vimeoId": "https://vimeo.com/1224746906?fl=ip&fe=ec&share=copy",
+        "title": "The Wolf Speaks full",
+        "thumb": "",
+        "alt": "Emcee Maya plays the wold from Red Riding Hood, wearing a simple silver mask in a shape suggestive of a wolf, a fluffy white jacked, white pants and silver high top sneakers. "
       }
     ],
     "mediaItems": [],
-    "sets": ""
+    "sets": "",
+    "editionLabel": "Edition #",
+    "doorsLabel": "Doors",
+    "emceeLabel": "Emcee",
+    "accompanimentLabel": "Accompaniment",
+    "setCreditsLabel": "Sets",
+    "setCredits": [],
+    "costumesLabel": "Costumes",
+    "costumes": [],
+    "customSections": [],
+    "notesLabel": "Show Notes",
+    "performersLabel": "Performers",
+    "photosLabel": "Photos",
+    "videosLabel": "Videos",
+    "recapImageAlts": {}
   },
   {
     "title": "A Clown Show",
