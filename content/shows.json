@@ -19,16 +19,16 @@
     "customSections": [],
     "notesLabel": "Show Notes",
     "notes": "Photo Credit: Tata Lopera \nCostume: Jesse Harrod",
-    "isUpcoming": true,
+    "isUpcoming": false,
     "recapCaption": "",
     "performersLabel": "Performers",
     "photosLabel": "Photos",
     "videosLabel": "Videos",
     "performers": [
       {
-        "name": "Mo Angeles",
+        "name": "Moe Angelos",
         "instagram": "",
-        "bio": ""
+        "bio": "Moe Angelos is a theatre artist and writer. She’s one of the Five Lesbian Brothers and has been a member of NYC’s Wow Café since 1981. Moe works with The Builders Association and has been a mentor in Queer/Art/Mentorship. A recent piece with the Builders examined artificial intelligence and its invisible influences on the democratic process, which was a lot more entertaining than it sounds. Moe’s not on the socials so no presh to click and subscribe, but make sure to follow her IRL."
       },
       {
         "name": "earls2gearls",
@@ -36,23 +36,27 @@
         "bio": ""
       },
       {
-        "name": "Fareeha Khan",
-        "instagram": "",
-        "bio": ""
+        "name": "RuAfza",
+        "instagram": "@ru.afza",
+        "bio": "RuAfza is a multidisciplinary artist and drag performer born in India and based in Lenapehoking/Brooklyn. Her work explores the figure of the showgirl as a site of spectacle, labor, and survival under capitalism, drawing on her trans, desi, and immigrant identity and her collaborative worldmaking in nightlife spaces. Working across live performance, photography, sound, and installation, she uses glamour, humor, and camp excess to examine how bodies are marketed, disciplined, and desired. She is a graduate of the School of the Museum of Fine Arts at Tufts University, where she received two Bachelor’s degrees in New Media and Studio Art. Her work has been presented at La MaMa, The Flea Theater, and The New York Historical, and she was featured in PAPER’s NYC Theater Portfolio in 2024"
       },
       {
         "name": "Clay Woman",
-        "instagram": "",
-        "bio": ""
+        "instagram": "@claywomanhello",
+        "bio": "Clay Woman is 500 million years old and comes from the Mirillion Galaxy. She never ever ever ever forgets, though sometimes she doesn’t remember a thing. She loves visiting earth and hanging out with humans. "
       }
     ],
     "recapImages": [],
     "recapImageAlts": {},
     "videos": [],
     "mediaItems": [],
-    "posterImage": "img/ig-posts/UVS Emcee Shot.JPG",
+    "posterImage": "img/ig-posts/Joe's Pub Flyer.png",
     "specialGuests": [],
-    "dj": ""
+    "dj": "",
+    "setCreditsLabel": "Sets",
+    "setCredits": [],
+    "costumesLabel": "Costumes",
+    "costumes": []
   },
   {
     "title": "Physique",
