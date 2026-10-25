@@ -1,5 +1,57 @@
 [
   {
+    "title": "A Puppet Show",
+    "editionLabel": "Edition #",
+    "edition": 20,
+    "date": "2026-12-13",
+    "time": "",
+    "doorsLabel": "Doors",
+    "doors": "",
+    "ticketUrl": "https://events.humanitix.com/unprofessional-a-puppet-show",
+    "theme": "We're all puppets, anyways.",
+    "description": "We're all puppets, anyways.",
+    "emceeLabel": "Emcee",
+    "emcee": "",
+    "accompanimentLabel": "Accompaniment",
+    "accompaniment": "",
+    "setCreditsLabel": "Sets",
+    "setCredits": [],
+    "costumesLabel": "Costumes",
+    "costumes": [],
+    "customSections": [],
+    "notesLabel": "Show Notes",
+    "notes": "",
+    "isUpcoming": true,
+    "recapCaption": "",
+    "performersLabel": "Performers",
+    "photosLabel": "Photos",
+    "videosLabel": "Videos",
+    "performers": [
+      {
+        "name": "Sir Cum Sized",
+        "instagram": "@sircumsizeddrag",
+        "bio": ""
+      },
+      {
+        "name": "Emmanuel Elpenord",
+        "instagram": "@sword.of.elpenord",
+        "bio": ""
+      },
+      {
+        "name": "More Coming Soon",
+        "instagram": "",
+        "bio": ""
+      }
+    ],
+    "recapImages": [],
+    "recapImageAlts": {},
+    "videos": [],
+    "mediaItems": [],
+    "posterImage": "img/ig-posts/Square Flyer.png",
+    "specialGuests": [],
+    "dj": ""
+  },
+  {
     "title": "Never Forget",
     "editionLabel": "Edition #",
     "edition": 19,
