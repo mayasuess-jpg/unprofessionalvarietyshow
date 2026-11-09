@@ -1707,7 +1707,10 @@ function handleVideoUpload(input) {
   var MAX_DURATION = 120; // 2 min max
 
   var video = document.createElement('video');
-  video.muted = true;
+  // Not muted: the audio is routed into the recording (and NOT to the speakers) below.
+  // If audio capture fails, it is muted again so nothing plays out loud.
+  video.muted = false;
+  video.volume = 1;
   video.playsInline = true;
   video.preload = 'auto';
 
@@ -1727,7 +1730,7 @@ function handleVideoUpload(input) {
 
     // Find supported mime type
     var mimeType = '';
-    var tryTypes = ['video/mp4;codecs=avc1.42E01E','video/mp4','video/webm;codecs=vp8','video/webm'];
+    var tryTypes = ['video/mp4;codecs=avc1.42E01E,mp4a.40.2','video/mp4;codecs=avc1,mp4a.40.2','video/mp4','video/webm;codecs=vp8,opus','video/webm;codecs=vp9,opus','video/webm;codecs=vp8','video/webm'];
     for (var ti = 0; ti < tryTypes.length; ti++) {
       if (MediaRecorder.isTypeSupported(tryTypes[ti])) { mimeType = tryTypes[ti]; break; }
     }
@@ -1744,8 +1747,31 @@ function handleVideoUpload(input) {
       // Draw first frame
       ctx.drawImage(video, 0, 0, w, h);
 
-      var stream = canvas.captureStream(0); // manual frame push
-      var recorder = new MediaRecorder(stream, { mimeType: mimeType, videoBitsPerSecond: TARGET_BITRATE });
+      var stream = canvas.captureStream(0); // manual frame push (video frames only)
+
+      // Capture the video's sound and add it to the recording.
+      // The audio goes only to the recorder, not to the speakers.
+      var audioCtx = null, hasAudio = false;
+      var recStream = stream;
+      try {
+        var AC = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AC();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        var srcNode = audioCtx.createMediaElementSource(video);
+        var dest = audioCtx.createMediaStreamDestination();
+        srcNode.connect(dest);
+        var audioTracks = dest.stream.getAudioTracks();
+        if (audioTracks.length) {
+          recStream = new MediaStream(stream.getVideoTracks().concat(audioTracks));
+          hasAudio = true;
+        }
+      } catch (audioErr) {
+        console.warn('Audio capture unavailable, recording video only:', audioErr);
+        video.muted = true; // nothing should play out loud
+      }
+      var recOpts = { mimeType: mimeType, videoBitsPerSecond: TARGET_BITRATE };
+      if (hasAudio) recOpts.audioBitsPerSecond = 128000;
+      var recorder = new MediaRecorder(recStream, recOpts);
       var chunks = [];
       var thumbDataUrl = '';
       recorder.ondataavailable = function(e) { if (e.data.size > 0) chunks.push(e.data); };
@@ -1753,7 +1779,8 @@ function handleVideoUpload(input) {
       recorder.onstop = function() {
         var blob = new Blob(chunks, { type: mimeType });
         var sizeMB = (blob.size / 1048576).toFixed(1);
-        statusEl.textContent = 'Done: ' + sizeMB + 'MB (was ' + (file.size / 1048576).toFixed(1) + 'MB)';
+        statusEl.textContent = 'Done: ' + sizeMB + 'MB (was ' + (file.size / 1048576).toFixed(1) + 'MB)' + (hasAudio ? ', with audio' : ' - WARNING: audio could not be captured, video is silent');
+        if (audioCtx) { try { audioCtx.close(); } catch (e) {} }
 
         // Stage thumbnail
         if (thumbDataUrl) {
