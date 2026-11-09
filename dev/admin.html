@@ -1076,8 +1076,8 @@ function renderSite() {
   aboutParas.forEach(function(p){ html += '<p>' + esc(p) + '</p>'; });
   html += '</div>';
   html += '<div class="about-quote">';
-  html += '<div contenteditable="true" data-field="aboutQuote">"Allied Productions exemplifies one of the things I love about this neighborhood, which is the diverse legacy of experimental queer and radical art and performance. At the Unprofessional Variety Show, I try to make the programming truly intergenerational."</div>';
-  html += '<div class="attr" contenteditable="true" data-field="aboutQuoteAttr">- Maya Suess, EV Grieve, Feb 2024</div>';
+  html += '<div contenteditable="true" data-field="aboutQuote">' + esc(s.aboutQuote || '"Allied Productions exemplifies one of the things I love about this neighborhood, which is the diverse legacy of experimental queer and radical art and performance. At the Unprofessional Variety Show, I try to make the programming truly intergenerational."') + '</div>';
+  html += '<div class="attr" contenteditable="true" data-field="aboutQuoteAttr">' + esc(s.aboutQuoteAttr || '- Maya Suess, EV Grieve, Feb 2024') + '</div>';
   html += '</div></div>';
   html += '<div class="about-details">' + renderAboutDetails() + '</div>';
   html += '</div></section>';
@@ -1125,7 +1125,7 @@ function renderSite() {
   html += '<section class="contact admin-section" id="contact" data-section="contact">';
   html += '<div class="section-ctrl">' + sectionArrows('contact') + '</div>';
   html += '<div class="section-title" style="color:var(--green)">' + esc(s.headingContact || 'Get Involved') + '</div>';
-  html += '<p class="contact-cta" contenteditable="true" data-field="contactCta">Want to perform? Have a wild idea? Just want to be part of whatever this is? Reach out. The show is built by its community, and the door is always open.</p>';
+  html += '<p class="contact-cta" contenteditable="true" data-field="contactCta">' + esc(s.contactCta || 'Want to perform? Have a wild idea? Just want to be part of whatever this is? Reach out. The show is built by its community, and the door is always open.') + '</p>';
   html += '<div class="contact-links">';
   var clinks = s.contactLinks || [];
   if (!clinks.length) {
