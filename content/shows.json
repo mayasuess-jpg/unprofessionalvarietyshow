@@ -28,18 +28,33 @@
     "videosLabel": "Videos",
     "performers": [
       {
-        "name": "Sir Cum Sized",
-        "instagram": "@sircumsizeddrag",
-        "bio": ""
-      },
-      {
         "name": "Emmanuel Elpenord",
         "instagram": "@sword.of.elpenord",
         "bio": ""
       },
       {
-        "name": "More Coming Soon",
-        "instagram": "",
+        "name": "Sir Cum Sized",
+        "instagram": "@sircumsizeddrag",
+        "bio": ""
+      },
+      {
+        "name": "Jeffy Hnilicka",
+        "instagram": "@jeffyfruit",
+        "bio": ""
+      },
+      {
+        "name": "Vape Kid Jr. ",
+        "instagram": "@vapekidjr",
+        "bio": ""
+      },
+      {
+        "name": "Libby Paloma",
+        "instagram": "@libbys_arty_party",
+        "bio": ""
+      },
+      {
+        "name": "Macauley DeVun",
+        "instagram": "@macauleydevun",
         "bio": ""
       }
     ],
@@ -186,7 +201,6 @@
       "img/ig-posts/Greer Dworman for Physique.jpg",
       "img/ig-posts/Tamika Bernard for Physique.JPG",
       "img/ig-posts/Anand Brian Darsie.jpg",
-      "img/ig-posts/Cherry Jaymes.jpg",
       "img/ig-posts/LAT_3461-001.jpg",
       "img/ig-posts/LAT_3478-008.jpg",
       "img/ig-posts/LAT_3488-012.jpg",
@@ -221,7 +235,7 @@
     "videos": [
       {
         "src": "",
-        "vimeoId": "1239292849",
+        "vimeoId": "https://vimeo.com/1239292849",
         "title": "Brian Anand Darsie Crowd Participation",
         "thumb": "",
         "alt": "Singer and voice teacher Brian Darsie gives the room a voice lesson. Everyone in the room arcs their arms as they sing."
